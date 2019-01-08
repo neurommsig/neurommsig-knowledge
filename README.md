@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   NeuroMMSig Knowledge
-  </a>
+  <a href="https://zenodo.org/badge/latestdoi/164427425"><img src="https://zenodo.org/badge/164427425.svg" alt="DOI"></a>
   <br>
 </h1>
 

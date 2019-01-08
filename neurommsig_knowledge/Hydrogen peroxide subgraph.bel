@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:46 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "11226677"}
+
 SET SupportingText = "Bcl-xL protein was also up-regulated during oxidative stress induced by exposure to hydrogen peroxide (3-100microM) or ferric ions (1-10microM)."
 SET Confidence = "High"
 SET MeSHDisease = "Wounds and Injuries"
@@ -116,8 +117,10 @@ p(HGNC:BCL2L1) decreases bp(MESHPP:"Oxidative Stress")
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15295589"}
+
 SET SupportingText = "Interaction of H2O2 with Fe2+ or Cu+ generates hydroxyl radical (OH*) a highly reactive oxyradical and potent inducer of MAOS"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -138,8 +141,10 @@ a(CHEBI:superoxide) directlyIncreases a(CHEBI:"hydrogen peroxide")
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15864339"}
+
 SET SupportingText = "An alternative pathway is shown on the right side of the figure whereby superoxide or hydrogen peroxide (H2O2) oxidize lipids such as prostaglandins forming F2a-isoprostanes. Both H2O2 and F2a-isoprostanes are known to accelerate Abeta aggregation"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -153,8 +158,10 @@ a(CHEBI:superoxide) increases a(CHEBI:isoprostane)
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17213958"}
+
 SET SupportingText = "AChE activity was reported to be enhanced by low concentrations of H2O2. explanation is that mitochondrial efflux H2O2 modifies membrane structure through lipid peroxidation, and therefore contributes to modify the activity of the membrane-bound protein AChE [31]. AChE is synthesized as an inactive precursor and then matures into an active subunit in the endoplasmic reticulum [32]. Thus, the other explanation was that AChE could be exposed to cytoplasm when endoplasmic reticulum was destroyed by H2O2. At least one protein kinase (protein kinase A , PKA), was reported to increase the AChE activity by phosphorylation at non-consensus sites of this enzyme [33]. The apoptotic stimuli also enhanced the mRNA and protein levels of AChE in cells without background AChE expression, which were mediated by calcium signalling or the c-Jun kinase pathway"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Low"
@@ -197,8 +204,10 @@ a(CHEBI:"hydrogen peroxide") increases bp(GOBP:"neuron apoptotic process")
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17869087"}
+
 SET SupportingText = "Hydrogen peroxide or SIN-1 treatment induced phosphorylation of the c-Jun-N-terminal kinase (JNK), which was inhibited by piceatannol treatment."
 SET Confidence = "Medium"
 SET Subgraph = "Hydrogen peroxide subgraph"
@@ -259,8 +268,10 @@ a(CHEBI:"hydrogen peroxide") increases p(HGNC:CASP8)
 UNSET {CellLine, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18675468"}
+
 SET SupportingText = "Abeta can also interact with Fe2+ and Cu+ to generate hydrogen peroxide and hydroxyl radical (OH.) resulting in membrane lipid peroxidation which generates toxic aldehydes that impair the function of membrane ion-motive ATPases (Na+ and Ca2+ pumps)"
 SET CellStructure = "Cell Membrane"
 SET Confidence = "High"
@@ -294,8 +305,10 @@ bp(GOBP:"sodium ion homeostasis") negativeCorrelation bp(GOBP:"membrane lipid ca
 UNSET {CellStructure, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18997293"}
+
 SET SupportingText = "The present investigation reports that clinically relevant concentrations of tarenflurbil (i.e., 1-5 microM) protect both cultured human neuroblastoma cell lines and primary neurons from cytotoxicity associated with exposure to Abeta_{42} or H_{2}O_{2}. In concert with this protection, there is an upregulation of neurotrophins [i.e., nerve growth factor (NGF) and brain-derived neurotrophic factor (BDNF)]. Furthermore, blocking exogenous NGF or BDNF by binding it to antibody prevents tarenflurbil from protecting human neuronal cells from Abeta_{42} and H_{2}O_{2} cytotoxicity. These findings suggest that up-regulation of neurotrophins might represent an underlying mechanism contributing to the beneficial effects seen with tarenflurbil in AD."
 SET Confidence = "High"
 SET Subgraph = {"Apoptosis signaling subgraph", "Hydrogen peroxide subgraph", "Inflammatory response subgraph"}
@@ -315,8 +328,10 @@ a(CHEBI:"(R)-flurbiprofen") decreases bp(GOBP:"neuron apoptotic process")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21544200"}
+
 SET SupportingText = "Our findings indicate that Cd elevates [Ca+2](i), which induces ROS and activates MAPK and mTOR pathways, leading to neuronal apoptotic process."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -325,8 +340,10 @@ a(CHEBI:"calcium(2+)") increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22235318"}
+
 SET SupportingText = "In vitro studies revealed that (1) exposure of neural stem cells (NSCs) from the hippocampus to STZ strikingly increased intracellular reactive oxygen species (ROS) levels, induced cell death and perturbed cell proliferation and differentiation, (2) hydrogen peroxide induced similar cellular activities as STZ, (3) pre-incubation of STZ-treated NSCs with catalase, an antioxidant, suppressed all these cellular activities induced by STZ, and (4) likewise, pre-incubation of STZ-treated NSCs with salidroside, also an antioxidant, suppressed all these activities as catalase: reduction of ROS levels and NSC death with simultaneous increases in proliferation and differentiation."
 SET Cell = "neuronal stem cell"
 SET Confidence = "High"
@@ -342,8 +359,10 @@ a(CHEBI:"hydrogen peroxide") increases bp(GOBP:"cell death")
 UNSET {Cell, Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23653222"}
+
 SET SupportingText = "Hydrogen peroxide (H2O2), one of the main reactive oxygen species, is converted into the highly toxic Â·OH radical in the presence of redox-active transition metals, which then oxidises nucleic acids, lipids and proteins, leading to neurodegeneration and cell death."
 SET Confidence = "Medium"
 SET MeSHDisease = "Neurodegenerative Diseases"
@@ -357,3 +376,5 @@ a(CHEBI:"hydrogen peroxide") isA a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

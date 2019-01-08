@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:45 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "11039729"}
+
 SET SupportingText = "The results of the present study, thus, suggest that nefiracetam enhances activity of nicotinic ACh receptors by interacting with a PKC pathway, thereby increasing glutamate release from presynaptic terminals, and then leading to a sustained facilitation of hippocampal neurotransmission. This may represent a cellular mechanism underlying the cognition-enhancing action of nefiracetam. The results also provide the possibility that nefiracetam could be developed as a promising therapeutic drug for senile dementia or Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "GABA subgraph", "NMDA receptor"}
@@ -146,8 +147,10 @@ complex(a(CHEBI:nefiracetam), p(HGNC:PRKCA)) increases act(p(HGNC:CHRNB4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12031754"}
+
 SET SupportingText = "GABRA6 protein mutant form results in decreased susceptibility to Midazolam"
 SET Confidence = "High"
 SET Species = "9606"
@@ -156,8 +159,10 @@ a(CHEBI:Midazolam) decreases p(HGNC:GABRA6)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14585504"}
+
 SET SupportingText = "Egr-1 upregulates the Alzheimer's disease presenilin-2 gene in neuronal cells."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -191,8 +196,10 @@ p(HGNC:EGR1) increases p(HGNC:PSEN2)
 UNSET {Confidence, Disease, Published, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16000229"}
+
 SET SupportingText = "Estradiol affects the expression of GABRA4 mRNA"
 SET Confidence = "Medium"
 SET Species = "9606"
@@ -214,8 +221,10 @@ a(CHEBI:estradiol) increases r(HGNC:GABRB3)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17095583"}
+
 SET SupportingText = "In immunoblotting analysis, nefiracetam treatment increased the PKCalpha activity with a bell-shaped dose-response relationship peaking at 10 nM, thereby increasing phosphorylation of PKC substrate and NMDA receptor. Nefiracetam treatment did not affect the PKA activity."
 SET Confidence = "High"
 SET Subgraph = {"GABA subgraph", "NMDA receptor"}
@@ -277,8 +286,10 @@ a(CHEBI:nefiracetam) increases act(p(HGNC:CHRNB3))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18397369"}
+
 SET SupportingText = "Furthermore, both pharmacological alpha-secretase pathway inhibition and sAPPalpha immunoneutralization approaches prevented etazolate neuroprotection against Abeta, indicating that etazolate exerts its neuroprotective effect via sAPPalpha induction."
 SET Confidence = "Medium"
 SET Species = "10116"
@@ -314,8 +325,10 @@ act(a(MESHC:Etazolate)) increases bp(MESHPP:Neuroprotection)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19272425"}
+
 SET SupportingText = "Galantamine and nefiracetam have been shown to potentiate the phasic activity of nicotinic acetylcholine receptors (nAChRss) in the brain. Stimulation of nAChRss is also known to cause release of various neurotransmitters including glutamate and gamma-aminobutyric acid (GABA)."
 SET Confidence = "High"
 SET Species = "10090"
@@ -481,8 +494,10 @@ a(CHEBI:nefiracetam) isA a(CHEBI:"EC 3.1.1.7 (acetylcholinesterase) inhibitor")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19549813"}
+
 SET SupportingText = "Copper Sulfate results in decreased expression of GABRB3 mRNA"
 SET Confidence = "High"
 SET Species = "9606"
@@ -498,8 +513,10 @@ a(CHEBI:"copper(II) sulfate pentahydrate") increases r(HGNC:GABRA5)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19909279"}
+
 SET SupportingText = "Hence, it is predicted that zif268 may regulate transcription of genes associated with glutamate receptors and/or GABA(A)Rs."
 SET Confidence = "Medium"
 SET Subgraph = {"GABA subgraph", "Gamma secretase subgraph"}
@@ -726,8 +743,10 @@ bp(GOBP:"regulation of synaptic plasticity") association p(GFAM:"Glutamate ionot
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20223232"}
+
 SET SupportingText = "Etazolate is a phosphodiesterase 4 (PDE4) inhibitor and GABAA receptor modulator that also stimulates alpha-secretase activity and neurotrophic soluble amyloid precursor protein (sAPPalpha) production, currently developed as a possible Alzheimer's disease therapeutic."
 SET Confidence = "High"
 SET Species = "10116"
@@ -758,8 +777,10 @@ act(a(CHEBI:etazolate)) increases bp(GOBP:"learning or memory")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20888417"}
+
 SET SupportingText = "In this work, we describe a novel non-coding (nc) RNA (named 17A) RNA polymerase (pol) III-dependent embedded in the human G-protein-coupled receptor 51 gene (GPR51, GABA B2 receptor). The stable expression of 17A in SHSY5Y neuroblastoma cells induces the synthesis of an alternative splicing isoform that abolish GABA B2 intracellular signaling (i.e., inhibition of cAMP accumulation and activation of K(+) channels). Indeed, 17A is expressed in human brain, and we report that it is upregulated in cerebral tissues derived from Alzheimer disease patients. We demonstrate that 17A expression in neuroblastoma cells enhances the secretion of amyloid beta peptide (Abeta) and the Abeta x-42/Î‘beta x-40 peptide ratio and that its synthesis is induced in response to inflammatory stimuli."
 SET Confidence = "High"
 SET Subgraph = "GABA subgraph"
@@ -771,8 +792,10 @@ p(HGNC:GABBR2) increases complex(GOCC:"potassium channel complex")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20938992"}
+
 SET SupportingText = "[Methionine deficiency co-treated with Choline deficiency co-treated with Folic Acid deficiency] results in increased expression of GABRB3 mRNA"
 SET Confidence = "High"
 SET Species = "10090"
@@ -786,8 +809,10 @@ r(MGI:Gabrb3) association a(CHEBI:choline)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21222604"}
+
 SET SupportingText = "EHT0202 (etazolate hydrochloride) is a new compound exhibiting both potential disease-modifying and symptomatic treatment properties in Alzheimer's Disease increasing alpha-secretase activity and sAPP alpha secretion, as well as acting as a GABA-A receptor modulator and as a PDE-4 inhibitor."
 SET Confidence = "High"
 SET FDASTATUS = "Phase 2"
@@ -815,8 +840,10 @@ a(CHEBI:etazolate) increases act(p(HGNC:ADAM10), ma(pep))
 UNSET {Confidence, FDASTATUS, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21729720"}
+
 SET SupportingText = "1-(3-chlorophenyl)piperazine affects the reaction [gamma-Aminobutyric Acid results in increased activity of [GABRA1 protein co-treated with GABBR2 protein co-treated with GABRG2 protein]]"
 SET Confidence = "Medium"
 SET Species = "9606"
@@ -825,8 +852,10 @@ a(CHEBI:"1-(3-chlorophenyl)piperazine") regulates p(HGNC:GABRA1)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21821968"}
+
 SET SupportingText = "In conclusion, nefiracetam enhances NMDA-receptor function through stimulation of its glycine binding site and nefiracetam-induced CaMKII activation likely contributes to improvement of cognition, learning, and memory."
 SET Confidence = "High"
 SET Species = "10116"
@@ -872,8 +901,10 @@ complex(SCOMP:"CAMK2 Complex") increases p(HGNC:GRIA1, pmod(Ph, Ser, 831))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21969301"}
+
 SET SupportingText = "Egr1 expression is induced following glatiramer acetate immunotherapy in rodent models of glaucoma and Alzheimer's disease."
 SET Confidence = "Medium"
 SET MeSHDisease = {"Alzheimer Disease", "Glaucoma"}
@@ -918,8 +949,10 @@ a(MESHC:"Glatiramer Acetate") increases bp(MESH:D000066829)
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24966471"}
+
 SET SupportingText = "In addition, TNF-alpha can potentiate glutamate-mediated cytotoxicity by two complementary mechanisms: indirectly, by inhibiting glutamate transport on astrocytes, and directly, by rapidly triggering the surface expression of Ca+2 permeable-AMPA receptors and NMDA receptors, while decreasing inhibitory GABAA receptors on neurons."
 SET Confidence = "Medium"
 SET Subgraph = {"GABA subgraph", "Glutamatergic subgraph"}
@@ -1039,8 +1072,10 @@ a(MESHC:Glutamates) increases bp(GOBP:"cell death")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7838908"}
+
 SET SupportingText = "The nootropic compound nefiracetam was evaluated in 88 older rabbits in a 750-ms delay paradigm of eyeblink classical conditioning (EBCC). Nefiracetam facilitated acquisition of EBCC in older rabbits. EBCC is performed poorly by older humans and is seriously impaired in Alzheimer's disease. These preclinical data in an animal model with clear parallels in humans suggest that nefiracetam may prove effective as a cognition enhancer in clinical trials."
 SET Confidence = "High"
 SET Subgraph = "GABA subgraph"
@@ -1048,8 +1083,10 @@ a(CHEBI:nefiracetam) increases bp(GOBP:cognition)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9201800"}
+
 SET SupportingText = "Nefiracetam is undergoing preclinical and clinical tests as a cognition-enhancing drug in Alzheimer's disease (AD)."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "GABA subgraph"}
@@ -1057,8 +1094,10 @@ a(CHEBI:nefiracetam) increases bp(GOBP:cognition)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9523823"}
+
 SET SupportingText = "GABRB3 protein results in increased susceptibility to Midazolam"
 SET Confidence = "High"
 SET Species = "10090"
@@ -1067,3 +1106,5 @@ a(CHEBI:Midazolam) increases p(MGI:Gabrb3)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

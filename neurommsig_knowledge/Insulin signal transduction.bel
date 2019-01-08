@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:46 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "11956956"}
+
 SET SupportingText = "This abnormality along with a reduction in brain insulin concentration is assumed to induce a cascade-like process of disturbances including cellular glucose, acetylcholine, cholesterol, and ATP associated with abnormalities in membrane pathology and the formation of both amyloidogenic derivatives and hyperphosphorylated tau protein."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -160,8 +161,10 @@ bp(GOBP:"regulation of ATPase activity") association act(p(HGNC:INS))
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12185156"}
+
 SET SupportingText = "The p85alpha subunit of phosphatidyl inositol 3 kinase (PIK3R1) and the regulatory subunit 3 of protein phosphatase 1 (PPP1R3) were selected as candidate genes because both encode key proteins involved in insulin signalling and because polymorphisms in these genes have been previously implicated in insulin resistance or type II diabetes.Analysis of the Met326Ile PIK3R1 and the Asp905Tyr PPP1R3 polymorphisms in 202 patients with late onset AD and 160 or 170 age matched normal subjects.Logistic regression analysis using the recessive genetic model showed significant differences in genotype and allelic frequencies between the AD group and normal controls (genotypes: odds ratio (OR) 2.09, 95% confidence interval (CI) 1.17 to 3.74, p = 0.01; alleles: OR 1.99, 95% CI 1.17 to 3.40, p = 0.01) for the Met326Ile PIK3R1 polymorphism that were female specific."
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Phosphatidylinositol 3 subgraph"}
@@ -207,8 +210,10 @@ path(MESHD:"Alzheimer Disease") association act(p(HGNC:INS))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14976144"}
+
 SET SupportingText = "Additional experiments were designed to investigate the presence of p35, CDK5, and p35/CDK5 kinase activity in beta-cell lines. Biochemical characterization of CDK5 kinase activity was also investigated. Among the different cell lines tested, only INS-1 cells, an insulin-producing beta-cell line, showed expression of p35 (Fig. 2A). These cells also contain protein kinase activity that can be immunoprecipitated with a p35-specific antibody (Fig. 2B). Both p35 expression and p35/CDK5 activity were absent in other cell lines, such as HeLa and NIH-3T3 (Fig. 2, A and B), although these cell lines expressed CDK5 protein (Fig. 2A). We then investigated whether the kinase activity immunoprecipitated by the p35 antibody was due to its association with CDK5. We performed experiments with roscovitine, a relatively specific inhibitor of CDK5 activity (17). The p35/CDK5 activity in INS-1 cells was inhibited by roscovitine, but not by other protein kinase inhibitors, such as H89 (protein kinase A) and SB202190 (p38MAPK; Fig. 2C). Also, the inhibition by roscovitine was dose dependent (Fig. 2D), with a 50% inhibitory concentration of 128 nm, within the range of that previously reported for CDK5 (18)."
 SET Confidence = "Low"
 SET Subgraph = {"Cyclin-CDK subgraph", "Insulin signal transduction"}
@@ -428,8 +433,10 @@ a(CHEBI:glucose) increases complex(p(HGNC:CDK5), p(HGNC:CDK5R1))
 UNSET {Confidence, Subgraph, UserdefinedCellLine}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15094078"}
+
 SET SupportingText = "As far as the metabolism of amyloid precursor protein (APP) in late-onset sporadic Alzheimer disease is concerned, neuronal insulin receptor dysfunction may result in the intracellular accumulation of Abeta and in subsequent cellular damage."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -485,8 +492,10 @@ bp(GOBP:"energy homeostasis") positiveCorrelation bp(GOBP:"insulin receptor sign
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15590928"}
+
 SET SupportingText = "Because one of the main functions of IDE is to degrade insulin, we hypothesized that there is a negative feedback mechanism whereby stimulation of insulin receptor-mediated signaling upregulates IDE to prevent chronic activation of the pathway."
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -494,8 +503,10 @@ p(HGNC:IDE) increases deg(p(HGNC:INS))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16399206"}
+
 SET SupportingText = "Abeta degrading activity by IDE was shown to be lower in AD brains than in the controls [71]. Moreover, the amount of hippocampal IDE protein was also found to reduce in AD brains as compared to the controls [15]. When the IDE gene was deleted in mouse model, Abeta levels in the brain were elevated [27] and [58], suggesting IDE activity is critical in determining the amount of brain Abeta in vivo. More significantly, enhanced IDE activity in the IDE and APP double transgenic mice decreased their brain Abeta levels, and prevented the formation of AD pathology [52]."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -599,8 +610,10 @@ a(MESH:D017628) increases tloc(p(HGNC:IDE), fromLoc(GOCC:intracellular), toLoc(G
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16444902"}
+
 SET SupportingText = " Peripheral levels of Insulin Growth Factor-1 (IGF-I) are associated with glucose regulation and influence glucose disposal."
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -630,8 +643,10 @@ p(HGNC:IGF1) increases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17049785"}
+
 SET SupportingText = "Here we review the role of insulin signaling in brain aging and AD, concluding that the signaling pathways downstream to neurotrophic and insulin signaling are defective and coincident with aberrant phosphorylation and translocation of key components, notably AKT and GSK3beta, but also rac> PAK signaling."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -671,8 +686,10 @@ p(SFAM:"PAK Family", pmod(Ph)) association bp(PTS:"Insulin receptor signaling pa
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17096857"}
+
 SET SupportingText = "Butyrylcholinesterase and acetylcholinesterase related proteins were found common to both Alzheimer's disease and diabetes; they may play an etiological role via influencing insulin resistance and lipid metabolism."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Insulin signal transduction"}
@@ -728,8 +745,10 @@ p(HGNC:ACHE) regulates bp(GOBP:"lipid metabolic process")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17316694"}
+
 SET SupportingText = "It has been argued that in late-onset Alzheimer's disease a disturbance in the control of neuronal glucose metabolism consequent to impaired insulin signalling strongly resembles the pathophysiology of type 2 diabetes in non-neural tissue."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -751,8 +770,10 @@ bp(GOBP:"regulation of insulin receptor signaling pathway") negativeCorrelation 
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17329077"}
+
 SET SupportingText = "Trichlorfon results in decreased expression of STAR mRNA"
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Metabolism of steroid hormones subgraph"}
@@ -760,8 +781,10 @@ a(CHEBI:trichlorfon) decreases r(HGNC:STAR)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17440948"}
+
 SET SupportingText = "Candidate gene association study of insulin signaling genes and Alzheimer's disease: evidence for SOS2, PCK1, and PPARgamma as susceptibility loci."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Peroxisome proliferator activated receptor subgraph"}
@@ -789,8 +812,10 @@ g(HGNC:PCK1) association bp(GOBP:"insulin receptor signaling pathway")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17584828"}
+
 SET SupportingText = "Mifepristone results in decreased expression of STAR mRNA"
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Metabolism of steroid hormones subgraph"}
@@ -798,8 +823,10 @@ a(CHEBI:mifepristone) decreases r(HGNC:STAR)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18411275"}
+
 SET SupportingText = "Insulin-degrading enzyme (IDE) is central to the turnover of insulin and degrades amyloid beta (Abeta) in the mammalian brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -833,8 +860,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:IDE)) association path(MESHD:"Alzhe
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18941241"}
+
 SET SupportingText = "NEP and IDE also contributed to IL-4-induced degradation of Abeta(1-42), b ecause their inhibitors, thiorphan and insulin, respectively, significantly suppressed this activity."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Interleukin signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -878,8 +907,10 @@ a(CHEBI:Thiorphan) decreases act(p(HGNC:IL4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19013138"}
+
 SET SupportingText = "In the CA1 region of hippocampus of mice, several of the insulin signaling-related proteins we had chosen are co-located with ChAT, and most double immunoreactive positive cells were pyramidal cells."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "CA1 Region, Hippocampal"
@@ -895,8 +926,10 @@ p(MGI:Chat) association bp(GOBP:"insulin receptor signaling pathway")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19188609"}
+
 SET SupportingText = "Most significantly, this loss of surface IRs, and ADDL-induced oxidative stress and synaptic spine deterioration, could be completely prevented by insulin."
 SET Confidence = "Low"
 SET Subgraph = {"Insulin signal transduction", "Response to oxidative stress"}
@@ -956,8 +989,10 @@ complex(p(HGNC:ADD3), p(HGNC:INSR)) negativeCorrelation tloc(p(HGNC:INSR), fromL
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19237574"}
+
 SET SupportingText = "As correlated with its increased protein level (Fig. 1D), metformin increased the total BACE1 enzymatic activity by 2-fold (Fig. 2A). BACE1 mRNA was also increased by metformin in a time-dependent manner in both N2a695 and primary cortical neurons (Fig. 2B), as measured by semiquantitative RT-PCR"
 SET Confidence = "High"
 SET Subgraph = {"Beta secretase subgraph", "Insulin signal transduction"}
@@ -1107,8 +1142,10 @@ a(CHEBI:metformin) increases p(HGNC:APP, frag("672_711"))
 UNSET {Confidence, Subgraph, UserdefinedCellLine}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19383491"}
+
 SET SupportingText = "Another consequence of insulin resistance may be impaired regulation of the hypothalamicpituitary- adrenal (HPA) axis. Insulin and cortisol, a primary HPA axis hormone, are counter-regulatory, and a change in the level of either hormone influences the level of the other.[29,30] Thus, glucocorticoids can induce insulin resistance in healthy humans,[ 31,32] and hyperinsulinaemia resulting from insulin resistance can produce hypercortisolaemia. An animal study showed that rats with type 2 diabetes had higher levels of adrenocorticotrophic hormone than control individuals, consistent with chronic activation of the HPA axis.[33] In humans, plasma cortisol levels were elevated in patients with type 2 diabetes,[34] and patientswith both poorly and well controlled type 2 diabetes showed abnormal cortisol responses to hypoglycaemia.[35,36] In metabolic studies, insulin administration has been shown to increase HPA axis activity, indexed by a rise in cortisol levels"
 SET Confidence = "Medium"
 SET Subgraph = "Insulin signal transduction"
@@ -1267,8 +1304,10 @@ path(MESHD:"Alzheimer Disease") positiveCorrelation p(HGNC:INS)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19519303"}
+
 SET SupportingText = "Another major physiological role of insulin and IGF-1 is the regulation of gene transcription via the MAP kinase casÂ­ cade. Following insulin and IGF-1 stimulation, IRS prote ins and GAB(GRB-2 associated binder)- I bind to the Sl-12 doÂ­ mains of several small adaptor proteins such as GRB-2. These proteins then interact with the GDP/GTP exchanoe factor SOS (son of sevenless) leading to activation of the small G-protein RAS and subsequently to the recruitment of CRAF to the membrane. Activated CRAF activates MEK which then activates extracellular signal-regulated kinase (ERK)-11-2 (37]. ERK-1/-2 mediated signals are involved in I?n -lasting neuronal plasticity, including long-term potenÂ­ tiatiOn and memory consolidation (review in [38]). In conÂ­ trast, (over-)activation of ERK-1 /-2 also leads to apoptotic eeldeath i.n cae of oxidative stress or growth factor depriÂ­ vation (review m [39]). However, ERKs seems to be an esÂ­ sential gene since animals lacking ERK-2 die in early emÂ­ bryonic development (40]."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "MAPK-ERK subgraph"}
@@ -2038,8 +2077,10 @@ a(CHEBI:nutrient) negativeCorrelation path(MESHD:"Glucose Intolerance")
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19531281"}
+
 SET SupportingText = "According to current scientific knowledge, excess tumour necrosis factor-alpha (TNF-alpha) and low insulin-like growth factor-I (IGF-I) are pathogenic-risk factors that constitute therapeutic targets for Alzheimer's disease (AD).At week 24, Cere reduced TNF-alpha and enhanced dissociable IGF-I with respect to placebo in a dose-related manner. Increases in total IGF-I were induced by 60 ml Cere"
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -2059,8 +2100,10 @@ a(MESHC:cerebrolysin) increases p(HGNC:IGF1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19573562"}
+
 SET SupportingText = "One promising intervention is the use of the incretin hormone glucagon-like peptide-1 (GLP-1) as a treatment for neurodegenerative diseases [25] and [34]. GLP-1 enhances glucose-dependent insulin secretion and lowers blood glucose in subjects with T2DM [15]. Currently, the GLP-1 receptor agonist exenatide (Byetta) is approved for the treatment of T2DM, and many other GLP-1 analogues are in late stage clinical trials. GLP-1 also plays important roles in the brain. The GLP-1 receptor is expressed in neurons [19], and GLP-1 has growth factor-like properties and protects neurons from kainate-induced neurotoxicity [13] and [33], and of the effects of reduced NGF levels [3]. GLP-1 also reduces the induction of apoptosis of hippocampal neurons [13]"
 SET Confidence = "High"
 SET Subgraph = {"Glucagon subgraph", "Insulin signal transduction"}
@@ -2091,8 +2134,10 @@ a(CHEBI:"glucagon-like peptide-1 receptor agonist") directlyIncreases act(p(HGNC
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19605645"}
+
 SET SupportingText = "With insulin resistance in diabetics and pmodels, IRS-1 is phosphorylated at Ser312 by insulin-stimulated or stress-activated kinases, including c-Jun N-terminal kinase (JNK), which uncouples IRS-1 (Aguirre et al., 2002) and triggers rapid IRS-1 degradation (Sun et al., 1999), yielding a deficient signal transduction response (Pederson et al., 2001;Rui et al., 2001)."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "MAPK-JNK subgraph"}
@@ -2112,8 +2157,10 @@ p(HGNC:IRS1, pmod(Ph, Ser, 312)) positiveCorrelation deg(p(HGNC:IRS1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19659459"}
+
 SET SupportingText = "Phosphorylation of tau at some of the AD abnormal hyperphosphorylation sites was increased in T2DM brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -2186,8 +2233,10 @@ p(HGNC:MAPT, pmod(OGlyco)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19885299"}
+
 SET SupportingText = "Although this point requires the generation of experimental models to demonstrate proof of principle, the finding that microglial, astrocytic, and APP mRNA levels are all increased in the early stages of neurodegeneration supports the inflammatory hypothesis of AD.6Previous studies demonstrated that microglial activation promotes APP-Abeta accumulation90â€“92 and that APP gene expression and cleavage increase with oxidative stress.93 Therefore, the mechanism we propose is that impaired insulin/ IGF signaling leads to increased oxidative stress and mitochondrial dysfunction,32,94,95 which induces APP gene expression and cleavage.93 The attendant APP-Abeta accumulations cause local neurotoxicity96â€“98 and further increase in oxidative stress-induced APP expression and APP-Abeta deposition."
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -3223,8 +3272,10 @@ r(HGNC:APP) negativeCorrelation bp(GOBP:"insulin-like growth factor receptor sig
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20003221"}
+
 SET SupportingText = "rosiglitazone results in increased expression of STAR mRNA"
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Metabolism of steroid hormones subgraph"}
@@ -3232,8 +3283,10 @@ a(CHEBI:rosiglitazone) increases r(HGNC:STAR)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20035739"}
+
 SET SupportingText = "Furthermore, GLP-1 peptides are not only effective in modulating insulin-release and achieving glycaemic control in type 2 diabetes, but are also effective in modulating synaptic plasticity."
 SET Confidence = "High"
 SET Disease = "type 2 diabetes mellitus"
@@ -3252,8 +3305,10 @@ p(HGNC:GCG) association bp(GOBP:"regulation of synaptic plasticity")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20061608"}
+
 SET SupportingText = "Abeta autoantibody levels were increased in T2DM compared with age-matched controls by 45.4 +/- 8.1% (p< 0.001)."
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -3265,8 +3320,10 @@ path(MESHD:"Diabetes Mellitus, Type 2") association p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20351102"}
+
 SET SupportingText = "We have now analyzed this process in greater detail and found that the IGF-I receptor interacts with the transmembrane region of megalin, whereas the perimembrane domain of megalin is required for IGF-I internalization."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Low density lipoprotein subgraph"}
@@ -3282,8 +3339,10 @@ p(HGNC:LRP2) association p(HGNC:IGF1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20471460"}
+
 SET SupportingText = "2-butenal results in decreased expression of LNPEP mRNA"
 SET Confidence = "Medium"
 SET Species = "9606"
@@ -3292,8 +3351,10 @@ a(CHEBI:crotonaldehyde) decreases r(HGNC:LNPEP)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20701773"}
+
 SET SupportingText = "Activated microglia release a combination of bioactive agents including interleukin-6 (IL-6), tumor necrosis factor alpha (TNFÎ±), and insulin-like growth factor 1 (IGF-1). These bioactive agents have both protective and detrimental consequences for the surrounding brain tissue. We found that, while mitochondrial toxins did not affect LPS-induced activation, as measured by release of tumor necrosis factor alpha (TNF-alpha), interleukin-6 (IL-6) and interleukin-1beta (IL-1beta), they did inhibit part of the IL-4-induced alternative activation, as measured by arginase activity and expression, induction of insulin-like growth factor 1 (IGF-1) and the counteraction of the LPS induced cytokine release."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Interleukin signaling subgraph"}
@@ -3305,8 +3366,10 @@ act(a(MESH:D017628)) increases tloc(p(HGNC:TNF), fromLoc(GOCC:intracellular), to
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20847424"}
+
 SET SupportingText = "Insulin like growth factor-I (IGF-I) and insulin signaling: The underlying mechanism of neuronal survival with ABeta¸ is emerging. Neuronal synapses and astrocytes of memory-processing brain regions possess insulin receptors (IRs) [99] which when activated by insulin facilitate synaptic plasticity in normal brain [100]. IR and Insulin-like growth factor I (IGF-I) receptors consist of a-subunits and transmembrane ÃƒÅ¸-subunits. Binding of insulin or IGF-I to the a-subunit increases the intrinsic tyrosine kinase activity of the ÃƒÅ¸-subunit, and causes autophosphorylation of the ÃƒÅ¸-subunit, thus triggering tyrosine phosphorylation of insulin receptor substrate (IRS)-1 and IRS-2, as well as Shc [101] as an important pathway of cell survival. To protect against ABeta¸ toxicity, the tyrosine-phosphorylated sites create binding sites for various signal-transducing molecules containing Src homology-2 domain, such as phosphoinositide 3-kinase (PI3K) and growth factor receptor-bound protein 2 (Grb2), thus activating PI3K/phosphoinostide-dependent kinase 1 (PDK1)/Akt (protein kinase B)/glycogen synthase kinase (GSK)-3a/-3ÃƒÅ¸ and Ras/Raf-1/mitogen-activated protein kinase/extracellular-signal regulated kinase (MEK/ERK) signaling pathways [101]. In normal brain, IGF-I and insulin promote glucose utilization, energy metabolism, and neuronal survival [102], largely through PI3K/Akt/GSK-3ÃƒÅ¸ signaling [103, 104].Consistent with positive effects of insulin on synaptic plasticity [105], acute insulin treatment improved memory in rats [106] and also in normaladults and AD patients [107] by strongly activating ERK and Akt and blocking c-Jun N-terminal kinase (JNK) activation in a PI3K-dependent manner [108]. The mechanism involves many steps beginning with ABeta¸ activation of IGF-1/insulin receptors by locally produced IGF-1 or, possibly, ABeta¸ monomers may bind to IGF-1/insulin receptors, as already shown for ABeta¸ oligomers "
 SET Confidence = "Medium"
 SET Subgraph = "Insulin signal transduction"
@@ -3570,8 +3633,10 @@ p(HGNC:IRS2, pmod(Ph, Thr)) increases composite(p(SFAM:"AKT Family"), p(SFAM:"PI
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21158163"}
+
 SET SupportingText = "In the rats injected with insulin, it was found that their learning and memory abilities were improved significantly (P < 0.01) and that the expression of the nicotinic acetylcholine receptors were increased and GFAP positive astrocytes were decreased obviously (P < 0.05), as compared with the model rats. Insulin is able to enhance the learning and memory abilities of the Alzheimer's disease-like rats, possibly by improving the function of the acetylcholine system and decreasing the astrocytes proliferation in the brain."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -3666,8 +3731,10 @@ p(RGD:Ins2) increases p(RGD:Chrnb4)
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21289241"}
+
 SET SupportingText = "Chronically increased S6K1 is associated with impaired IRS1 signaling in skeletal muscle of GDM women with impaired glucose tolerance postpartum."
 SET Confidence = "High"
 SET MeSHAnatomy = "Muscle, Skeletal"
@@ -3697,8 +3764,10 @@ path(MESHD:"Diabetes, Gestational") negativeCorrelation p(HGNC:INSR)
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21321400"}
+
 SET SupportingText = "In particular, plasma beta-Galactosidase and beta-Hexosaminidase levels were higher in patients with AD-T2DM compared to those with T2DM, suggesting different mechanisms leading to enzyme secretion."
 SET CellStructure = "Lysosomes"
 SET Confidence = "Medium"
@@ -3768,8 +3837,10 @@ act(p(HGNC:HEXB)) association path(MESHD:Dementia)
 UNSET {CellStructure, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21352095"}
+
 SET SupportingText = "Possible pathophysiologic mechanisms common to both T2DM and AD are glucose toxicity and a direct effect of insulin on amyloid metabolism."
 SET Confidence = "High"
 SET Subgraph = "Insulin signal transduction"
@@ -3781,8 +3852,10 @@ bp(GOBP:"amyloid precursor protein metabolic process") association a(CHEBI:gluco
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21537460"}
+
 SET SupportingText = "Moreover, reduction of beta-cell replication capabilities results in reduction of beta-cell mass in mammals, simultaneously with impaired glucose tolerance."
 SET Confidence = "Low"
 SET Subgraph = "Insulin signal transduction"
@@ -3802,8 +3875,10 @@ bp(GOBP:"type B pancreatic cell proliferation") negativeCorrelation path(MESHD:"
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21598254"}
+
 SET SupportingText = "The decrease in brain insulin-PI3K-AKT signalling also correlated with the activation of calpain I in the brain, suggesting that the decrease might be caused by calpain over-activation."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3949,8 +4024,10 @@ act(p(HGNC:GSK3B)) increases bp(GOBP:"regulation of tau-protein kinase activity"
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21872563"}
+
 SET SupportingText = "IL-34 increased the expression of insulin-degrading enzyme, aiding the clearance of oAbeta, and induced the antioxidant enzyme heme oxygenase-1 in microglia to reduce oxidative stress, without producing neurotoxic molecules."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3978,8 +4055,10 @@ p(HGNC:HMOX1) decreases bp(GOBP:"response to oxidative stress")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21916834"}
+
 SET SupportingText = "According to this hypothesis, brains from AD patients showed substantially downregulated expression of the Insulin receptor (IR), the IGF-1 receptor (IGF-1R), and the insulin receptor substrate (IRS) proteins."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -4013,8 +4092,10 @@ p(SFAM:"IRS Family") negativeCorrelation path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22005929"}
+
 SET SupportingText = "our results indicate that IGF-I is neuroprotective at least in part, by abolishing the interaction induced by TNFÎ± in astrocytes between calcineurin and Foxo3."
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Tumor necrosis factor subgraph"}
@@ -4026,8 +4107,10 @@ act(p(HGNC:TNF)) negativeCorrelation p(HGNC:IGF1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22115781"}
+
 SET SupportingText = "ER stress contributes to the pathogenesis of obesity and diabetes, which are risk factors for Alzheimer's disease (AD) that accelerate the pathogenesis of AD."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Unfolded protein response subgraph"}
@@ -4055,8 +4138,10 @@ bp(GOBP:"response to endoplasmic reticulum stress") increases path(MESHD:"Diabet
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22142155"}
+
 SET SupportingText = "Alzheimer's disease (AD) is linked to CNS insulin resistance, decreased expression of insulin and insulin receptor genes, and lower cerebrospinal insulin levels."
 SET Confidence = "High"
 SET MeSHDisease = {"Alzheimer Disease", "Insulin Resistance"}
@@ -4080,8 +4165,10 @@ path(MESHD:"Insulin Resistance") association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22236693"}
+
 SET SupportingText = "Cozza et al. found that variant rs2072446 was associated with a significantly decreased risk of familial AD [additive model: odds ratio (OR) = 0.28] [11]. However, no association was observed for other NGFR SNPs (rs741072, rs2072446, rs2072445, and rs734194) and the risk of sporadic AD [11]. In addition, type 2 DM has been related to the change of NGFR expression in rat brain [12] and cognitive impairment and dementia in the elderly [13-15]"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -4117,8 +4204,10 @@ g(RGD:Ngfr) association path(MESHD:"Diabetes Mellitus, Type 2")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22321797"}
+
 SET SupportingText = "Since IAPP is secreted by beta-cells and a membrane-damaging effect of IAPP has been discussed as a reason for beta-cell dysfunction and the development of T2DM, studies of the interaction of IAPP with the beta-cell membrane are of high relevance for gaining a molecular-level understanding of the underlying mechanism."
 SET Confidence = "Medium"
 SET Disease = "type 2 diabetes mellitus"
@@ -4132,8 +4221,10 @@ tloc(p(HGNC:IAPP), fromLoc(GOCC:intracellular), toLoc(GOCC:"extracellular space"
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22443187"}
+
 SET SupportingText = "Liraglutide (Victoza) and exenatide (Byetta) are novel long-lasting analogues of the GLP-1 incretin hormone and are currently available to treat diabetes."
 SET Confidence = "High"
 SET Subgraph = {"Glucagon subgraph", "Insulin signal transduction"}
@@ -4181,8 +4272,10 @@ a(CHEBI:liraglutide) increases bp(GOBP:"insulin receptor signaling pathway")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22524398"}
+
 SET SupportingText = "Some authors show that IGF-I increases Î±-secretase processing of endogenous amyloid precursor protein and the amyloid precursor-like proteins 1 and 2 [36, 97-100]."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -4223,8 +4316,10 @@ a(CHEBI:rivastigmine) increases p(HGNC:IGF1)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22536436"}
+
 SET SupportingText = "Abnormal phosphorylation of tau and activation of mu-calpain are two key events in the pathology of AD. Importantly, these two events are also related with GCs and IR. We therefore speculate that tau phosphorylation and mu-calpain activation may mediate the GCs-induced IR. Akt phosphorylation at Ser-473 (pAkt) is commonly used as a marker for assessing IR."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -4337,8 +4432,10 @@ a(CHEBI:dexamethasone) increases act(p(HGNC:CAPN1))
 UNSET {CellLine, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23073831"}
+
 SET SupportingText = "With respect to neuroprotection, DCI greatly enhances the ability of insulin to prevent ADDL-induced synapse damage (EC(50) of 90 nM)."
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Neuroprotection subgraph"}
@@ -4346,8 +4443,10 @@ a(CHEBI:"1D-chiro-inositol") increases bp(MESH:D000066829)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23279143"}
+
 SET SupportingText = "Recent studies have shown that SORCS1 variations in intron 1 are associated with sporadic Alzheimer's disease (SAD), but the results remain inconsistent.In order to clarify the role of the SORCS1 gene in southern Han Chinese, we genotyped eight single nucleotide polymorphisms (SNP) of SORCS1 in 128 SAD patients and 92 healthy controls.By dividing patients and controls according to apolipoprotein status, sex and whether they had type 2 diabetes mellitus, we found that rs7907690 C allele frequencies were significantly higher in the Alzheimer's disease (AD) patients with type 2 diabetes mellitus than in the controls (P=0.041)."
 SET Confidence = "High"
 SET Patient = "AD T2DM +ve"
@@ -4381,8 +4480,10 @@ g(HGNC:SORCS1) association g(DBSNP:rs7907690)
 UNSET {Confidence, Patient, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23557940"}
+
 SET SupportingText = "Insulin not only regulates blood sugar concentrations but also acts as a growth factor on all cell including neurons in the central nervous system [38]. Brain resistance to insulin/IGF-I accounts for neuronal atrophy and death, tangle formation and brain amyloidosis typical of AD pathology [47]."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -4473,8 +4574,10 @@ p(HGNC:TNF) decreases bp(GO:"GO:0097242")
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23603201"}
+
 SET SupportingText = "Pharmacological agents, such as dipeptidyl peptidase-4 (DPP-4) inhibitors, which increase the level of glucagon-like peptide-1 (GLP-1) and ameliorate T2D, have become valuable candidates as disease modifying agents in the treatment of AD. In addition, endogenous GLP-1 levels decrease amyloid beta (Abeta) peptide and tau phosphorylation in AD"
 SET Confidence = "Medium"
 SET Subgraph = {"Glucagon subgraph", "Insulin signal transduction"}
@@ -4500,8 +4603,10 @@ p(HGNC:DPP4) negativeCorrelation p(HGNC:GCG)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23627755"}
+
 SET SupportingText = "A separate analysis using just the DM2+ cases broken down by ApoE e4 carrier status was carried out (Table 2). There were 22 ApoE e4 carriers and 17 ApoE e4 non-carriers (n=39) as ApoE data was not available for 1 case. This analysis found that individuals carrying the e4 allele had significantly greater plaque and tangle pathology across all cortical areas except for tangle counts in the parietal and entorhinal areas. AD-DM2+ ApoE e4 carriers had a significantly lower age of death than AD-DM2+ ApoE e4 noncarriers"
 SET Confidence = "High"
 SET MeSHAnatomy = "Cerebral Cortex"
@@ -4585,8 +4690,10 @@ bp(GOBP:"regulation of amyloid precursor protein catabolic process") association
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24324435"}
+
 SET SupportingText = "The levels of IGF-II and IGFBP-2 were significantly elevated in the CSF from patients with AD."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -4614,8 +4721,10 @@ p(HGNC:IGF2) positiveCorrelation path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24386594"}
+
 SET SupportingText = "Adiponectin regulates the sensitivity of insulin, fatty acid catabolism, glucose homeostasis and anti-inflammatory system through various mechanisms."
 SET Confidence = "Medium"
 SET Subgraph = {"Beta-Oxidation of Fatty Acids", "Insulin signal transduction", "Lipid metabolism subgraph"}
@@ -4631,8 +4740,10 @@ p(HGNC:ADIPOQ) regulates bp(GOBP:"glucose homeostasis")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24529526"}
+
 SET SupportingText = "In transgenic mice, both insulin and GLP1 analogs reduced inflammation, increased stem cell proliferation, reduced apoptotic process, and increased dendritic growth."
 SET Confidence = "Medium"
 SET MeSHAnatomy = {"Dendrites", "Stem Cells"}
@@ -4678,8 +4789,10 @@ p(MGI:Gcg) decreases bp(GOBP:"apoptotic process")
 UNSET {Confidence, MeSHAnatomy, MeSHDisease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24529528"}
+
 SET SupportingText = "Interestingly, brain inflammation has recently been proposed to underlie defective neuronal insulin signaling in AD [14] Several pathological features, including impaired insulin signaling and inflammation, appear to be shared by patients with diabetes and patients with AD."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -4698,8 +4811,10 @@ path(MESHD:Inflammation) decreases act(a(MESH:D009474))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24652830"}
+
 SET SupportingText = "The median (18)F-FDG ratio was lower in diabetic individuals than in nondiabetic individuals in the AD signature meta-ROI (1.32 vs. 1.40,"
 SET Confidence = "Medium"
 SET Patient = "AD T2DM -ve"
@@ -4731,8 +4846,10 @@ bp(GOBP:"glucose import") positiveCorrelation a(CHEBI:"2-deoxy-2-((18)F)fluoro-D
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24881967"}
+
 SET SupportingText = "This study disclosed that intrahippocampal insulin treatment averts not only Abeta-induced memory deterioration but also hippocampal caspase-3, ERK and P38 activation."
 SET Confidence = "High"
 SET MeSHAnatomy = "Hippocampus"
@@ -4754,8 +4871,10 @@ a(CHEBI:"insulin (human)") decreases act(p(SFAM:"MAPK Erk1/2 Family"))
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "25999473"}
+
 SET SupportingText = "beta level reduction by CALHM1 could be explained by an increase in extracellular Abeta degradation by insulin-degrading enzyme (IDE), extracellular secretion of which was strongly potentiated by CALHM1 activation."
 SET Confidence = "Medium"
 SET Subgraph = {"Calcium-dependent signal transduction", "Insulin signal transduction"}
@@ -4767,3 +4886,5 @@ p(HGNC:CALHM1) increases tloc(p(HGNC:IDE), fromLoc(GOCC:intracellular), toLoc(GO
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

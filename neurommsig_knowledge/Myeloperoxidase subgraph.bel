@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:46 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "12946561"}
+
 SET SupportingText = "In females, we found a significant association between MPO genotype and AD (P=0.034),"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -104,8 +105,10 @@ p(HGNC:MPO) association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15255951"}
+
 SET SupportingText = "Myeloperoxidase, a heme protein expressed by professional phagocytic cells, generates an array of oxidants which are proposed to contribute to tissue damage during inflammation."
 SET Cell = "phagocyte"
 SET Confidence = "High"
@@ -170,8 +173,10 @@ bp(MESHPP:"Oxidative Stress") association p(HGNC:MPO)
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18554520"}
+
 SET SupportingText = "However, the possible role of MPO and enzymatically inactive MPO (iMPO) as the choreographers of the destruction done by TNF-alpha and ROS is not generally recognized."
 SET Confidence = "High"
 SET Subgraph = {"Myeloperoxidase subgraph", "Reactive oxygen species subgraph", "Tumor necrosis factor subgraph"}
@@ -191,8 +196,10 @@ p(HGNC:TNF) association p(HGNC:MPO)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19059911"}
+
 SET SupportingText = "Aberrant expression of myeloperoxidase in astrocytes promotes phospholipid oxidation and memory deficits in a mouse model of Alzheimer disease."
 SET Confidence = "High"
 SET MeSHAnatomy = "Astrocytes"
@@ -212,8 +219,10 @@ path(MESHD:"Alzheimer Disease") increases p(HGNC:MPO)
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23469045"}
+
 SET SupportingText = "Rivastigmine (1 mg/kg) also reduced myeloperoxidase activity and IL-6 by >60%, and the infiltration of CD11b expressing cells by 80%. These effects were accompanied by significantly greater ChE inhibition in cortex, brain stem, plasma and colon than that after 0.5 mg/kg."
 SET Confidence = "Medium"
 SET Subgraph = "Myeloperoxidase subgraph"
@@ -221,8 +230,10 @@ a(CHEBI:rivastigmine) decreases act(p(HGNC:MPO))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24217274"}
+
 SET SupportingText = "Increased myeloperoxidase plasma levels in patients with Alzheimer's disease."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -233,3 +244,5 @@ path(MESHD:"Alzheimer Disease") increases p(HGNC:MPO)
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

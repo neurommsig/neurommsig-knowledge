@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:46 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "10363952"}
+
 SET SupportingText = "Here we show that bleomycin hydrolase, known to be induced in an oxidative environment, is specifically increased in neurons marked for degeneration in AD. These findings support a key proximal role for bleomycin hydrolase, and oxidative stress in AD."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -108,8 +109,10 @@ p(HGNC:BLMH) positiveCorrelation path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10658956"}
+
 SET SupportingText = "antioxidants such as vitamin E prevents Abeta-induced ROS production, oxidative damage and neurotoxicity in brain cells. "
 SET Confidence = "High"
 SET Subgraph = {"Reactive oxygen species subgraph", "Response to oxidative stress"}
@@ -125,8 +128,10 @@ a(CHEBI:"vitamin E") decreases bp(HBP:neurotoxicity)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12548636"}
+
 SET SupportingText = "We have examined this by using oxidative stress to induce apoptosis in a mouse hippocampal neuronal cell line (HT-22). Oxidatively modified proteins were measured by high-resolution two-dimensional gel electrophoresis coupled with oxidation-specific immunostains.Under these conditions the oxidatively stressed cells undergo apoptotic process, and specific proteins are oxidized. The three proteins that appeared to be most susceptible to oxidation were identified by mass spectrometry. Those oxidized proteins are heat shock protein 60 and vimentin, both believed to function as antiapoptotic proteins, and a third protein with sequence homology to hemoglobin alpha-chain. When the cells were pretreated with vitamin E, these proteins were not oxidized and the cells did not undergo apoptotic process."
 SET Confidence = "High"
 SET Subgraph = {"Apoptosis signaling subgraph", "Reactive oxygen species subgraph"}
@@ -166,8 +171,10 @@ p(MGI:Vim) decreases bp(GOBP:"apoptotic process")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15232608"}
+
 SET SupportingText = "The extracellular amyloid deposits in senile plaques also trigger reactive glial changes and neuroinflammation that can also contribute to neuronal loss through production of reactive oxygen species (ROS), NO, and proinflammatory cytokines such as TNF-a and IL-1Abeta."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -206,8 +213,10 @@ bp(GOBP:"reactive oxygen species metabolic process") increases bp(GOBP:"neuron a
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16443152"}
+
 SET SupportingText = "Activation of PLA2 in cerebral ischemia has been shown while other studies have separately demonstrated increased lipid peroxidation. Dissecting the contribution of PLA2 to lipid peroxidation in cerebral ischemia is challenging due to multiple forms of PLA2, cardiolipin hydrolysis, diverse sources of ROS arising from arachidonic acid metabolism, catecholamine autoxidation, xanthine oxidase activity, mitochondrial dysfunction, activated neutrophils coupled with NADPH oxidase activity, and lack of specific inhibitors. Cardiolipin hydrolysis by mitochondrial sPLA2 disrupts the mitochondrial respiratory chain and increases production of reactive oxygen species (ROS). Oxidative metabolism of arachidonic acid also generates ROS."
 SET Confidence = "Medium"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -215,8 +224,10 @@ act(p(HGNC:PLA2G1B)) increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16484331"}
+
 SET SupportingText = "Developmental exposure to lead (Pb) has been shown to elevate the Alzheimer's disease (AD) related beta-amyloid peptide (Abeta), which is known to generate reactive oxygen species in the aging brain. This study measures the lifetime cerebral 8-hydroxy-2'-deoxyguanosine (oxo8dG) levels and the activity of the DNA repair enzyme 8-oxoguanine DNA glycosylase (Ogg1) in rats developmentally exposed to Pb."
 SET Confidence = "High"
 SET Developmental_Phase__of_patient = "Old"
@@ -262,8 +273,10 @@ a(CHEBI:"lead(0)") increases act(p(RGD:Ogg1))
 UNSET {Confidence, Developmental_Phase__of_patient, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17015226"}
+
 SET SupportingText = "Reactive oxygen species (ROS), produced within mitochondria, inhibit the function of EAAT2, the main glial glutamate transporter protein, responsible for most of the reuptake of synaptically released glutamate. Glutamate excess increases intracellular calcium, which enhances oxidative stress and mitochondrial damage."
 SET Confidence = "Medium"
 SET Subgraph = {"Glutamatergic subgraph", "Reactive oxygen species subgraph"}
@@ -283,8 +296,10 @@ bp(GOBP:"glutamate homeostasis") association p(HGNC:SLC1A2)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17316167"}
+
 SET SupportingText = "OPN is involved in a number of physiologic and pathologic events including angiogenesis, apoptotic process, inflammation, oxidative stress, remyelination, wound healing, bone remodeling, cell migration and tumorigenesis."
 SET Confidence = "High"
 SET Subgraph = {"Chemokine signaling subgraph", "Reactive oxygen species subgraph"}
@@ -310,8 +325,10 @@ path(MESHD:"Neurodegenerative Diseases") association bp(MESHPP:"Oxidative Stress
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17316694"}
+
 SET SupportingText = "The fact that mitochondria are the major generators and direct targets of reactive oxygen species led several investigators to foster the idea that oxidative stress and damage in mitochondria are contributory factors to several disorders including Alzheimer's disease and diabetes."
 SET Confidence = "High"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -363,8 +380,10 @@ path(MESHD:"Diabetes Mellitus, Type 2") association act(a(MESHCS:Mitochondria))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17424907"}
+
 SET SupportingText = "Interaction of mitochondrial Abeta with mitochondrial enzymes such as amyloid beta binding alcohol dehydrogenase (ABAD) exaggerates mitochondrial stress by inhibiting the enzyme activity, releasing reactive oxygen species (ROS), and affecting glycolytic, Krebs cycle and/or the respiratory chain pathways through the accumulation of deleterious intermediate metabolites."
 SET Confidence = "Medium"
 SET Subgraph = {"Alcohol dehydrogenase subgraph", "Amyloidogenic subgraph", "Reactive oxygen species subgraph"}
@@ -376,8 +395,10 @@ complex(a(CHEBI:"amyloid-beta"), p(HGNC:ADH1B)) increases a(CHEBI:"reactive oxyg
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17426120"}
+
 SET SupportingText = "Patients with AD have been shown to exhibit a much higher level of 8-oxoG DNA lesions in brain than age-matched normal control subjects The increased level of 8-oxoG lesions in AD is likely due to reduced DNA repair in these patients"
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -430,8 +451,10 @@ p(HGNC:OGG1, var("p.Ala288Val")) decreases act(p(HGNC:OGG1))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17869087"}
+
 SET SupportingText = "Piceatannol treatment attenuated hydrogen-peroxide- and peroxynitrite-induced cytotoxicity, apoptotic features, PARP cleavage and intracellular ROS and RNS accumulation."
 SET Confidence = "High"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -443,8 +466,10 @@ a(CHEBI:piceatannol) decreases a(CHEBI:"reactive nitrogen species")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18480271"}
+
 SET SupportingText = "Previous experiments indicate that RAGE mediates A beta-induced oxidative stress and nuclear factor-kB activation (Yan et al., 1996) as well as neuronal expression of macrophage colony-stimulating factor (Du Yan et al., 1997), mitogen-activated protein (MAP) kinases signaling defects (Arancio et al., 2004), or cell death (Hadding et al., 2004)."
 SET Confidence = "High"
 SET Subgraph = {"Immunoglobulin subgraph", "Reactive oxygen species subgraph"}
@@ -452,8 +477,10 @@ p(HGNC:AGER) increases bp(MESHPP:"Oxidative Stress")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18554520"}
+
 SET SupportingText = "Associated with these inflammatory responses are tumor necrosis factor-alpha (TNF-alpha) and reactive oxygen species (ROS), both believed to be derived from brain microglia."
 SET Confidence = "High"
 SET MeSHAnatomy = {"Brain", "Microglia"}
@@ -495,8 +522,10 @@ p(HGNC:TNF) association p(HGNC:MPO)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18718604"}
+
 SET SupportingText = "These findings show that riluzole maintains altered oxidant-antioxidant balance. Consistently, previous studies have shown the antioxidant effect of riluzole [19, 20 and 21]. In the study of Koh et al. [ 19], riluzole, besides preventing the excitotoxic neuronal damage, was also effective against FeCl3 induced nonexcitotoxic injury in cortical neuron cultures. In another study, riluzole was shown to protect the dopaminergic neurons against oxidative stress by reducing lipid peroxidation and adenosine triphosphate consumption [ 21]. It has been suggested that the mechanism involved in the protective effects in nonexcitotoxic oxidant damage was inhibition of PLA2, thereby reducing arachidonic acid and its metabolites, and further inhibition of protein kinase C [ 43]."
 SET Confidence = "High"
 SET Species = "10116"
@@ -530,8 +559,10 @@ a(CHEBI:Riluzole) decreases a(CHEBI:"arachidonic acid")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19076431"}
+
 SET SupportingText = "Increased oxidative stress is associated with neuronal cell death during the pathogenesis of multiple chronic neurodegenerative diseases, including Alzheimer's disease, Parkinson's disease, Huntington's disease, and amyotrophic lateral sclerosis."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -598,8 +629,10 @@ path(MESHD:"Amyotrophic Lateral Sclerosis") association bp(GOBP:"cell death")
 UNSET {Confidence, MeSHAnatomy, MeSHDisease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19245828"}
+
 SET SupportingText = " 8-oxo-dG is widely used as biomarker of oxidative DNA damage due to demethylation. 8-dihydro-2 ÃƒÅ’Ã¯Â¿Â½'-deoxyguanosine (8-oxo-dG), a general marker of oxidative stress"
 SET Confidence = "High"
 SET Species = "10090"
@@ -634,8 +667,10 @@ p(HGNC:APP, frag("672_713")) increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, Encode_Feature_Types, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19499146"}
+
 SET SupportingText = "Apoptosis is the most common form of physiological cell death in multicellular organisms. Apoptosis signaling is classically composed of two principle pathways. One is a direct pathway from death receptor (CD95, TNF-R1, and TRAIL-R1/TRAIL-R2 [9]) ligation to caspase cascade activation and cell death. Death receptor ligation triggers recruitment of the precursor form of caspase-8 to a death-inducing complex, through the adaptor protein FADD, which leads to caspase-8 activation. The other pathway triggered by stimuli such as drugs, radiation, infectious agents, and reactive oxygen species is initiated in mitochondria. After cytochrome c is released into the cytosol from the mitochondria, it binds to Apaf1 and ATP, which then activate caspase-9."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -649,8 +684,10 @@ tloc(p(HGNC:CYCS), fromLoc(MESH:D008928), toLoc(MESHCS:Cytosol)) increases compl
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19519303"}
+
 SET SupportingText = "Activation of the catalytic subunit of the PI3-kinase results in phosphorylation of phosphatidylinositide-diphosphate (PI4,5P) to generate phosphatidylinositide-triphosphate (PI3,4,5P). This leads to activation of several downstream targets, such as phosphoinositide-dependent protein kinase (PDK)-1, protein kinase B (PKB, AKT), p70S6kinase, glycogen synthase kinase(GSK)-3 and BAD a proapoptotic member of the Bcl-2 family. Phosphorylation of GSK-3 and BAD inactivates these proteins and thereby inhibits further signaling leading to apoptosis. Activated AKT phosphorylates the forkhead transcription factor Foxo, which triggers its nuclear exclusion and thereby regulates transcription of genes involved in development, growth, stress resistance, apoptosis, metabolism and aging [29-31]. Several Foxo target genes might play an important role for the pathogenetics of AD (review in [32]): Catalase and MnSOD (manganese superoxid dismutase) are crucial in promoting longevity by possibly acting as antioxidants due to reduced insulin-like signaling in various species such as drosophila [33] and C. elegans [34]. "
 SET Confidence = "High"
 SET Species = {"6239", "7227"}
@@ -674,8 +711,10 @@ p(HGNC:CAT) positiveCorrelation bp(MESHPP:Longevity)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19885299"}
+
 SET SupportingText = "Although this point requires the generation of experimental models to demonstrate proof of principle, the finding that microglial, astrocytic, and APP mRNA levels are all increased in the early stages of neurodegeneration supports the inflammatory hypothesis of AD.6Previous studies demonstrated that microglial activation promotes APP-Abeta accumulation90â€“92 and that APP gene expression and cleavage increase with oxidative stress.93 Therefore, the mechanism we propose is that impaired insulin/ IGF signaling leads to increased oxidative stress and mitochondrial dysfunction,32,94,95 which induces APP gene expression and cleavage.93 The attendant APP-Abeta accumulations cause local neurotoxicity96â€“98 and further increase in oxidative stress-induced APP expression and APP-Abeta deposition."
 SET Confidence = "High"
 SET Subgraph = {"Amyloidogenic subgraph", "Reactive oxygen species subgraph"}
@@ -743,8 +782,10 @@ bp(GOBP:"insulin-like growth factor receptor signaling pathway") negativeCorrela
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20064547"}
+
 SET SupportingText = "Nrf2-encoding NFE2L2 haplotypes influence disease progression but not risk in Alzheimer's disease and age-related cataract."
 SET Confidence = "High"
 SET MeSHDisease = {"Alzheimer Disease", "Cataract"}
@@ -776,8 +817,10 @@ p(HGNC:KEAP1) association bp(MESHPP:"Oxidative Stress")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20847424"}
+
 SET SupportingText = " Increased oxidative stress, coupled with dysregulation of calcium homeostasis and resulting apoptosis of vulnerable neuronal populations, are proposed to underlie the loss of synaptic activity and associated cognitive decline. From these deficiencies emerges the concept of synaptic energy exhaustion in AD, both phosphorylative (ATP) and redox (NAD[P]H) energies. Our previous work shows that hippocampal NAD(P)H and glutathione (GSH) decline with age in association with increased susceptibility to glutamate toxicity in neurons of old-age. Thus, an age-related decline in neuronal reducing currency (NAD[P]H) and reducing buffer (GSH) will surely promote oxidative stress and excess ROS. It is noteworthy that in the early stages of AD, there is already a reduction in the number of mitochondria and the activities of tricarboxylic acid cycle enzymes and cytochrome C oxidase. However, how ROS are produced at the synapse in response to Abeta oligomers is not fully known."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -886,8 +929,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:HSD17B10)) increases bp(GOBP:"apopt
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20885006"}
+
 SET SupportingText = "Furthermore, the results demonstrated that the administration of riluzole can attenuate the morphine-induced elevation of glutamate in the lumbar spinal cord. In conclusion, i.c.v. administration of riluzole attenuated morphine-induced tolerance to analgesia and apoptosis in addition to preventing the morphine-induced increase of glutamate in the lumbar spinal cord of rats. In addition to being an anti-glutamatergic agent, riluzole also has antioxidant effects and can protect dopaminergic neurons against oxidative stress by reducing lipid peroxidation and ATP consumption [19, 27, 35, 36]. On the other hand, our results show that 80 Âµg/10 Âµl of riluzole increases the level of Bcl-2 in the lumbar spinal cord when administered with morphine"
 SET Confidence = "High"
 SET Species = "10116"
@@ -896,8 +941,10 @@ a(CHEBI:Riluzole) decreases bp(MESHPP:"Oxidative Stress")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21845541"}
+
 SET SupportingText = "In the stage of mild to moderate dementia along with the increase of oxidative DNA damage, there was an increase in OGG1 protein level"
 SET Confidence = "High"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -912,8 +959,10 @@ p(HGNC:OGG1) decreases p(HGNC:TNF)
 UNSET {Confidence, DiseaseState, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21893081"}
+
 SET SupportingText = "Production of reactive oxygen species (ROS) in brain regions was measured relative to control. There was a significant increase (P<0.01) in ROS level in cerebellum, hippocampus, cortex and striatum of OKA 200 ng treated rats as compared to control group. Treatment with memantine significantly (Pb0.05) reduced the amount of ROS whereas donepezil did not show significant (PN0.05) effect in any brain regions."
 SET Confidence = "Medium"
 SET MeSHAnatomy = {"Cerebellum", "Cerebral Cortex", "Hippocampus"}
@@ -955,8 +1004,10 @@ a(CHEBI:"okadaic acid") increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22046282"}
+
 SET SupportingText = "Activated gadd153 can generate oxidative damage and reactive oxygen species (ROS), increase beta-amyloid (Abeta) levels, disturb iron homeostasis and induce inflammation as well as cell death, which are all pathological hallmarks of AD."
 SET Confidence = "Medium"
 SET MeSHDisease = {"Alzheimer Disease", "Inflammation"}
@@ -965,8 +1016,10 @@ act(p(HGNC:DDIT3)) increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22055193"}
+
 SET SupportingText = "Taken together, these results suggest that glucose deprivation leads to p53 activation through a pathway that involves elevated ROS levels and ATM activation in the absence of DNA double-strand breaks. In this paper, we report that glucose deprivation results in ROS production and in the activation of endogenous p53 through an ATM-dependent mechanism."
 SET Confidence = "High"
 SET Subgraph = {"Reactive oxygen species subgraph", "Response DNA damage"}
@@ -982,8 +1035,10 @@ act(p(HGNC:ATM)) increases act(p(HGNC:TP53))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22235318"}
+
 SET SupportingText = "In vitro studies revealed that (1) exposure of neural stem cells (NSCs) from the hippocampus to STZ strikingly increased intracellular reactive oxygen species (ROS) levels, induced cell death and perturbed cell proliferation and differentiation, (2) hydrogen peroxide induced similar cellular activities as STZ, (3) pre-incubation of STZ-treated NSCs with catalase, an antioxidant, suppressed all these cellular activities induced by STZ, and (4) likewise, pre-incubation of STZ-treated NSCs with salidroside, also an antioxidant, suppressed all these activities as catalase: reduction of ROS levels and NSC death with simultaneous increases in proliferation and differentiation."
 SET Cell = "neuronal stem cell"
 SET Confidence = "High"
@@ -1017,8 +1072,10 @@ a(CHEBI:Salidroside) decreases bp(GOBP:"cell death")
 UNSET {Cell, Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22367970"}
+
 SET SupportingText = "We recently reported increased mitochondrial fission and decreased fusion, increased amyloid beta (Abeta) interaction with the mitochondrial fission protein Drp1, increased mitochondrial fragmentation, impaired axonal transport of mitochondria and synaptic degeneration in neurons affected by AD. In the present study, we extended our previous investigations to determine whether phosphorylated tau interacts with Drp1 and to elucidate mitochondrial damage in the progression of AD."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -1027,8 +1084,10 @@ bp(GOBP:"mitochondrial fission") increases complex(a(CHEBI:"amyloid-beta"), p(HG
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22523685"}
+
 SET SupportingText = "Amyloid-beta accumulation in the synapses directly disturbs mitochondrial function, causing oxidative stress, decreased ATP, and increased Ca2+ influx. Furthermore, the interaction of mitochondrial amyloid-beta with its binding proteins, such as ABAD and CypD, exacerbates amyloid-beta-induced mitochondria and neuronal stress and malfunction."
 SET CellStructure = "Synapses"
 SET Confidence = "High"
@@ -1219,8 +1278,10 @@ bp(GOBP:"respiratory chain complex IV assembly") decreases a(CHEBI:radical)
 UNSET {CellStructure, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22956607"}
+
 SET SupportingText = "Stress of the endoplasmic reticulum and oxidative stress play critical roles in the pathogenesis of Fuchs Endothelial Corneal Dystrophy (FECD)."
 SET CellStructure = "Endoplasmic Reticulum"
 SET Confidence = "High"
@@ -1238,8 +1299,10 @@ path(MESHD:"Fuchs' Endothelial Dystrophy") positiveCorrelation bp(MESHPP:"Oxidat
 UNSET {CellStructure, Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23653222"}
+
 SET SupportingText = "Oxidative stress has been suggested to play an important role in the pathogenesis of various neurodegenerative diseases including Alzheimer's disease (AD)."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1267,8 +1330,10 @@ path(MESHD:"Neurodegenerative Diseases") association bp(MESHPP:"Oxidative Stress
 UNSET {Confidence, Disease, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23818595"}
+
 SET SupportingText = "Furthermore, our data with ROS scavengers suggest that intracellular ROS mediates the SOD1(G93A)-induced activation of MST1, although the origin of ROS generation induced by SOD1(G93A) remains unclear (25)."
 SET Confidence = "High"
 SET Species = "10090"
@@ -1277,8 +1342,10 @@ a(CHEBI:"reactive oxygen species") increases act(p(MGI:Stk4))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23954639"}
+
 SET SupportingText = "Similarly, high glucose levels inhibit AMPK activity and increase ROS generation. This leads to the upregulation of Nox4 and the activation of p53-induced apoptosis in glomerular epithelial cells (podocytes), the loss of which may contribute to albuminuria and diabetic kidney disease. The reactivation of AMPK by AICAR in this context leads to a reduction in Nox4 levels, resulting in a suppression of p53 (Eid et al., 2010)."
 SET Confidence = "High"
 SET Subgraph = {"Reactive oxygen species subgraph", "p53 stabilization subgraph"}
@@ -1298,8 +1365,10 @@ a(CHEBI:glucose) decreases act(p(HGNC:PRKAA2))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24262633"}
+
 SET SupportingText = "However, in response to oxidative stress, NRF2 translocates to the nucleus and binds to specific DNA sites termed anti-oxidant response elements or electrophile response elements to initiate transcription of cytoprotective genes."
 SET Confidence = "High"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -1307,8 +1376,10 @@ bp(MESHPP:"Oxidative Stress") increases tloc(p(HGNC:NFE2L2), fromLoc(MESHCS:Cyto
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24357806"}
+
 SET SupportingText = "Oligomeric amyloid beta induces IL-1beta processing via production of ROS: implication in Alzheimer's disease."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -1344,8 +1415,10 @@ p(HGNC:NLRP3) increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24587007"}
+
 SET SupportingText = "Results of this study indicate that ethanol extracts of SF (SF-E) suppress NMDA-induced reactive oxygen species (ROS) production in neurons, and LPS- and IFNgamma-induced ROS and nitric oxide (NO) production in microglial cells."
 SET Confidence = "Medium"
 SET MeSHAnatomy = {"Microglia", "Neurons"}
@@ -1379,8 +1452,10 @@ p(MGI:Ifng) increases a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24619568"}
+
 SET SupportingText = "The data indicate that apart from acetylsalicylic acid (aspirin) and simvastatin, several neurophysiologically-relevant concentrations of Abetapeptides and neurotoxic trace metals variably induced ROS induction, COX-2 and cPLA2 expression."
 SET Confidence = "Medium"
 SET Subgraph = "Reactive oxygen species subgraph"
@@ -1392,8 +1467,10 @@ a(CHEBI:"acetylsalicylic acid") association a(CHEBI:"reactive oxygen species")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "25018698"}
+
 SET SupportingText = "ASK1, a member of the MAP3K family, has been shown to mediate SOD1(G93A)-induced neurotoxicity in an ALS mouse model"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Neurons"
@@ -1409,8 +1486,10 @@ p(MGI:Map3k5) increases bp(GOBP:"neuron death")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "25698445"}
+
 SET SupportingText = "Specifically, conditional loss of beta1-integrin prevented Abeta42O-induced Cofilin activation, and allosteric modulation or activation of beta1-integrin significantly reduced Abeta42O binding to neurons while blocking Abeta42O-induced reactive oxygen species (ROS) production, mitochondrial dysfunction, depletion of F-actin/focal Vinculin, and apoptotic process."
 SET Confidence = "Medium"
 SET Subgraph = {"Reactive oxygen species subgraph", "Regulation of actin cytoskeleton subgraph"}
@@ -1418,8 +1497,10 @@ a(CHEBI:"amyloid-beta polypeptide 42") increases a(CHEBI:"reactive oxygen specie
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed Central", "PMC3287608"}
+
 SET SupportingText = "Alzheimer's Abeta-amyloid precursor protein interacts with appoptosin and modulates appoptosin-induced apoptotic process."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -1481,3 +1562,5 @@ act(p(HGNC:SLC25A21)) increases tloc(a(CHEBI:"5-aminolevulinic acid"), fromLoc(G
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

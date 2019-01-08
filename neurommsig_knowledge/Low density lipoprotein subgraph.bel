@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:45 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:23 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", " 21543606 "}
+
 SET SupportingText = "Clusterin is found in amyloid plaques and transports soluble Amyloid beta across the blood-brain barrier into brain parenchyma Amyloid beta then may damage the oligodendrocytes, which generate myelin, as reported in vitro .However, in our young healthy sample, lower FA may reflect variability in lipid processing as the lipid-rich myelin sheath develops; it is unlikely to be evidence of a disease mechanism or a biomarker of AD. Myelin abnormalities and axonal swelling may contribute to synaptic loss and precede amyloid deposition in AD .If so, the CLU risk variant could increase AD risk in two ways, an early-acquired vulnerability paired with suboptimal amyloid processing in later life"
 SET Confidence = "High"
 SET MeSHAnatomy = {"Blood-Brain Barrier", "Oligodendroglia"}
@@ -186,8 +187,10 @@ a(NIFT:"Fractional anisotropy") decreases a(NIFT:"White matter")
 UNSET {Anatomy, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", " 22646481 "}
+
 SET SupportingText = " Abeta is widely accepted to be one of the major pathomechanisms underlying Alzheimer's disease (AD), although there is presently lively debate regarding the relative roles of particular species/forms of this peptide. Most recent evidence indicates that soluble oligomers rather than plaques are the major cause of synaptic dysfunction and ultimately neurodegeneration. Soluble oligomeric Abeta has been shown to interact with several proteins, for example glutamatergic receptors of the NMDA type and proteins responsible for maintaining glutamate homeostasis such as uptake and release. As NMDA receptors are critically involved in neuronal plasticity including learning and memory, we felt that it would be valuable to provide an up to date review of the evidence connecting Abeta to these receptors and related neuronal plasticity. Strong support for the clinical relevance of such interactions is provided by the NMDA receptor antagonist memantine. This substance is the only NMDA receptor antagonist used clinically in the treatment of AD and therefore offers an excellent tool to facilitate translational extrapolations from in vitro studies through in vivo animal experiments to its ultimate clinical utility"
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -259,8 +262,10 @@ bp(GOBP:"long term synaptic depression") association act(p(GFAM:"Glutamate ionot
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10797543"}
+
 SET SupportingText = "Low density lipoprotein receptor-related protein (LRP) participates in the uptake and degradation of several ligands implicated in neuronal pathophysiology including apolipoprotein E (apoE), activated alpha(2) -macroglobulin (alpha(2)M*) and beta-amyloid precursor protein (APP)."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -288,8 +293,10 @@ deg(p(HGNC:A2M)) association p(HGNC:LRP1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10806097"}
+
 SET SupportingText = "The large, promiscuous LRP receptor is thus far the only known receptor that binds to APPs containing the Kunitz-type proteinase inhibitor sequence (Kounnas et al., 1995; Knauer et al., 1996). LRP is also responsible for the clearance of other protease-protease-inhibitor complexes, such as a2- macroglobulin and tissue plaminogen activator inhibitor type 1"
 SET Confidence = "High"
 SET Subgraph = {"Alpha 2 macroglobulin subgraph", "Low density lipoprotein subgraph"}
@@ -305,8 +312,10 @@ act(p(HGNC:LRP1), ma(tport)) increases tloc(p(HGNC:SERPINE1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10936878"}
+
 SET SupportingText = "polymorphisms in three other genes (among others), apolipoprotein E (apoE), alpha2-macroglobulin (alpham), and the low density lipoprotein receptor-related protein (LRP), are implicated to contribute to AD pathogenesis"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -315,8 +324,10 @@ p(HGNC:LRP8) increases path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12117549"}
+
 SET SupportingText = "As LRP ligands associated with Abeta deposits in AD brain may play an important role in inducing levels of LRP in both neurons and astrocytes, our findings support the idea that apoE might be involved in upregulation of LRP (present in fine astrocytic processes) and act as a local scaffolding protein for LRP and Abeta."
 SET Confidence = "Medium"
 SET Subgraph = {"APOE subgraph", "Low density lipoprotein subgraph"}
@@ -330,8 +341,10 @@ p(HGNC:LRP1B) increases complex(p(HGNC:APOE), p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12212791"}
+
 SET SupportingText = " LDL receptor-related protein , a multifunctional ApoE receptor , binds secreted beta-amyloid precursor protein and mediates its degradation."
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -339,8 +352,10 @@ complex(p(HGNC:APP), p(HGNC:LRP1)) regulates deg(p(HGNC:APP))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14970312"}
+
 SET SupportingText = " Alzheimer's disease (AD) is an age-related disorder characterized by deposition of Amyloid beta and degeneration of neurons in brain regions such as the hippocampus, resulting in progressive cognitive dysfunction. The pathogenesis of AD is tightly linked to Amyloid beta deposition and oxidative stress, but it remains unclear as to how these factors result in neuronal dysfunction and death. We report alterations in sphingolipid and cholesterol metabolism during normal brain aging and in the brains of AD patients that result in accumulation of long chain ceramides and cholesterol. Membrane associated oxidative stress occurs in association with the lipid alterations, and exposure of hippocampal neurons to Amyloid beta induces membrane oxidative stress and the accumulation of ceramide species and cholesterol. Treatment of neurons with alpha-tocopherol or an inhibitor of sphingomyelin synthesis prevents accumulation of ceramides and cholesterol and protects them against death induced by Amyloid beta. Our findings suggest a sequence of events in the pathogenesis of AD in which Amyloid beta induces membrane-associated oxidative stress, resulting in perturbed ceramide and cholesterol metabolism which, in turn, triggers a neurodegenerative cascade that leads to clinical disease."
 SET Confidence = "High"
 SET MeSHAnatomy = "Hippocampus"
@@ -473,8 +488,10 @@ bp(GOBP:"regulation of lipid metabolic process") association p(HGNC:APP, frag("6
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14976144"}
+
 SET SupportingText = "Overactivation and mislocalization of p35/CDK5 could translate the deleterious effect of a combination of different pathological signals, such as amylin deposition, high levels of plasma lipoproteins, and high glucose levels, as dysregulation of p35/CDK5 in the central nervous system has been associated with the pathological abnormalities found in Alzheimer's disease (2, 29) and amyotrophic lateral sclerosis (30). It is possible that glucose-induced dysregulation of the p35/CDK5 pathway is a pathophysiological mechanism involved in the beta-cell dysfunction and the predisposition to apoptotic cell death associated with the progression of type 2 diabetes"
 SET Confidence = "Low"
 SET Subgraph = {"Cyclin-CDK subgraph", "Insulin signal transduction", "Low density lipoprotein subgraph"}
@@ -494,8 +511,10 @@ act(complex(p(HGNC:CDK5), p(HGNC:CDK5R1))) increases complex(GOCC:"plasma lipopr
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15261762"}
+
 SET SupportingText = "27-hydroxycholesterol results in decreased activity of SMPD2 protein"
 SET Confidence = "Medium"
 SET Subgraph = {"Interleukin signaling subgraph", "Low density lipoprotein subgraph"}
@@ -503,8 +522,10 @@ a(CHEBI:"(25R)-cholest-5-ene-3beta,26-diol") decreases p(HGNC:SMPD2)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15294142"}
+
 SET SupportingText = "Thus , low-affinity LRP/Abeta interaction and/or Abeta-induced LRP loss at the BBB mediate brain accumulation of neurotoxic Abeta."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -512,8 +533,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:LRP1)) increases path(HBP:neurotoxi
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15772078"}
+
 SET SupportingText = "Increasing evidence suggests that the low density lipoprotein receptor-related protein ( LRP ) affects the processing of amyloid precursor protein ( APP ) and amyloid beta ( Abeta ) protein production as well as mediates the clearance of Abeta from the brain."
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -537,8 +560,10 @@ p(HGNC:LRP1) regulates bp(GO:"GO:0097242")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "1632469 "}
+
 SET SupportingText = "The distribution of LRP in the central nervous system is consistent with the potential function of this receptor in the regulation of proteinase activity, cytokine activity, and cholesterol metabolism."
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -566,8 +591,10 @@ act(a(MESHC:Cytokines)) association p(HGNC:LRP1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16930450"}
+
 SET SupportingText = "SorLA has been shown to be down regulated in Alzheimer's disease brains, interact with ApoE, and pmodulate Abeta production"
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -579,8 +606,10 @@ p(HGNC:SORL1) association a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17012232"}
+
 SET SupportingText = "Our results support the hypothesis that LRP binds and endocytoses Abeta42 both directly and via apoE but that endocytosed Abeta42 is not completely degraded and accumulates in intraneuronal lysosomes."
 SET Confidence = "Medium"
 SET Subgraph = {"APOE subgraph", "Low density lipoprotein subgraph"}
@@ -592,8 +621,10 @@ p(HGNC:LRP1) increases complex(p(HGNC:APP, frag("672_713")), p(HGNC:LRP1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17185504"}
+
 SET SupportingText = "Abeta is derived from proteolytic processing of the amyloid precursor protein (APP), which interacts with several members of the LDLR family."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -607,8 +638,10 @@ p(HGNC:LDLR) increases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17428983"}
+
 SET SupportingText = " Abeta is a fragment of amyloid-beta precursor protein (APP) generated in neurons by two proteases, beta- and gamma-secretases. APP and beta-secretase, both present on cell surface, are endocytosed into endosomes to produce Abeta. The molecular mechanism by which neurons trigger the production of Abeta is poorly understood. We describe here evidence that the binding of lipid-carrying apolipoprotein E (ApoE) to receptor apolipoprotein E receptor 2 (ApoER2) triggers the endocytosis of APP, beta-secretase, and ApoER2 in neuroblastoma cells, leading to the production of Abeta. This mechanism, mediated by adaptor protein X11alpha or X11beta (X11alpha/beta), whose PTB (phosphotyrosine-binding) domain binds to APP and a newly recognized motif in the cytosolic domain of ApoER2. Isomorphic form ApoE4 triggers the production of more Abeta than by ApoE2 or ApoE3; thus, it may play a role in the genetic risk of ApoE4 for the sporadic AD."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -627,8 +660,10 @@ complex(p(HGNC:APBA3), p(HGNC:APP), p(HGNC:LRP8)) increases complex(p(HGNC:APOE)
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17694066"}
+
 SET SupportingText = "Recombinant LRP cluster IV ( LRP-IV ) bound Abeta in plasma in mice and Alzheimer 's disease-affected humans with compromised sLRP-mediated AAbetabinding , and reduced Abeta-related pathology and dysfunction in a mouse pmodel of Alzheimer disease , suggesting that LRP-IV can effectively replace native sLRP and clear AAbeta"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -640,8 +675,10 @@ p(HGNC:LRP1) association deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17975299"}
+
 SET SupportingText = "polymorphisms across the neuronal sortilin-related receptor (SORL1) gene were shown to be significantly associated with AD in several cohorts"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -655,8 +692,10 @@ g(HGNC:SORL1) association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18191876"}
+
 SET SupportingText = "A total sample of 169 AD patients, and 264 age- and sex-matched unrelated caregivers from Apulia, southern Italy, were genotypized for alpha-2-macroglobulin (A2M) Val1000/Ile single-nucleotide polymorphism (SNP) (rs669), apolipoprotein E (APOE), and SNPs (+1073 and +1071) in the oxidized low-density lipoprotein receptor-1 (OLR1) gene on chromosome 12"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -708,8 +747,10 @@ g(HGNC:A2M) causesNoChange path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18288927"}
+
 SET SupportingText = "Following this export Abeta is degraded in the liver, where LRP1 potentially conducts the removal of Abeta from the blood stream"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Liver"
@@ -728,8 +769,10 @@ act(p(HGNC:LRP1), ma(tport)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18650430"}
+
 SET SupportingText = "Endocytic APP Sorting and ABeta¸ ProductionÃ¢â‚¬â€�Mutations within the YENPTY endocytosis motif selectively inhibit APP internalization and decrease ABeta¸ generation. This motif and the flanking region serve as the binding site for many cytosolic adaptors with phosphotyrosine-binding domains, including Fe65, Fe65L1, Fe65L2, Mint1 (also called X11a), Mint2, Mint3, Dab1, and JNK (c-Jun N-terminal kinase)-interacting protein family members. Interestingly, Fe65 acts as a functional linker between APP and LRP (another type I membrane protein containing two NPXY endocytosis motifs) in modulating endocytic APP trafficking and ABeta¸ production. A conformational change introduced by phosphorylation at Thr668 (14 amino acids proximal to the YENPTY motif) interferes with Fe65 binding to APP and facilitates BACE1 and gamma-secretase cleavage of APP. Moreover, Fe65 stabilizes the highly labile AICD, which may serve as a regulatory step in modulating the physiological function of AICD (see below). In addition to APP, Mint proteins can directly bind ADP-ribosylation factors; thus, Mint proteins can potentially regulate vesicular trafficking of APP by serving as coat proteins. Finally, the type I transmembrane protein SorLA/LR11 (a member of the VPS10p domain receptor family), which functionally interacts with cytosolic adaptors GGA and PACS-1, attenuates ABeta¸ production by acting as a Golgi/TGN retention factor. SorLA/LR11 is also genetically associated with AD, thus further implicating this sorting molecule in APP biology"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -833,8 +876,10 @@ composite(p(HGNC:GGA3), p(HGNC:PACS1), p(HGNC:SORL1)) decreases p(HGNC:APP, frag
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18675468"}
+
 SET SupportingText = "Interaction of the protein reelin with the apolipoprotein E receptor (ApoER2) enhances Ca2+ influx through NMDA receptor channels by a mechanism involving a src family tyrosine kinsase (SFk); ApoE can block this effect of reelin"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -858,8 +903,10 @@ act(p(SFAM:"SRC Family")) directlyIncreases act(p(GFAM:"Glutamate ionotropic rec
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19237574"}
+
 SET SupportingText = "The surface levels of both APP and LRP1 (low-density lipoprotein receptor-related protein 1), which are known to comigrate during trafficking, were dramatically reduced after metformin treatment as detected by biotinylation assays, whereas their total protein levels remained unchanged (Fig. 1D). However, the surface and the total BACE1 were markedly increased by metformin. Through further subfractionation, using sucrose gradients, we showed that metformin treatment caused changes in the compartmentalization of APP, as evidenced by increased distribution in trans-Golgi network (TGN) vesicles (fraction 2), including those trafficks en route to early endosomes and TGN (fraction 3), and decreased distribution in membranes (fraction 5) (Fig. S1 B and C). BACE1 protein levels were found to be elevated in all 3 fractions: 2, 3, and 5, with an â‰ˆ2-fold increase of the total protein. The increased distribution of both APP and BACE1 in fractions 2 and 3 are expected to favor Abeta generation within TGN and/or endocytic compartments, the two compartments with mild acidic pH optimal for BACE1 activity (33, 34). Indeed, we detected increased immunofluorescent Abeta40 signals after metformin treatment in TGN (Fig. 1E)."
 SET Confidence = "High"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -867,8 +914,10 @@ a(CHEBI:metformin) decreases tloc(p(HGNC:LRP1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19515914"}
+
 SET SupportingText = "The extracellular domain of APP interacts with the extracellular matrix (ECM) protein F-spondin. F-spondin also interacts with members of the LDL receptor family.Reelin is another large, multi-domain, extracellular protein that interacts with members of the LDL receptor family.Reelin affects neurite outgrowth in vitro and regulates neuronal migration in development via phosphorylation of the cytoplasmic adaptor protein Disabled (Dab-1). Dab-1 interacts with the cytoplasmic domains of the proteins in the LDL receptor and APP families.Another important class of molecules involved in neurite outgrowth, cell adhesion, and cell migration is the family of integrins.Integrins are transmembrane proteins that form the link between the ECM and intracellular components. APP interacts and colocalizes with ÃƒÅ¸1 integrin, a molecule that is important for proper laminar organization and capable of enhancing neurite outgrowth. ÃƒÅ¸1 integrin interacts with Reelin, and this interaction is important for its effects on neuronal migration.we observed that interactions between Reelin, APP, and a3ÃƒÅ¸1 integrin promote neurite outgrowth in cultured neurons and that APP and Reelin affected dendritic processes in vivo."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph", "Reelin signaling subgraph"}
@@ -982,8 +1031,10 @@ complex(p(HGNC:RELN), p(HGNC:VLDLR)) association bp(GOBP:"regulation of neuron m
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19519303"}
+
 SET SupportingText = "The amyloid hypothesis of AD suggests that -amyloid accumulation is the critical event in development of disease (I 49, I 50]. Lots of research has been done on the formation and accumulation of Al3, however, in the last years the mechanism' of amyloid clearance came into focus. For Al3 clearance several mechanisms are known (Fig. 2): i) EnzyÂ­ matic degradation by activated microglia or by insulin deÂ­ grading enzyme (IDE), neprilysin, endothelin converting enzyme (ECE), and angiotensin converting enzyme (ACE); ii) Receptor-mediated transport across the blood brain barrier (BBB) by binding to the low-density lipoprotein receptorÂ­ related protein (LRP) either directly or after binding to apolÂ­ ipoprotein E (ApoE) and/or a2-macroglobulin (a2M) to be delivered to peripheral sites of degradation, e.g., liver and kidney. (Review in [151 ]). Concerning insulin resistance it has been shown that IDE expression is stimulated by the IR/lGF-1 R cascade (152]. "
 SET Confidence = "Medium"
 SET Subgraph = {"Alpha 2 macroglobulin subgraph", "Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -1019,8 +1070,10 @@ complex(a(CHEBI:"amyloid-beta"), p(HGNC:A2M), p(HGNC:LRP1)) association deg(a(CH
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19665999"}
+
 SET SupportingText = "Low-density lipoprotein receptor-related protein 1 (LRP1) is a multifunctional endocytic receptor that plays critical roles in the pathogenesis of several human diseases including tumor metastasis and Alzheimer's disease. However, mechanisms that regulate LRP1 expression under physiological and pathophysiological conditions are not unclear. In human cell lines, we found that miR-205 down-regulates the expression of LRP1 by targeting sequences in the 3'UTR of LRP1 mRNA. This effect was abolished by deleting the miR-205 seed site in the 3'UTR of LRP1. The ectopic expression of miR-205 also significantly mitigated migration of both U87 and SK-LU-1 cells. These results, for the first time, demonstrate that expression of human LRP1 is regulated in part by a specific miRNA, leading to decreased tumor cell migration."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "miRNA subgraph"}
@@ -1036,8 +1089,10 @@ m(HGNC:MIR205) association r(HGNC:LRP1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20005821"}
+
 SET SupportingText = "Furthermore, LDLR overexpression dramatically reduced A beta aggregation and enhanced A beta clearance from the brain extracellular space. "
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -1055,8 +1110,10 @@ p(HGNC:LDLR) increases complex(p(HGNC:APOE), p(HGNC:LDLR))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20049331"}
+
 SET SupportingText = "The low-density lipoprotein receptor (LDLR) has the highest affinity for apoE and plays an important role in brain cholesterol metabolism.These data suggest that increased APP expression and Abeta exposure alters microtubule function, leading to reduced transport of LDLR to the plasma membrane. Consequent deleterious effects on apoE uptake and function will have implications for AD pathogenesis and/or progression"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1090,8 +1147,10 @@ bp(GOBP:"cholesterol metabolic process") association p(HGNC:LDLR)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20061608"}
+
 SET SupportingText = "low density lipoprotein cholesterol (p=0.020), and triglycerides (p=0.039)."
 SET Confidence = "Medium"
 SET Disease = "type 2 diabetes mellitus"
@@ -1115,8 +1174,10 @@ a(CHEBI:triglyceride) positiveCorrelation p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20232416"}
+
 SET SupportingText = "Low-density lipoprotein receptor (LDLR) is a major apolipoprotein E (APOE) receptor and thereby is critical to cholesterol homeostasis.We interpret these results as suggesting that SFRS13A regulates LDLR splicing efficiency and may therefore emerge as a modulator of cholesterol homeostasis."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -1135,8 +1196,10 @@ p(HGNC:SRSF10) regulates p(HGNC:LDLR)
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20351102"}
+
 SET SupportingText = "We have now analyzed this process in greater detail and found that the IGF-I receptor interacts with the transmembrane region of megalin, whereas the perimembrane domain of megalin is required for IGF-I internalization."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Low density lipoprotein subgraph"}
@@ -1152,8 +1215,10 @@ p(HGNC:IGF1) association p(HGNC:LRP2)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20427281"}
+
 SET SupportingText = "We have previously identified the E3 ubiquitin ligase-inducible degrader of the low density lipoprotein receptor (LDLR) (Idol) as a post-translational modulator of LDLR levels. Idol is a direct target for regulation by liver X receptors (LXRs), and its expression is responsive to cellular sterol status independent of the sterol-response element-binding proteins. Here we demonstrate that Idol also targets two closely related LDLR family members, VLDLR and ApoE receptor 2 (ApoER2), proteins implicated in both neuronal development and lipid metabolism. Idol triggers ubiquitination of the VLDLR and ApoER2 on their cytoplasmic tails, leading to their degradation.We demonstrate that LXR activation results in decreased Reelin binding to VLDLR and reduced Dab1 phosphorylation. The identification of VLDLR and ApoER2 as Idol targets suggests potential roles for this LXR-inducible E3 ligase in the central nervous system in addition to lipid metabolism."
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Ubiquitin degradation subgraph"}
@@ -1225,8 +1290,10 @@ g(HGNC:LRP8) increases bp(GOBP:"lipid metabolic process")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20518072"}
+
 SET SupportingText = "SMPD2 protein results in increased abundance of Ceramides"
 SET Confidence = "Medium"
 SET Subgraph = {"Interleukin signaling subgraph", "Low density lipoprotein subgraph"}
@@ -1234,8 +1301,10 @@ p(HGNC:SMPD2) increases a(CHEBI:ceramide)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20568118"}
+
 SET SupportingText = "Dab1 significantly decreased the amount of APP bound to LRP and the level of secreted APP and APP-CTF in LRP expressing cells, unlike Fe65. It implies that overexpression of Dab1 diminish LRP-APP complex formation, resulting in altered APP processing."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1244,8 +1313,10 @@ p(HGNC:DAB1) decreases complex(p(HGNC:APP), p(HGNC:LRP1))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20637285"}
+
 SET SupportingText = "In the brain, megalin is expressed in brain capillaries, ependymal cells and choroid plexus, where it participates in the clearance of brain amyloid beta-peptide (Abeta) complex.Additionally, given that FE65 mediates the interaction between the low density lipoprotein receptor-related protein-1 and the amyloid precursor protein (APP) to modulate the rate of APP internalization from the cell surface, we hypothesize that megalin could also interact with APP in neurons."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -1264,8 +1335,10 @@ complex(p(HGNC:APP), p(HGNC:LRP1)) regulates tloc(p(HGNC:APP), fromLoc(GOCC:"cel
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21192821"}
+
 SET SupportingText = "Protein kinase C and rho activated coiled coil protein kinase 2 (ROCK2) modulate Alzheimer's APP metabolism and phosphorylation of the Vps10-domain protein, SorL1.Generation of the amyloid ÃƒÅ¸ (ABeta¸) peptide of Alzheimer's disease (AD) is differentially regulated through the intracellular trafficking of the amyloid ÃƒÅ¸ precursor protein (APP) within the secretory and endocytic pathways. Protein kinase C (PKC) and rho-activated coiled-coil kinases (ROCKs) are two third messenger signaling molecules that control the relative utilization of these two pathways."
 SET Confidence = "High"
 SET Subgraph = {"Gamma secretase subgraph", "Low density lipoprotein subgraph"}
@@ -1283,8 +1356,10 @@ complex(p(HGNC:ROCK2), p(HGNC:SORL1)) increases a(HBP:"sAPP-alpha")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21244351"}
+
 SET SupportingText = "Soluble oligomers of the Amyloid beta peptide accumulate in Alzheimer's disease (AD) brain and have been implicated in mechanisms of pathogenesis. The neurotoxicity of Amyloid beta appears to be, at least in part, due to dysregulation of glutamate signaling. Here, we show that Amyloid beta promote extracellular accumulation of glutamate and d-serine, a co-agonist at glutamate receptors of the N-methyl-d-aspartate subtype (NMDARs), in hippocampal neuronal cultures. Activation of inhibitory GABA(A) receptors by taurine blocked the increase in extracellular glutamate levels, suggesting that selective pharmacological inhibition of neuronal activity can counteract the impact of Amyloid beta on glutamate dyshomeostasis. Results reveal a novel mechanism by which Ab oligomers promote abnormal release of glutamate in hippocampal neurons, which may contribute to dysregulation of excitatory signaling in the brain"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Hippocampus"
@@ -1322,8 +1397,10 @@ a(MESH:D005971) decreases bp(GOBP:"positive regulation of synaptic transmission"
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21280075"}
+
 SET SupportingText = "Sorting mechanisms that cause the amyloid precursor protein (APP) and the ÃƒÅ¸-secretases and gamma-secretases to colocalize in the same compartment play an important role in the regulation of ABeta¸ production in Alzheimer's disease (AD). We and others have reported that genetic variants in the Sortilin-related receptor (SORL1) increased the risk of AD, that SORL1 is involved in trafficking of APP, and that underexpression of SORL1 leads to overproduction of ABeta¸. Here we explored the role of one of its homologs, the sortilin-related VPS10 domain containing receptor 1 (SORCS1), in AD.SorCS1 influenced APP processing. While overexpression of SorCS1 reduced gamma-secretase activity and ABeta¸ levels, the suppression of SorCS1 increased gamma-secretase processing of APP and the levels of ABeta¸."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -1339,8 +1416,10 @@ p(HGNC:SORCS1) directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21311715"}
+
 SET SupportingText = "PPARa/gamma and their agonists positively control megalin expression"
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1354,8 +1433,10 @@ p(HGNC:PPARA) directlyIncreases g(HGNC:LRP2)
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21399480"}
+
 SET SupportingText = "AD risk may be attenuated by antipsychotics and lithium (down-regulate TNF), atypical antipsychotics (down-regulate TF), risperidone (down-regulates IL1B), olanzapine (up-regulates TFAM, down-regulates PRNP), fluoxetine (up-regulates CLU, SORCS1, NEDD9, GRN, and ECE1), and lithium coadministered with antipsychotics (down-regulates IL1B). "
 SET Confidence = "High"
 SET Subgraph = {"Glutamatergic subgraph", "Low density lipoprotein subgraph", "NMDA receptor"}
@@ -1363,8 +1444,10 @@ a(CHEBI:fluoxetine) increases p(HGNC:SORCS1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21676498"}
+
 SET SupportingText = "Inheritance of the ε4 allele of apolipoprotein E (ApoE) is the only confirmed and consistently replicated risk factor for late onset Alzheimer's disease (AD). ApoE is also a key ligand for low-density lipoprotein (LDL) receptor-related protein (LRP), a major neuronal low-density lipoprotein receptor. ApoE and LRP mRNA expression was significantly elevated in the postmortem inferior temporal gyrus (area 20) and the hippocampus from individuals with dementia compared with those with intact cognition. In addition to their strong association with the progression of cognitive dysfunction, LRP and ApoE mRNA levels were also positively correlated with increasing neuropathological hallmarks of AD. Additionally, Western blot analysis of ApoE protein expression in the hippocampus showed that the differential expression observed at the transcriptional level is also reflected at the protein level. Given the critical role played by LRP and ApoE in amyloid beta (Abeta) and cholesterol trafficking, increased expression of LRP and ApoE may not only disrupt cholesterol homeostasis but may also contribute to some of the neurobiological features of AD, including plaque deposition."
 SET Confidence = "High"
 SET Subgraph = {"APOE subgraph", "Low density lipoprotein subgraph"}
@@ -1420,8 +1503,10 @@ r(HGNC:LRP1) positiveCorrelation r(HGNC:APOE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21709374"}
+
 SET SupportingText = "The oxidized LDL receptor 1 gene (OLR1) rs1050283 single nucleotide polymorphism (SNP) has been previously shown to be associated with Alzheimer's disease (AD). An association analysis of OLR1 was carried out in a population of 443 patients with AD as compared with 393 age-matched controls. In addition, an expression analysis of OLR1 and its regulatory hsa-miR369-3p was performed in peripheral mononuclear blood cells (PBMC) from 20 patients and 15 controls. Logistic regression analysis, adjusted for gender and apolipoprotein E (ApoE) status, showed a statistically significant association of OLR1 rs1050283 under the assumption of a dominant model (CC and CT individuals versus TT: p = 0.014, OR: 1.50, 95%CI: 1.08-2.08) and a genotypic model (TC versus TT: p = 0.002, OR: 1.61, 95%CI: 1.14-2.26). No significant differences in OLR1 expression was observed between patients and controls (p > 0.05). However, stratifying patients according to the rs1050283 status, significantly decreased relative PBMC expression levels of OLR1 were observed in carriers of CC+CT genotypes as compared with TT carriers (0.13 ÃƒbetaÃ‚Â± 0.013 versus 0.46 Ãƒâ€šÃ‚Â± 0.028, p = 0.022), whereas no differences in relative expression levels of the hsa-miR369-3p were observed (p > 0.05). The effect observed was not due to the presence of the ApoE ε4 allele. The OLR1 rs1050283 SNP likely acts as a risk factor for sporadic AD. The presence of at least one C allele is associated with a decreased expression of OLR1 mRNA in the absence of hsa-miR369-3p de-regulation, suggesting that the presence of the polymorphic allele influences the binding of hsa-miR369-3p to its 3'UTR consensus sequence. Nevertheless, the limited power of the study requires further investigations with a larger sample size."
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -1457,8 +1542,10 @@ m(HGNC:MIR369) association r(HGNC:OLR1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21720686"}
+
 SET SupportingText = "The availability of megalin at the cell surface is controlled by several regulatory mechanisms, including the phosphorylation of its cytoplasmic domain by GSK3, the proteolysis of the extracellular domain at the cell surface (shedding), the subsequent intramembrane proteolysis of the transmembrane domain by the gamma-secretase complex, and exosome secretion"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -1467,8 +1554,10 @@ p(SFAM:"GSK3 Family") regulates p(HGNC:LRP2, pmod(Ph))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21873229"}
+
 SET SupportingText = "Binding to lipid and heparan sulfate proteoglycans (HSPG) induces apoE to adopt active conformations for binding to low-density lipoprotein receptor (LDLR) family. ApoE also interacts with beta amyloid peptide, manifests critical isoform-specific effects on Alzheimer's disease."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1487,8 +1576,10 @@ complex(a(CHEBI:lipid), p(HGNC:APOE), p(HGNC:HSPG2)) increases complex(p(HGNC:AP
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21942811"}
+
 SET SupportingText = "A panel of five markers (CCL5, CSF1, ICAM1, IL8, TNF) with detectable expression levels in all individuals differed between AD patients"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -1497,8 +1588,10 @@ p(HGNC:ICAM1) biomarkerFor path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21968187"}
+
 SET SupportingText = "Neuronal Fe65 is a central adapter for the intracellular protein network of Alzheimer's disease related amyloid precursor protein (APP). It contains a unique tandem array of phosphotyrosine-binding (PTB) domains that recognize NPXY internalization motifs present in the intracellular domains of APP (AICD) and the low-density lipoprotein receptor-related protein LRP1 (LICD). The ternary APP/Fe65/LRP1 complex is an important mediator of APP processing and affects Abeta-amyloid peptide production. Here we dissect by biochemical and biophysical methods the direct interactions within the ternary complex and reveal a phosphorylation-dependent insulin receptor substrate (IRS-) like interaction of the distal NPVY(4507) motif of LICD with Fe65-PTB1."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -1512,8 +1605,10 @@ complex(p(HGNC:APBB1), p(HGNC:APP), p(HGNC:LRP1)) increases rxn(reactants(p(HGNC
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22038977"}
+
 SET SupportingText = "Neuromuscular synapse formation requires an exchange of signals between motor neurons and muscle. Agrin, supplied by motor neurons, binds to Lrp4 in muscle, stimulating phosphorylation of MuSK and recruitment of a signaling complex essential for synapse-specific transcription and anchoring of key proteins in the postsynaptic membrane. Lrp4, like the LDLR and other Lrp-family members, contains an intracellular region with motifs that can regulate receptor trafficking, as well as assembly of an intracellular signaling complex."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1527,8 +1622,10 @@ p(HGNC:MUSK, pmod(Ph)) increases bp(GOBP:"transmission of nerve impulse")
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22383525"}
+
 SET SupportingText = "Cellular uptake and degradation by glial cells is one means by which ABeta¸ may be cleared from the brain. In the current study, we demonstrate that modulating levels of the low-density lipoprotein receptor (LDLR), a cell surface receptor that regulates the amount of apolipoprotein E (apoE) in the brain, altered both the uptake and degradation of ABeta¸ by astrocytes. Deletion of LDLR caused a decrease in ABeta¸ uptake, while increasing LDLR levels significantly enhanced both the uptake and clearance of ABeta¸. Increasing LDLR levels also enhanced the cellular degradation of ABeta¸ and facilitated the vesicular transport of ABeta¸ to lysosomes. Despite the fact that LDLR regulated the uptake of apoE by astrocytes, we found that the effect of LDLR on ABeta¸ uptake and clearance occurred in the absence of apoE. Finally, we provide evidence that ABeta¸ can directly bind to LDLR, suggesting an interaction between LDLR and ABeta¸ could be responsible for LDLR-mediated ABeta¸ uptake. Therefore, these results identify LDLR as a receptor that mediates ABeta¸ uptake and clearance by astrocytes, and provide evidence that increasing glial LDLR levels may promote ABeta¸ degradation within the brain"
 SET Confidence = "High"
 SET Subgraph = {"Endosomal lysosomal subgraph", "Low density lipoprotein subgraph"}
@@ -1560,8 +1657,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:LDLR)) increases deg(p(HGNC:APP, fr
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22410445"}
+
 SET SupportingText = "Our studies identified a SORL1 haplotype in the 3' gene region consisting of single-nucleotide polymorphisms rs1699102 and rs2070045 that is associated with poor receptor expression in the brain of patients with Alzheimer disease. "
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -1589,8 +1688,10 @@ g(DBSNP:rs2070045) decreases bp(GOBP:"pre-B cell receptor expression")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22429478"}
+
 SET SupportingText = "In the present study, we tested whether FE65 can interact with another ApoE receptor, VLDLR, thereby altering its trafficking and processing, and whether FE65 can serve as a linker between APP and VLDLR"
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1626,8 +1727,10 @@ complex(p(HGNC:APBB1), p(HGNC:LRP8)) association deg(p(HGNC:LRP8))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22496686"}
+
 SET SupportingText = "ApoE was reported to induce Dab1 phosphorylation and ERK1/2 activation and JNK inhibition via LRPs. This pathway depends on the presence of Ca++ influx through the NMDA receptor, but it is independent of Dab1.Overall these data indicate a likely involvement of LRP8 as modulator of AbetaPP processing, by affecting its endocytic trafficking and the proportion of AbetaPP present in lipid rafts. These events may have consequence on the gamma-secretase-mediated cleavage of AbetaPP and on its neurodegeneration-related signaling activity."
 SET CellStructure = "Centrosome"
 SET Condition = "Normal Healthy State"
@@ -1914,8 +2017,10 @@ p(SFAM:"p160/SRC Family") increases act(p(HGNC:LRP8))
 UNSET {CellStructure, Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22580286"}
+
 SET SupportingText = "Treatment of neurons with ApoB-containing LDL cholesterol increased endolysosome accumulation of cholesterol, enlarged endolysosomes, and elevated endolysosome pH. In addition, ApoB-containing LDL cholesterol increased endolysosome accumulation of BACE-1, enhanced BACE-1 activity, increased Abeta levels, increased levels of phosphorylated tau, and decreased levels of synaptophysin."
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -1959,8 +2064,10 @@ complex(a(MESHC:"Lipoproteins, LDL"), p(HGNC:APOB)) decreases p(HGNC:SYP)
 UNSET {Confidence, Subgraph, UserdefinedCellLine}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22673115"}
+
 SET SupportingText = "The retromer complex is a conserved protein complex required for endosome-to-Golgi retrieval of a number of physiologically important membrane proteins including SorL1"
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1969,8 +2076,10 @@ act(complex(GOCC:"retromer complex"), ma(tport)) directlyIncreases tloc(p(HGNC:S
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22727043"}
+
 SET SupportingText = "SORLA is proposed to act as a retention factor for APP in the TGN, preventing the release of precursor molecules into the processing pathways. Consequently, over-expression of SORLA in neurons prevents the targeting of APP from TGN to the cell surface and to endosomes and reduces the production of Abeta peptides [9-11]. The importance of SORLA for AD is further supported by low levels of receptor expression seen in patients suffering from the disease"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -1986,8 +2095,10 @@ act(p(HGNC:SORL1), ma(tport)) directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23167255"}
+
 SET SupportingText = "APP (amyloid precursor protein) and LRP1 (low-density lipoprotein receptor-related protein 1) have been implicated in the pathogenesis of AD (Alzheimer's disease). They are functionally linked by Fe65, a PTB (phosphotyrosine-binding)-domain-containing adaptor protein that binds to intracellular NPxY-motifs of APP and LRP1, thereby influencing expression levels, cellular trafficking and processing. Additionally, Fe65 has been reported to mediate nuclear signalling in combination with intracellular domains of APP and LRP1. We have previously identified another adaptor protein, GULP1 (engulfment adaptor PTB-domain-containing 1). In the present study we characterize and compare nuclear trafficking and transactivation of GULP1 and Fe65 together with APP and LRP1 and report differential nuclear trafficking of adaptors when APP or LRP1 are co-expressed. The observed effects were additionally supported by a reporter-plasmid-based transactivation assay. The results from the present study indicate that Fe65 might have signalling properties together with APP and LRP1, whereas GULP1 only mediates LRP1 transactivation."
 SET Confidence = "High"
 SET Subgraph = {"Amyloidogenic subgraph", "Low density lipoprotein subgraph"}
@@ -2007,8 +2118,10 @@ r(HGNC:LRP1) increases p(HGNC:LRP1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23254638"}
+
 SET SupportingText = "GSNO treatment (50 Î¼g/kg/day for 2 months) significantly improved learning and memory performance of BCCAO rats and reduced the Abeta levels and ICAM-1/VCAM-1 expression in the brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -2018,8 +2131,10 @@ a(CHEBI:"S-nitrosoglutathione") decreases p(RGD:Icam1)
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23279143"}
+
 SET SupportingText = "Both in vitro and in vivo, overexpression of the sortilin-related VPS10 domain containing receptor 1 (SORCS1) protein lowers amyloid-beta generation."
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -2077,8 +2192,10 @@ path(MESHD:"Diabetes Mellitus, Type 2") association p(HGNC:SORCS1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23565137"}
+
 SET SupportingText = "GWAS Central"
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -2090,8 +2207,10 @@ g(DBSNP:rs11218343) association g(HGNC:SORL1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24162737"}
+
 SET SupportingText = "GWAS Central"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2105,8 +2224,10 @@ g(DBSNP:rs11218343) association g(HGNC:SORL1)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24691121"}
+
 SET SupportingText = "Following stimulation with IL-1beta and TNF-Î±, activated astrocytes newly produced IL-1beta, IL-1ra, TNF-Î±, IP-10 (CXCL10), MIP-1Î± (CCL3) and RANTES (CCL5), in addition to the induction of sICAM-1 and complement component 5. Database search indicated that most of cytokines and chemokines produced by non-stimulated and activated astrocytes are direct targets of the transcription factor NF-kB."
 SET Confidence = "High"
 SET MeSHAnatomy = "Astrocytes"
@@ -2116,8 +2237,10 @@ a(MESH:D001253) increases p(HGNC:ICAM1)
 UNSET {Confidence, MeSHAnatomy, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "25570489"}
+
 SET SupportingText = "After false discovery rate correction, we observed 53 significant associations between SNPs and our imaging features, including associations of ventricular enlargement with SNPs on estrogen receptor 1 (ESR1) and sortilin-related VPS10 domain containing receptor 1 (SORCS1), hippocampal atrophy with SNPs on ESR1, and cerebral atrophy with SNPs on transferrin (TF) and amyloid beta precursor protein (APP)."
 SET Confidence = "High"
 SET Subgraph = "Low density lipoprotein subgraph"
@@ -2129,8 +2252,10 @@ a(NIFT:"Ventricular expansion") association p(HGNC:SORCS1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26996954"}
+
 SET SupportingText = "SORL1 regulates and traps APP in the Golgi apparatus and reduces the production of the amyloid-beta peptide (Abeta), the main component of senile plaques in AD4. Cell biology experiments have indicated that SORL1 underexperssion leads to overproduction of Abeta3 , whereas SORL1 overexpression considerably reduces cellular APP and extracellular Abeta5. Although the underlying mechanisms of SORL1 in AD and neurodegenerative processes remain unclear, a recent comprehensive review on multiple functional domains of SORL1 suggested that SORL1 can assume various characters in AD pathogenesis"
 SET CellStructure = "Golgi Apparatus"
 SET Confidence = "High"
@@ -2266,8 +2391,10 @@ a(NIFT:"Grey matter volume") association p(HGNC:SORL1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "27176073"}
+
 SET SupportingText = "Finally, sex-specific gene variations in the VDR and megalin genes have been shown to modify age-related cognitive decline in a cohort of US adults aged 50 years and older."
 SET Confidence = "High"
 SET Subgraph = {"Cholesterol metabolism subgraph", "Low density lipoprotein subgraph"}
@@ -2275,3 +2402,5 @@ g(HGNC:LRP2, var("?")) increases bp(GOBP:cognition)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

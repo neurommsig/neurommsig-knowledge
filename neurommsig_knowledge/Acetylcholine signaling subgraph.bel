@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:46 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:24 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"PubMed", "11039729"}
+
 SET SupportingText = "The results of the present study, thus, suggest that nefiracetam enhances activity of nicotinic ACh receptors by interacting with a PKC pathway, thereby increasing glutamate release from presynaptic terminals, and then leading to a sustained facilitation of hippocampal neurotransmission. This may represent a cellular mechanism underlying the cognition-enhancing action of nefiracetam. The results also provide the possibility that nefiracetam could be developed as a promising therapeutic drug for senile dementia or Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "GABA subgraph", "NMDA receptor"}
@@ -146,8 +147,10 @@ complex(a(CHEBI:nefiracetam), p(HGNC:PRKCA)) increases act(p(HGNC:CHRNB4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11230880"}
+
 SET SupportingText = "Galantamine increases the availability of ACh in the cholinergic synapse by competitively inhibiting AChE, the enzyme responsible for its breakdown. Galantamine also potentiates cholinergic neurotransmission by positively modulating the response of nAChRs to ACh."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -203,8 +206,10 @@ a(CHEBI:galanthamine) increases act(p(HGNC:CHRNB4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11711029"}
+
 SET SupportingText = "Estradiol inhibits the reaction [Acetylcholine affects the activity of [CHRNA3 protein binds to CHRNB4 protein]]"
 SET Confidence = "Medium"
 SET Species = "9606"
@@ -218,8 +223,10 @@ a(MESHC:Acetylcholine) regulates act(complex(p(HGNC:CHRNA3), p(HGNC:CHRNB4)))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11956956"}
+
 SET SupportingText = "This abnormality along with a reduction in brain insulin concentration is assumed to induce a cascade-like process of disturbances including cellular glucose, acetylcholine, cholesterol, and ATP associated with abnormalities in membrane pathology and the formation of both amyloidogenic derivatives and hyperphosphorylated tau protein."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -229,8 +236,10 @@ act(p(HGNC:INS)) regulates bp(GOBP:"acetylcholine metabolic process")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12007670"}
+
 SET SupportingText = "Alzheimer disease (AD) is associated with a decreased APP forms ratio (APPr) between the three major forms. This study demonstrated that donepezil, a drug acting as an inhibitor of acetylcholinesterase, affects APP metabolism in Alzheimer disease, restoring the ratio of APP forms in platelets up to the normal range after 4 weeks of treatment."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -246,8 +255,10 @@ a(CHEBI:donepezil) regulates bp(GOBP:"amyloid precursor protein metabolic proces
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12214130"}
+
 SET SupportingText = "Two novel missense point mutations, Ser413Leu in the CHRNA4 gene and Gln397Pro in the CHRNB2 gene, were identified in two different AD cases but were not found in other AD cases and controls. These findings suggested that genetic polymorphisms of the neuronal nAChR genes might be related to the pathogenesis of sporadic AD."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -271,8 +282,10 @@ p(HGNC:CHRNB2, var("p.Gln397Pro")) association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12633900"}
+
 SET SupportingText = "Cyclosporine A inhibits acetylcholinesterase activity in selected parts of the rat brain."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -280,8 +293,10 @@ a(CHEBI:"cyclosporin A") decreases act(p(HGNC:ACHE))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12675140"}
+
 SET SupportingText = "In vitro and in vivo studies have consistently demonstrated a link between cholinergic activation and APP metabolism.Reduction in cholinergic neurotransmission--experimental or pathological, such as in AD--leads to amyloidogenic metabolism and contributes to the neuropathology and cognitive dysfunction"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -305,8 +320,10 @@ bp(GOBP:"regulation of synaptic transmission, cholinergic") increases bp(GOBP:co
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12769595"}
+
 SET SupportingText = "In the central nervous system, galanin alters the release of several neurotransmitters. In particular the ability of galanin to inhibit acetylcholine release, along with the observation of hyperinervation of galanin fibres in the human basal forebrain of Alzheimer's disease patients, suggest a possible role for galanin in the cholinergic dysfunction, characteristic of the disease. Moreover, galanin has been suggested to be involved in other neuronal functions, such as learning and memory, epileptic activity, nociception, spinal reflexes and feeding. Galanin has also been shown to increase the levels of growth hormone, prolactin and luteinizing hormone, to inhibit glucose induced insulin release and to affect gastrointestinal motility."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Galanin subgraph", "Neuroprotection subgraph"}
@@ -334,8 +351,10 @@ bp(GOBP:"negative regulation of synaptic transmission, cholinergic") association
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12788508"}
+
 SET SupportingText = "Ultrastructural detection of choline acetyl transferase (ChAT)-immunostaining in cerebral cortical sections/ of transgenic mice clearly demonstrated degeneration of ChAT-immunoreactive fibres in the environment of beta-amyloid/ plaques and activated glial cells suggesting a role of beta-amyloid and/or inflammation in specific degeneration of / cholinergic synaptic structures."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -355,8 +374,10 @@ a(MESH:D017628) increases bp(GOBP:"inflammatory response")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12860489"}
+
 SET SupportingText = "Rivastigmine tartrate is a reversible cholinesterase inhibitor indicated for the symptomatic treatment of mild to moderate dementia. Rivastigmine has been shown to improve or maintain patients' performance in 3 major domains: cognitive function, global function (ADLs), and behavior."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -372,8 +393,10 @@ a(CHEBI:rivastigmine) increases bp(GOBP:behavior)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14976144"}
+
 SET SupportingText = "Initially, the expression of p35 was believed to be restricted to the central nervous system, the lens (22), and recently in developing muscle, where it forms a p35/CDK5 active complex that regulates the expression of the acetylcholine receptor gene (23). Despite its name CDK5 does not affect the cell division cycle; it is expressed postmitotically, and its function is related to cytoskeletal dynamics, cell migration, cell differentiation, and exocytosis (14) instead of cellular proliferation. Recently, Pho-85, a yeast ortholog of CDK5, was shown to be involved in metabolic control by regulating different steps of glycogen and phosphate metabolism (13). Expression of CDK5 in insulin-producing cells is not surprising because widespread expression of this kinase has been described. CDK5 expression in beta-cells has also been reported (24)."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Muscles"
@@ -382,8 +405,10 @@ complex(p(HGNC:CDK5), p(HGNC:CDK5R1)) regulates act(p(HGNC:ACHE))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15258105"}
+
 SET SupportingText = "Tacrine, a cholinesterase inhibitor, was approved for the treatment of Alzheimer's disease."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -392,8 +417,10 @@ a(CHEBI:tacrine) decreases path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15474976"}
+
 SET SupportingText = "Inflammatory components related to AD neuroinflammation include brain cells such as microglia and astrocytes, the classic and alternate pathways of the complement system, the pentraxin acute-phase proteins, neuronal-type nicotinic acetylcholine receptors (AChRs), peroxisomal proliferators-activated receptors (PPARs), as well as cytokines and chemokines. Both the microglia and astrocytes have been shown to generate beta-amyloid protein (Abeta), one of the main pathologic features of AD. Abeta itself has been shown to act as a pro-inflammatory agent causing the activation of many of the inflammatory components"
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Inflammatory response subgraph"}
@@ -445,8 +472,10 @@ p(HGNC:CHRNA7) positiveCorrelation bp(HBP:neuroinflammation)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15530663"}
+
 SET SupportingText = "Galantamine is a phenanthrene alkaloid (similar to codeine) and acts as a reversible inhibitor of AChE with a competitive action. In addition, galantamine's nicotinic agonist properties may provide an additional therapeutic mechanism to AChE inhibition."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -462,8 +491,10 @@ a(CHEBI:galanthamine) isA a(CHEBI:"nicotinic acetylcholine receptor agonist")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15544503"}
+
 SET SupportingText = "At this point, inhibitors able to interact at the peripheral binding site are of particular relevance, as they might disrupt the interactions between the enzyme acetylcholinesterase and the beta-amyloid peptide. "
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -475,8 +506,10 @@ p(HGNC:ACHE) association p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15598477"}
+
 SET SupportingText = "This study found that galantamine effected significant benefits on the cognitive, functional, and behavioral symptoms of mild to moderate AD in this population of Korean patients."
 SET Confidence = "High"
 SET Species = "9606"
@@ -490,8 +523,10 @@ a(CHEBI:galanthamine) increases bp(GOBP:behavior)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15709485"}
+
 SET SupportingText = "The neurotoxicity induced by AChE-Abeta complexes indicated that they trigger more neurodegeneration than those of the Abeta peptide alone"
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -506,8 +541,10 @@ complex(p(HGNC:ACHE), p(HGNC:APP, frag("672_713"))) increases bp(GOBP:"neuron de
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16426583"}
+
 SET SupportingText = "On a molecular level, studies suggest that acetylcholine (ACh) increases serotonin (5-HT) release through nicotinic receptors located at nerve terminals."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -603,8 +640,10 @@ p(HGNC:CHRNB4) association a(CHEBI:acetylcholine)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17095583"}
+
 SET SupportingText = "We have previously demonstrated that the nootropic drug nefiracetam potentiates the activity of both nicotinic acetylcholine and NMDA receptors and that nefiracetam modulates the glycine binding site of the NMDA receptor."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "GABA subgraph"}
@@ -652,8 +691,10 @@ a(CHEBI:nefiracetam) increases act(p(HGNC:CHRNB3))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17096857"}
+
 SET SupportingText = "Butyrylcholinesterase and acetylcholinesterase related proteins were found common to both Alzheimer's disease and diabetes; they may play an etiological role via influencing insulin resistance and lipid metabolism."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Insulin signal transduction"}
@@ -709,8 +750,10 @@ bp(MESHPP:"Insulin Resistance") association p(HGNC:ACHE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17213958"}
+
 SET SupportingText = "AChE activity was reported to be enhanced by low concentrations of H2O2. explanation is that mitochondrial efflux H2O2 modifies membrane structure through lipid peroxidation, and therefore contributes to modify the activity of the membrane-bound protein AChE [31]. AChE is synthesized as an inactive precursor and then matures into an active subunit in the endoplasmic reticulum [32]. Thus, the other explanation was that AChE could be exposed to cytoplasm when endoplasmic reticulum was destroyed by H2O2. At least one protein kinase (protein kinase A , PKA), was reported to increase the AChE activity by phosphorylation at non-consensus sites of this enzyme [33]. The apoptotic stimuli also enhanced the mRNA and protein levels of AChE in cells without background AChE expression, which were mediated by calcium signalling or the c-Jun kinase pathway"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Low"
@@ -788,8 +831,10 @@ p(HGNC:GSS) directlyDecreases act(p(HGNC:ACHE), ma(pep))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17553629"}
+
 SET SupportingText = "Hence, elevated butyrylcholinesterase and acetylcholinesterase concentrations will lead to a decrease in the levels of acetylcholine that could trigger the onset of low-grade systemic inflammation seen in type 2 diabetes and Alzheimer's disease."
 SET Confidence = "High"
 SET MeSHDisease = {"Alzheimer Disease", "Diabetes Mellitus, Type 2"}
@@ -813,8 +858,10 @@ path(MESHD:Inflammation) negativeCorrelation a(CHEBI:acetylcholine)
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17627484"}
+
 SET SupportingText = "The donepezil group demonstrated a greater likelihood of increases in both non-declarative and declarative processes."
 SET Confidence = "High"
 SET Species = "9606"
@@ -823,8 +870,10 @@ a(CHEBI:donepezil) increases bp(GOBP:memory)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17681794"}
+
 SET SupportingText = "These results, together with binding assays, have suggested that AChE may contribute to the generation of amyloid deposits and/or physically affects fibril assembly. Moreover, it has also been shown that the neurotoxicity of Abeta peptide aggregates depends on the amount of AChE bound to the complexes, suggesting that AChE may play a key role in the neurodegeneration observed in an AD patients brain."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -836,8 +885,10 @@ complex(a(CHEBI:"amyloid-beta"), p(HGNC:ACHE)) increases bp(GOBP:"neuron death")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17709753"}
+
 SET SupportingText = "At the cellular level, we show that APP and CHT can be found in Rab5-positive endosomal compartments and that APP affects CHT endocytosis."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -851,8 +902,10 @@ p(HGNC:APP) increases act(p(HGNC:SLC5A7))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "1775605"}
+
 SET SupportingText = "In an attempt to improve cognitive function in AD, arecoline (a muscarinic cholinergic receptor agonist) was given to patients with probable or possible AD in a two-phase design, and verbal memory function was examined. Results indicate that some patients demonstrate reliable improvements of verbal memory during arecoline treatment."
 SET Confidence = "High"
 SET Species = "9606"
@@ -861,8 +914,10 @@ a(CHEBI:arecoline) increases bp(GOBP:memory)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "1791534"}
+
 SET SupportingText = "Physostigmine, an acetyl cholinesterase inhibitor, and arecoline, a muscarinic agonist, have been shown to improve Alzheimer presenile dementia in some patients when administered parenterally. Both of these compounds are ineffective orally due to first-pass metabolism."
 SET Confidence = "High"
 SET Species = "10116"
@@ -886,8 +941,10 @@ a(CHEBI:physostigmine) decreases path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18070217"}
+
 SET SupportingText = "Deficit in central cholinergic neurotransmission is a consistent change associated with Alzheimer's disease (AD). Donepezil hydrochloride exhibits selective inhibition of acetylcholinesterase (AChE) and is widely used for the treatment of AD."
 SET Confidence = "Medium"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -910,8 +967,10 @@ a(CHEBI:donepezil) increases bp(GOBP:cognition)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18089832"}
+
 SET SupportingText = "resveratrol results in decreased expression of CHRNB1 protein"
 SET Confidence = "High"
 SET Species = "9606"
@@ -920,8 +979,10 @@ a(CHEBI:resveratrol) decreases p(HGNC:CHRNB1)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18205831"}
+
 SET SupportingText = " The fact that acetylcholinesterase accelerates amyloid formation and the effect is sensitive to peripherical anionic site blockers of the enzyme, suggests that specific and new EC 3.1.1.7 (acetylcholinesterase) inhibitors may well provide an attractive possibility for treating Alzheimer's disease. "
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -935,8 +996,10 @@ p(HGNC:ACHE) increases p(HGNC:PRNP)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18299393"}
+
 SET SupportingText = "Presenilin 1 interacts with acetylcholinesterase and alters its enzymatic activity and glycosylation."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Gamma secretase subgraph"}
@@ -944,8 +1007,10 @@ complex(p(HGNC:ACHE), p(HGNC:PSEN1)) regulates bp(GOBP:glycosylation)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19272425"}
+
 SET SupportingText = "Galantamine and nefiracetam have been shown to potentiate the phasic activity of nicotinic acetylcholine receptors (nAChRss) in the brain. Stimulation of nAChRss is also known to cause release of various neurotransmitters including glutamate and gamma-aminobutyric acid (GABA)."
 SET Confidence = "High"
 SET Species = "10090"
@@ -1111,8 +1176,10 @@ a(CHEBI:nefiracetam) isA a(CHEBI:"EC 3.1.1.7 (acetylcholinesterase) inhibitor")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19549813"}
+
 SET SupportingText = "Copper Sulfate results in decreased expression of CHRNB1 mRNA"
 SET Confidence = "High"
 SET Species = "9606"
@@ -1121,8 +1188,10 @@ a(CHEBI:"copper(II) sulfate pentahydrate") decreases r(HGNC:CHRNB1)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19885299"}
+
 SET SupportingText = "In addition, the studies demonstrated AD Braak stage-associated declines in choline acetyltransferase (ChAT) expression with reduced colocalization of ChAT with insulin or IGF-1 receptor immunoreactivity in cortical neurons. These results correspond with experimental data demonstrating that neuronal tau and ChAT gene expression are regulated by IGF-1 and insulin stimulation.88 Therefore, brain insulin and IGF deficiency and resistance could account for the cytoskeletal collapse, neurite retraction, synaptic disconnection, loss of neuronal plasticity, and deficiencies in acetylcholine production, all of which correlate with cognitive decline and dementia in AD"
 SET Confidence = "Medium"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1197,8 +1266,10 @@ bp(HBP:"neurite retraction") decreases bp(GOBP:cognition)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20106945"}
+
 SET SupportingText = "Cyclosporine results in decreased expression of BCHE mRNA"
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1206,8 +1277,10 @@ a(CHEBI:"cyclosporin A") decreases r(HGNC:BCHE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20170836"}
+
 SET SupportingText = "Currently available treatments for Alzheimer's disease (EC 3.1.1.7 (acetylcholinesterase) inhibitors and memantine) improve cognitive function, but do not slow the long-term progression of this disorder."
 SET Confidence = "High"
 SET DiseaseState = "Mild AD"
@@ -1223,8 +1296,10 @@ a(CHEBI:memantine) increases bp(GOBP:cognition)
 UNSET {Confidence, DiseaseState, FDASTATUS, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20847424"}
+
 SET SupportingText = "Dysregulation of intracellular calcium signaling has been implicated in the pathogenesis of AlzheimerÃ¢â‚¬â„¢s disease [150]. ABeta¸ is known to act through multiple targets [151] including Ca2+ channels and various receptors in membranes. Synthetic ABeta¸ binds to the calcium permeable nAChRs with high affinity [152]. ABeta¸42 administered in the low picomolar range activates nAChRs at presynaptic nerve endings of synaptosomes [83, 153]. Under normal conditions, activation of nAChRs is necessary for the ABeta¸-induced increase in synaptic plasticity and memory [23]. However, it remains to be determined whether these effects are mediated by a direct physical interaction of the peptide with the nAChR. In addition, ABeta¸ enhances transmitter release by transient increase of glutamate release from the presynaptic terminal that results from brief periods of high frequency stimulation with Ca2+ buildup within the terminal that triggers mechanisms of short-term synaptic plasticity [154]."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -1304,8 +1379,10 @@ complex(a(CHEBI:"amyloid-beta"), p(HGNC:GRIN1), p(SFAM:"Cholinesterase Family"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20938992"}
+
 SET SupportingText = "[Methionine deficiency co-treated with Choline deficiency co-treated with Folic Acid deficiency] results in increased expression of CHRNB1 mRNA"
 SET Confidence = "Medium"
 SET Species = "10090"
@@ -1339,8 +1416,10 @@ a(CHEBI:choline) negativeCorrelation p(MGI:Chrnb1)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21158163"}
+
 SET SupportingText = "In the rats injected with insulin, it was found that their learning and memory abilities were improved significantly (P < 0.01) and that the expression of the nicotinic acetylcholine receptors were increased and GFAP positive astrocytes were decreased obviously (P < 0.05), as compared with the model rats. Insulin is able to enhance the learning and memory abilities of the Alzheimer's disease-like rats, possibly by improving the function of the acetylcholine system and decreasing the astrocytes proliferation in the brain."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -1435,8 +1514,10 @@ p(RGD:Ins2) increases p(RGD:Chrnb4)
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21821968"}
+
 SET SupportingText = "In conclusion, nefiracetam enhances NMDA-receptor function through stimulation of its glycine binding site and nefiracetam-induced CaMKII activation likely contributes to improvement of cognition, learning, and memory."
 SET Confidence = "High"
 SET Species = "10116"
@@ -1492,8 +1573,10 @@ bp(GOBP:"regulation of synaptic transmission, cholinergic") increases bp(GOBP:me
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22257528"}
+
 SET SupportingText = "Acetylcholinesterase (AChE) enzyme inhibition is an important target for the management of Alzheimer disease (AD) and AChE inhibitors are the main stay drugs for its management. Coumarins are the phytochemicals with wide range of biological activities including AChE inhibition"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -1502,8 +1585,10 @@ act(p(HGNC:ACHE)) increases path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22323348"}
+
 SET SupportingText = "In conclusion, inhibition of both BuChE and AChE with rivastigmine was improved the cognition without affecting on the peripheral IR in the elderly patients with LOAD by HOMA."
 SET Confidence = "High"
 SET Species = "10116"
@@ -1517,8 +1602,10 @@ a(CHEBI:rivastigmine) decreases p(HGNC:BCHE)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22445674"}
+
 SET SupportingText = "Alzheimer's disease is rapidly becoming one of the most prevalent human diseases. Inhibition of human acetylcholinestrase (hAChE) and butyrylcholinestrase (BChE) has been linked to amelioration of Alzheimer's symptoms and research into inhibitors is of critical importance"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -1542,8 +1629,10 @@ act(p(HGNC:BCHE)) negativeCorrelation path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22778810"}
+
 SET SupportingText = "The finding that acetylcholinesterase (AChE) colocalizes with beta-amyloid (Abeta) and promotes and accelerates Abeta aggregation has renewed an intense interest in developing new multifunctional AChE inhibitors as potential disease-modifying drugs for Alzheimer's therapy."
 SET Confidence = "Medium"
 SET Species = "10116"
@@ -1552,8 +1641,10 @@ p(HGNC:ACHE) increases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23291013"}
+
 SET SupportingText = "Inhibition of acetylcholinesterase activity by rivastigmine decreases lipopolysaccharide-induced IL-1beta expression in the hypothalamus of ewes"
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1561,8 +1652,10 @@ a(CHEBI:rivastigmine) decreases p(HGNC:ACHE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23557940"}
+
 SET SupportingText = "Rivastigmine treatment prevented the inhibitory effects of LPS and resulted in an increase (P â‰¤ 0.01) in GnRH concentrations compared to control-treated ewes or concentrations prior to treatment. The stimulation of GnRH secretion by treatment with LPS and rivastigmine may result from ACh accumulation in the brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -1571,8 +1664,10 @@ a(CHEBI:acetylcholine) increases p(HGNC:GNRH1)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23711227"}
+
 SET SupportingText = "Taken together, our results suggest that the neuroprotective effects of donepezil against Abeta42-induced neurotoxicity are mediated through activation of PP2A, but its additional mechanisms including regulation of GSK-3beta and nAChRs activity would partially contribute to its effects. This observation led us to assume that additional mechanisms of donepezil, including its inhibitory effect on GSK-3beta activity and/or the activation role of nicotinic acetylcholine receptors (nAChRs), might be involved. Donepezil increased neuronal viability with reduced p-tau by enhancing PP2A activity."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Tau protein subgraph"}
@@ -1628,8 +1723,10 @@ a(CHEBI:donepezil) increases act(p(HGNC:CHRNB4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23759148"}
+
 SET SupportingText = "Butyrylcholinesterase (BuChE) activity is associated with activated astrocytes in Alzheimer's disease brain. BuChE genotype was linked with differential CSF levels of glial fibrillary acidic protein, S100B, interleukin-1beta, and tumor necrosis factor (TNF)-alpha. BCHE-K noncarriers displayed 100%-150% higher glial fibrillary acidic protein and 64%-110% higher S100B than BCHE-K carriers, who, in contrast, had 40%-80% higher interleukin-1beta and 21%-27% higher TNF-alpha compared with noncarriers. A high level of CSF BuChE enzymatic phenotype also significantly correlated with higher CSF levels of astroglial markers and several factors of the innate complement system, but lower levels of proinflammatory cytokines. These individuals also displayed beneficial paraclinical and clinical findings, such as high cerebral glucose utilization, low beta-amyloid load, and less severe progression of clinical symptoms."
 SET Confidence = "Very High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1673,8 +1770,10 @@ p(HGNC:S100B) association p(HGNC:BCHE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26792551"}
+
 SET SupportingText = "Not only do these two molecules stimulate (miR-132 & EGR1) synaptic activity and plasticity, they are also involved in Alzheimer's disease pathology and might, in addition, affect cholinergic function. In addition, miR-132 and EGR1 showed a significant positive correlation with choline acetyltransferase expression."
 SET Confidence = "Medium"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1702,8 +1801,10 @@ p(HGNC:EGR1) positiveCorrelation p(HGNC:CHAT)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "3484831"}
+
 SET SupportingText = "There were significant correlations between cerebral atrophy as assessed by VBR and CSF AChE activity. Cognitive impairment on MMSE also correlated significantly with VBR."
 SET Confidence = "High"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1715,8 +1816,10 @@ a(NIFT:"Cerebral atrophy") positiveCorrelation p(HGNC:ACHE)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8019853"}
+
 SET SupportingText = "The mechanisms by which arecoline improves cognitive function are not known. We have demonstrated that arecoline can differentially influence cerebral blood flow and metabolism with both acute and chronic administration. Studies of cerebral glucose metabolism in patients with early or late onset of AD demonstrate glucose metabolic deficits in the temporal and parietal cortex. In advanced cases of AD, cerebral blood flow also can be reduced throughout the cortex."
 SET Confidence = "High"
 SET MeSHAnatomy = "Cerebrum"
@@ -1755,8 +1858,10 @@ a(CHEBI:arecoline) increases bp(GOBP:"blood circulation")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8584603"}
+
 SET SupportingText = "Acute arecoline administered to 14 subjects produced unpleasant side-effects (e.g. nausea, vomiting), mean adrenocorticotrophic hormone (p = .0006), cortisol (p = .0001) and beta-endorphin (p = .0001) levels were elevated. Thus, high-dose arecoline activates the hypothalamic-pituitary-adrenal (HPA) axis and may increase other anterior pituitary hormone levels, likely representing a 'stress response', but cognition-enhancing, low doses of arecoline do not produce a glucocorticoid response. Hence, arecoline-induced memory improvement is not due to the induction of 'stress' nor to the elevation of peripheral corticosteroid levels."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -1863,8 +1968,10 @@ bp(GOBP:"prolactin secretion") negativeCorrelation a(CHEBI:acetylcholine)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9201800"}
+
 SET SupportingText = "Nefiracetam is undergoing preclinical and clinical tests as a cognition-enhancing drug in Alzheimer's disease (AD)."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "GABA subgraph"}
@@ -1872,8 +1979,10 @@ a(CHEBI:nefiracetam) increases bp(GOBP:cognition)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9325095"}
+
 SET SupportingText = "Acetylcholinesterase (AChE), an enzyme involved in the hydrolysis of the neurotransmitter acetylcholine, consistently colocalizes with the amyloid deposits characteristic of Alzheimer's disease and may contribute to the generation of amyloid proteins and/or physically affect fibril assembly."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph"}
@@ -1903,8 +2012,10 @@ bp(GOBP:"amyloid fibril formation") increases complex(p(HGNC:ACHE), p(HGNC:APP, 
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9336329"}
+
 SET SupportingText = "pozanicline inhibits the reaction [Bungarotoxins binds to [CHRNA1 protein binds to CHRNB1 protein binds to CHRND protein binds to CHRNG protein]]"
 SET Confidence = "Medium"
 SET Subgraph = "Acetylcholine signaling subgraph"
@@ -1912,8 +2023,10 @@ a(MESHC:pozanicline) decreases act(complex(p(HGNC:CHRNA1), p(HGNC:CHRNB1), p(HGN
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9775403"}
+
 SET SupportingText = " It has also been shown in animal pmodels that under conditions of reduced M1/M3 muscarinic acetylcholine receptor stimulation the secretory pathway of APP processing is inhibited and that constitutive upregulation of M1/M3-associated PKC increases APP secretion."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Amyloidogenic subgraph", "Regulation of actin cytoskeleton subgraph"}
@@ -1921,3 +2034,5 @@ p(HGNC:CHRM3) increases bp(PTS:"APP processing pathway")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

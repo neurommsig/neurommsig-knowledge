@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:45 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:23 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"Other", "123"}
+
 SET SupportingText = "The statements inside this citation is included to connect two entity types or triples, which will exist as islands/subnetworks in the big model."
 SET Confidence = "High"
 SET Subgraph = {"Gamma secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -98,8 +99,10 @@ a(CHEBI:"gamma-secretase modulator") decreases act(complex(SCOMP:"gamma Secretas
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10428074"}
+
 SET SupportingText = "We further demonstrated that apolipoprotein E2 and E3 but not apolipoprotein E4 can decrease the fusogenic activity of Abeta(29-42) via a direct interaction."
 SET Confidence = "Medium"
 SET Subgraph = {"APOE subgraph", "Non-amyloidogenic subgraph"}
@@ -107,8 +110,10 @@ p(HGNC:APOE, var("p.Cys130Arg")) increases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10471309"}
+
 SET SupportingText = "Subsequent studies showed that it was plasmin, the product of tPA activation of plasminogen, that specifically cleaved A beta 1-40 in the amino terminal region between Arg5 and His6."
 SET Confidence = "Medium"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Plasminogen activator subgraph"}
@@ -124,8 +129,10 @@ p(HGNC:PLG) increases deg(p(HGNC:APP, frag("672_711")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10672313"}
+
 SET SupportingText = "The selective distribution of MMP-3 in the human brain suggests that MMP-3 might play an important role in the pathogenesis of AD, especially in the degradation of beta-amyloid protein."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -141,8 +148,10 @@ p(HGNC:MMP3) association deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10777610"}
+
 SET SupportingText = "The kappaB motif-dependent production of Abeta42 was suppressed by binding of NF-kappaB/p65 to the PDZ domain of the X11-like protein (X11L), which a human homologue protein of LIN-10."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Nuclear factor Kappa beta subgraph"}
@@ -150,8 +159,10 @@ complex(p(HGNC:APBA2), p(HGNC:NFKB1)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10797543"}
+
 SET SupportingText = "Low density lipoprotein receptor-related protein (LRP) participates in the uptake and degradation of several ligands implicated in neuronal pathophysiology including apolipoprotein E (apoE), activated alpha(2) -macroglobulin (alpha(2)M*) and beta-amyloid precursor protein (APP)."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -163,8 +174,10 @@ p(HGNC:LRP1) association deg(p(HGNC:APP))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11604391"}
+
 SET SupportingText = "ACE was found to significantly inhibit A beta aggregation in a dose response manner."
 SET Confidence = "Medium"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Renin-angiotensin subgraph"}
@@ -184,8 +197,10 @@ p(HGNC:ACE) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12007670"}
+
 SET SupportingText = "Alzheimer disease (AD) is associated with a decreased APP forms ratio (APPr) between the three major forms. This study demonstrated that donepezil, a drug acting as an inhibitor of acetylcholinesterase, affects APP metabolism in Alzheimer disease, restoring the ratio of APP forms in platelets up to the normal range after 4 weeks of treatment."
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -201,8 +216,10 @@ a(CHEBI:donepezil) regulates bp(GOBP:"amyloid precursor protein metabolic proces
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12212791"}
+
 SET SupportingText = " LDL receptor-related protein , a multifunctional ApoE receptor , binds secreted beta-amyloid precursor protein and mediates its degradation."
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -210,8 +227,10 @@ complex(p(HGNC:APP), p(HGNC:LRP1)) regulates deg(p(HGNC:APP))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "123"}
+
 SET SupportingText = "Here, to search for low-frequency variants in the amyloid-beta precursor protein (APP) gene with a significant effect on the risk of AlzheimerÃ¢â‚¬â„¢s disease, we studied coding variants in APP in a set of whole-genome sequence data from 1,795 Icelanders. We found a coding mutation (A673T) in the APP gene that protects against AlzheimerÃ¢â‚¬â„¢s disease and cognitive decline in the elderly without AlzheimerÃ¢â‚¬â„¢s disease."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -219,8 +238,10 @@ g(HGNC:APP, var("c.673A>T")) decreases path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12372252"}
+
 SET SupportingText = "In contrast, enhanced FasL shedding, by recombinant MMP-7, completely protected neurons from Abeta neurotoxicity."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -229,8 +250,10 @@ p(HGNC:MMP7) decreases act(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12639958"}
+
 SET SupportingText = "PEN-2 is an integral membrane protein that is a necessary component of the gamma-secretase complex, which is central in the pathogenesis of Alzheimer's disease and is also required for Notch signaling. In the absence of PEN-2, Notch signaling fails to guide normal development in Caenorhabditis elegans, and amyloid beta peptide is not generated from the amyloid precursor protein"
 SET Confidence = "Medium"
 SET Species = "6239"
@@ -254,8 +277,10 @@ bp(GOBP:"Notch signaling pathway") positiveCorrelation p(HGNC:PSENEN)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12754271"}
+
 SET SupportingText = "In the presence of plasminogen there was robust degradation of A beta that was added to the HCSM cells resulting in restoration of cell viability."
 SET Cell = "regular cardiac myocyte"
 SET Confidence = "High"
@@ -265,8 +290,10 @@ p(HGNC:PLG) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Cell, Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12849748"}
+
 SET SupportingText = "The neuronal adaptor X11alpha interacts with the conserved -GYENPTY- sequence in the C-terminus of amyloid precursor protein (APP) or its Swedish mutation (APPswe) to inhibit Abeta40 and Abeta42 secretion."
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -274,8 +301,10 @@ complex(p(HGNC:APBA1), p(HGNC:APP)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14501010"}
+
 SET SupportingText = "Additionally, plasmin (activated by tPA) attenuates Abeta neurotoxicity by degrading the peptide and rendering it inactive."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Plasminogen activator subgraph"}
@@ -283,8 +312,10 @@ p(HGNC:PLAT) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14628195"}
+
 SET SupportingText = "Cerebrolysin is a peptide mixture with neurotrophic effects that might have the ability of both reducing amyloid burden and improving synaptic plasticity in Alzheimer's disease (AD)."
 SET Confidence = "High"
 SET Species = "10090"
@@ -298,8 +329,10 @@ a(MESHC:cerebrolysin) increases bp(GOBP:"positive regulation of synaptic plastic
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14678766"}
+
 SET SupportingText = "alpha(2)-Macroglobulin (alpha(2)M) is an abundant plasma/extracellular space protein implicated in clearance of amyloid beta (Abeta)"
 SET Confidence = "Medium"
 SET Subgraph = {"Alpha 2 macroglobulin subgraph", "Non-amyloidogenic subgraph"}
@@ -321,8 +354,10 @@ bp(GO:"GO:0097242") association p(HGNC:A2M)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14756819"}
+
 SET SupportingText = "The phosphotyrosine binding domain of the neuronal protein X11alpha/mint-1 binds to the C-terminus of amyloid precursor protein (APP) and inhibits catabolism to beta-amyloid (Abeta), but the mechanism of this effect is unclear."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Non-amyloidogenic subgraph"}
@@ -330,8 +365,10 @@ complex(p(HGNC:APBA1), p(HGNC:APP)) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14766758"}
+
 SET SupportingText = "This processing is activated through a pathway involving the PDGF receptor, Src, and Rac1. "
 SET Confidence = "High"
 SET Subgraph = {"Interferon signaling subgraph", "Non-amyloidogenic subgraph", "Regulation of actin cytoskeleton subgraph"}
@@ -347,8 +384,10 @@ p(HGNC:PDGFRL) increases deg(p(HGNC:APP))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15270203"}
+
 SET SupportingText = "Moreover, GLP-1 and exendin-4, a naturally occurring more stable analogue of GLP-1 that likewise binds at the GLP-1 receptor, were shown to reduce endogenous levels of amyloid-beta peptide (Abeta) in mouse brain and to reduce levels of beta-amyloid precursor protein (betaAPP) in neurons."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -356,8 +395,10 @@ complex(p(HGNC:GCG), p(HGNC:GLP1R)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15314261"}
+
 SET SupportingText = "Since APP holoprotein levels are proportionate to Abeta peptide output in many systems we tested the efficacy of paroxetine and dimercaptopropanol to limit Abeta secretion as measured by ELISA assays. Paroxetine and dimercaptopropanol limited Abeta peptide secretion from lens epithelial cells (B3 cells). Interestingly, paroxetine changed the steady-state levels of transferrin receptor mRNAs. These data suggested that this serotonin reuptake inhibitor (SSRI) provided extra pharmacological action to chelate interacellular iron or change the intracellular iron distribution. An altered iron distribution would be predicted to indirectly limit APP holoprotein expression and Abeta peptide secretion."
 SET Confidence = "Medium"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Serotonergic subgraph"}
@@ -369,8 +410,10 @@ a(CHEBI:paroxetine) decreases tloc(p(HGNC:APP, frag("672_713")), fromLoc(GOCC:in
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15544503"}
+
 SET SupportingText = "At this point, inhibitors able to interact at the peripheral binding site are of particular relevance, as they might disrupt the interactions between the enzyme acetylcholinesterase and the beta-amyloid peptide. "
 SET Confidence = "High"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -382,8 +425,10 @@ p(HGNC:ACHE) association p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15639314"}
+
 SET SupportingText = "In an attempt to reverse the apoE deficit in AD, we identified and characterized several apoE inducer agents using a low throughput-screening assay. The most promising of these compounds is called probucol. Administration of probucol, an old cholesterol lowering drug, in mild to moderate sporadic AD led to significant increases in CSF apoE levels and a decrease of CSF beta amyloid 1-42 without significant modifications of CSF tau concentration or CSF lipid peroxides levels. These results are consistent with recent reports suggesting that the long term use of cholesterol lowering drugs that block 3-hydroxy-3-methylglutaryl coenzyme A reductase (HMGR) activity in the fourth and fifth decade of life may help reduce the risk of developing AD at later age."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -419,8 +464,10 @@ act(p(HGNC:HMGCR)) increases a(CHEBI:cholesterol)
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15772078"}
+
 SET SupportingText = "Increasing evidence suggests that the low density lipoprotein receptor-related protein ( LRP ) affects the processing of amyloid precursor protein ( APP ) and amyloid beta ( Abeta ) protein production as well as mediates the clearance of Abeta from the brain."
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -444,8 +491,10 @@ a(CHEBI:"amyloid-beta") association p(HGNC:LRP1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15946122"}
+
 SET SupportingText = "the evidence that PPARgamma stimulates the ubiquitination of APP supports the fact that the Abeta-lowering effect of PPARgamma is due to the proteasome-mediated degradation of APP. Another issue in the present study is the finding that PPARgamma, by decreasing Abeta secretion, protects the cells against H2O2-mediated necrosis"
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Peroxisome proliferator activated receptor subgraph", "Ubiquitin degradation subgraph"}
@@ -461,8 +510,10 @@ p(HGNC:PPARG) directlyDecreases bp(GOBP:"necrotic cell death")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16207708"}
+
 SET SupportingText = "Deletion of Abca1 increases Abeta deposition"
 SET Confidence = "High"
 SET Subgraph = {"ATP binding cassette transport subgraph", "Non-amyloidogenic subgraph"}
@@ -470,8 +521,10 @@ p(HGNC:ABCA1) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16364209"}
+
 SET SupportingText = "Recent studies showed that melatonin, an indoleamine secreted by the pineal gland, may play an important/ role in aging and AD as an antioxidant and neuroprotector. Melatonin decreases during aging and patients with AD have a/ more profound reduction in this hormone.Melatonin efficiently protects neuronal cells from Abeta-mediated toxicity via/ antioxidant and anti-amyloid properties: it not only inhibits Abeta generation, but also arrests the formation of amyloid/ fibrils by a structure-dependent interaction with Abeta. Our recent studies have demonstrated that melatonin efficiently/ attenuates Alzheimer-like tau hyperphosphorylation. Although the exact mechanism is still not fully understood, a direct/ regulatory influence of melatonin on the activities of protein kinases and protein phosphatases is proposed. Additionally,/ melatonin also plays a role in protecting cholinergic neurons and in anti-inflammation."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -487,8 +540,10 @@ a(CHEBI:melatonin) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16399206"}
+
 SET SupportingText = "Indeed, adding increasing amounts of insulin, a substrate of IDE with low Km (Km = âˆ¼0.1 Î¼M), specifically inhibited enzyme activity for degradation of Abeta (Km >2 Î¼M) [74] in the cell culture model for secreted IDE. Therefore, if the insulin level increases in the brain, it would inhibit IDE to degrade Abeta effectively, which could cause Abeta neurotoxicity, and then AD."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -534,8 +589,10 @@ a(MESH:D017628) increases tloc(p(HGNC:IDE), fromLoc(GOCC:intracellular), toLoc(G
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16452662"}
+
 SET SupportingText = "Alzheimer precursor protein interaction with the Nogo-66 receptor reduces amyloid-beta plaque deposition."
 SET Confidence = "Medium"
 SET Subgraph = {"Autophagy signaling subgraph", "Axonal guidance subgraph", "Non-amyloidogenic subgraph"}
@@ -559,8 +616,10 @@ p(HGNC:RTN4R) association p(HGNC:APP)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16511867"}
+
 SET SupportingText = "Cerebrolysin is a peptide mixture with neurotrophic effects that might reduce the neurodegenerative pathology in Alzheimer's disease (AD). Cerebrolysin might reduce amyloid deposition by regulating amyloid-beta (Abeta) degradation or by modulating APP expression, maturation, or processing. To investigate these possibilities, APP tg mice were treated for 6 months with Cerebrolysin and analyzed in the water maze, followed by RNA, immunoblot, and confocal microscopy analysis of full-length (FL) APP and its fragments, beta-secretase (BACE1), and Abeta-degrading enzymes [neprilysin (Nep) and insulin-degrading enzyme (IDE)]. Consistent with previous studies, Cerebrolysin ameliorated the performance deficits in the spatial learning portion of the water maze and reduced the synaptic pathology and amyloid burden in the brains of APP tg mice. These effects were associated with reduced levels of FL APP and APP C-terminal fragments, but levels of BACE1, Notch1, Nep, and IDE were unchanged. In contrast, levels of active cyclin-dependent kinase-5 (CDK5) and glycogen synthase kinase-3beta [GSK-3beta; but not stress-activated protein kinase-1 (SAPK1)], kinases that phosphorylate APP, were reduced. Furthermore, Cerebrolysin reduced the levels of phosphorylated APP and the accumulation of APP in the neuritic processes. Taken together, these results suggest that Cerebrolysin might reduce AD-like pathology in the APP tg mice by regulating APP maturation and transport to sites where Abeta protein is generated."
 SET Confidence = "High"
 SET Subgraph = {"Nerve growth factor subgraph", "Non-amyloidogenic subgraph"}
@@ -613,8 +672,10 @@ p(MGI:Gsk3b) increases p(MGI:App, pmod(Ph))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16822591"}
+
 SET SupportingText = "Our findings support the hypothesis that MMPs may influence the risk of dementia."
 SET Confidence = "High"
 SET Subgraph = {"Matrix metalloproteinase subgraph", "Non-amyloidogenic subgraph"}
@@ -626,8 +687,10 @@ p(SFAM:"MMP Family") association path(MESHD:Dementia)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16828233"}
+
 SET SupportingText = "PPARgamma activity decreases Abeta production by promoting harmless catabolism of amyloid precursor protein while blocking the up-regulatory impact of cytokines on beta-secretase expression."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Peroxisome proliferator activated receptor subgraph"}
@@ -639,8 +702,10 @@ p(HGNC:PPARG) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16887805"}
+
 SET SupportingText = "Here we demonstrate that Hsp60, Hsp70, and Hsp90 both alone and in combination provide differential protection against intracellular beta-amyloid stress through the maintenance of mitochondrial oxidative phosphorylation and functionality of tricarboxylic acid cycle enzymes. Notably, beta-amyloid was found to selectively inhibit complex IV activity, an effect selectively neutralized by Hsp60. The combined effect of HSPs was to reduce the free radical burden, preserve ATP generation, decrease cytochrome c release, and prevent caspase-9 activation, all important mediators of beta-amyloid-induced neuronal dysfunction and death."
 SET CellStructure = "Mitochondria"
 SET Confidence = "Low"
@@ -664,8 +729,10 @@ p(HGNC:HSPD1) increases bp(GOBP:"oxidative phosphorylation")
 UNSET {CellStructure, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17077814"}
+
 SET SupportingText = "We hypothesized LRP2 may be involved in efflux of apoJ out of the CNS, and Abeta binding to apoJ may enhance clearance of highly pathogenic Abeta42. Our data show that both RAP and LRP2-specific antibody block apoJ clearance, indicating LRP2 is required for apoJ efflux at the BBB. "
 SET Confidence = "Medium"
 SET Subgraph = {"Endosomal lysosomal subgraph", "Non-amyloidogenic subgraph"}
@@ -677,8 +744,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:CLU)) decreases a(CHEBI:"amyloid-be
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17112471"}
+
 SET SupportingText = " The overexpression of ADAM19 in HEK293 cells resulted in an increase in sAPPalpha. Therefore, we suggest that ADAM19 has a constitutive alpha-secretase activity."
 SET Subgraph = {"ADAM Metallopeptidase subgraph", "Non-amyloidogenic subgraph"}
 p(HGNC:ADAM19) increases a(HBP:"sAPP-alpha")
@@ -701,8 +770,10 @@ p(HGNC:ADAM19) increases a(HBP:"sAPP-alpha")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17182778"}
+
 SET SupportingText = "we found that the Nogo-66 receptor (NgR) interacts physically with both Abeta and the amyloid precursor protein (APP). The inverse correlation of Abeta levels with NgR levels within the brain may reflect regulation of Abeta production and/or Abeta clearance."
 SET Confidence = "Medium"
 SET Subgraph = {"Autophagy signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -718,8 +789,10 @@ g(HGNC:RTN4) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17291491"}
+
 SET SupportingText = "Ability of carbazole salts, inhibitors of Alzheimer beta-amyloid fibril formation, to cross cellular membranes. Several classes of molecules have been reported to inhibit beta-amyloid fibril formation and among them carbazoles."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -733,8 +806,10 @@ a(CHEBI:carbazole) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17368447"}
+
 SET SupportingText = "Paroxetine treatment ameliorated the spatial navigation deficit in 3xTgAD male and female mice, without affecting swim speed or distance traveled, suggesting a preservation of cognitive function. Levels of amyloid beta-peptide (Abeta) and numbers of Abeta immunoreactive neurons were significantly reduced in the hippocampus of male and female paroxetine-treated 3xTgAD mice compared to saline-treated 3xTgAD mice."
 SET Confidence = "High"
 SET Species = "10090"
@@ -748,8 +823,10 @@ a(CHEBI:paroxetine) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17573534"}
+
 SET SupportingText = "Cellular overexpression of PrP(C) inhibited the beta-secretase cleavage of APP and reduced Abeta formation. "
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -767,8 +844,10 @@ p(HGNC:PRNP) regulates p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17592527"}
+
 SET SupportingText = "GLP-1 possesses neurotropic properties and can reduce amyloid protein levels in the brain."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -777,8 +856,10 @@ act(p(HGNC:GCG)) decreases p(HGNC:APP)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17599166"}
+
 SET SupportingText = "Tarenflurbil binds to a gamma-secretase site other than the active/catalytic center of relevance to production of Abeta42, thereby altering the conformation of gamma-secretase and shifting production away from Abeta42, while avoiding interference with other physiologically essential gamma-secretase substrates. Tarenflurbil, which is the pure, R-enantiomer of flurbiprofen, shifts cleavage of APP away from Abeta42, thereby producing shorter, nontoxic fragments (e.g., Abeta38)."
 SET Confidence = "Medium"
 SET DiseaseState = "Mild AD"
@@ -794,8 +875,10 @@ a(CHEBI:"(R)-flurbiprofen") increases a(MESHC:"amyloid beta-protein (1-38)")
 UNSET {Confidence, DiseaseState, FDASTATUS, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17694066"}
+
 SET SupportingText = "Recombinant LRP cluster IV ( LRP-IV ) bound Abeta in plasma in mice and Alzheimer 's disease-affected humans with compromised sLRP-mediated AAbetabinding , and reduced Abeta-related pathology and dysfunction in a mouse pmodel of Alzheimer disease , suggesting that LRP-IV can effectively replace native sLRP and clear AAbeta"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -807,8 +890,10 @@ p(HGNC:LRP1) association deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17973905"}
+
 SET SupportingText = "AIMS: Several observations point to the involvement of angiotensin-converting enzyme-1 (ACE-1) in Alzheimer's disease (AD): ACE-1 cleaves amyloid-beta peptide (Abeta) in vitro, the level and activity of ACE-1 are reportedly increased in AD, and variations in the ACE-1 gene are associated with AD."
 SET Confidence = "Medium"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Renin-angiotensin subgraph"}
@@ -828,8 +913,10 @@ act(p(HGNC:ACE)) positiveCorrelation path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18021299"}
+
 SET SupportingText = " IL-1Ra, a physiological antagonist for the IL-1 receptor, reversed the effects of IL-1beta, suggesting that the IL-1beta-dependent up-regulation of alpha-cleavage is mediated by the IL-1 receptor. IL-1beta also induced this concomitant increase in alpha-cleavage and decrease in beta-cleavage in mouse primary cultured neurons. Taken together we conclude that IL-1beta is an anti-amyloidogenic factor, and that enhancement of its signaling or inhibition of IL-1Ra activity could represent potential therapeutic strategies against Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"Interleukin signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -851,8 +938,10 @@ act(p(HGNC:ADAM17), ma(pep)) decreases rxn(reactants(p(HGNC:APP)), products(p(HG
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18079026"}
+
 SET SupportingText = "Quetiapine also decreased brain Abeta peptides, beta-secretase activity and expression, and the level of C99 (an APP C-terminal fragment following cleavage by beta-secretase) in the transgenic mice. "
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -860,8 +949,10 @@ a(CHEBI:quetiapine) decreases p(HGNC:APP, frag("672_770"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18288927"}
+
 SET SupportingText = "Following this export Abeta is degraded in the liver, where LRP1 potentially conducts the removal of Abeta from the blood stream"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Liver"
@@ -880,8 +971,10 @@ act(p(HGNC:LRP1), ma(tport)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18397369"}
+
 SET SupportingText = "Furthermore, both pharmacological alpha-secretase pathway inhibition and sAPPalpha immunoneutralization approaches prevented etazolate neuroprotection against Abeta, indicating that etazolate exerts its neuroprotective effect via sAPPalpha induction."
 SET Confidence = "Medium"
 SET Species = "10116"
@@ -900,8 +993,10 @@ act(a(CHEBI:etazolate)) increases bp(MESHPP:Neuroprotection)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18411275"}
+
 SET SupportingText = "Insulin-degrading enzyme (IDE) is central to the turnover of insulin and degrades amyloid beta (Abeta) in the mammalian brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -935,8 +1030,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:IDE)) association path(MESHD:"Alzhe
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18429932"}
+
 SET SupportingText = "These studies indicate that ABCA7 has the capacity to stimulate cellular cholesterol efflux to apoE discs and regulate APP processing resulting in an inhibition of Abeta production"
 SET Confidence = "Medium"
 SET Subgraph = {"ATP binding cassette transport subgraph", "Cholesterol metabolism subgraph", "Non-amyloidogenic subgraph"}
@@ -952,8 +1049,10 @@ bp(GOBP:"cholesterol efflux") decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18549781"}
+
 SET SupportingText = "Importantly, ApoE binds to Abeta and this, too, is influenced by its lipidation status"
 SET Confidence = "Medium"
 SET Subgraph = {"APOE subgraph", "Non-amyloidogenic subgraph"}
@@ -979,8 +1078,10 @@ p(HGNC:APOE) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18564425"}
+
 SET SupportingText = "The effect of NFκB on BACE1 promoter could be direct or through changes in PPARgamma, because PPARgamma agonists can antagonize the activity of transcription factors such as NFκB.NFκB sites are present in the promoters of APP [86], presenilin and BACE1 [87]. In neurons exposed to soluble Abeta peptides and in TNFalpha-activated glial cells the mutation of the BACE1 promoter NFκB site led to significant decreases in promoter activity, indicating an activating role for NFκB in BACE1 expression in Abeta."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Nuclear factor Kappa beta subgraph"}
@@ -992,8 +1093,10 @@ act(p(HGNC:NFKB1), ma(tscript)) increases p(HGNC:APP)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18650430"}
+
 SET SupportingText = "Endocytic APP Sorting and ABeta¸ ProductionÃ¢â‚¬â€�Mutations within the YENPTY endocytosis motif selectively inhibit APP internalization and decrease ABeta¸ generation. This motif and the flanking region serve as the binding site for many cytosolic adaptors with phosphotyrosine-binding domains, including Fe65, Fe65L1, Fe65L2, Mint1 (also called X11a), Mint2, Mint3, Dab1, and JNK (c-Jun N-terminal kinase)-interacting protein family members. Interestingly, Fe65 acts as a functional linker between APP and LRP (another type I membrane protein containing two NPXY endocytosis motifs) in modulating endocytic APP trafficking and ABeta¸ production. A conformational change introduced by phosphorylation at Thr668 (14 amino acids proximal to the YENPTY motif) interferes with Fe65 binding to APP and facilitates BACE1 and gamma-secretase cleavage of APP. Moreover, Fe65 stabilizes the highly labile AICD, which may serve as a regulatory step in modulating the physiological function of AICD (see below). In addition to APP, Mint proteins can directly bind ADP-ribosylation factors; thus, Mint proteins can potentially regulate vesicular trafficking of APP by serving as coat proteins. Finally, the type I transmembrane protein SorLA/LR11 (a member of the VPS10p domain receptor family), which functionally interacts with cytosolic adaptors GGA and PACS-1, attenuates ABeta¸ production by acting as a Golgi/TGN retention factor. SorLA/LR11 is also genetically associated with AD, thus further implicating this sorting molecule in APP biology"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -1121,8 +1224,10 @@ composite(p(HGNC:GGA3), p(HGNC:PACS1), p(HGNC:SORL1)) decreases p(HGNC:APP, frag
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18813209"}
+
 SET SupportingText = "Humanin (HN) is a short neuroprotective peptide abolishing Abeta neurotoxicity."
 SET Confidence = "Medium"
 SET Subgraph = {"Neuroprotection subgraph", "Non-amyloidogenic subgraph"}
@@ -1134,8 +1239,10 @@ p(HGNC:MTRNR2L2) decreases act(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18835047"}
+
 SET SupportingText = "CCR2 deficiency leads to lower microglia accumulation and higher brain beta-amyloid (Abeta) levels, indicating that early microglial accumulation promotes Abeta clearance."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1149,8 +1256,10 @@ p(HGNC:CCR2) increases a(MESH:D017628)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18941241"}
+
 SET SupportingText = "NEP and IDE also contributed to IL-4-induced degradation of Abeta(1-42), b ecause their inhibitors, thiorphan and insulin, respectively, significantly suppressed this activity."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Interleukin signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -1194,8 +1303,10 @@ a(CHEBI:Thiorphan) decreases act(p(HGNC:IL4))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18957217"}
+
 SET SupportingText = "Impaired degradation of amyloid beta (Abeta) peptides could lead to Abeta accumulation, an early trigger of Alzheimer's disease (AD). How Abeta-degrading enzymes are regulated remains largely unknown. Cystatin C (CysC, CST3) is an endogenous inhibitor of cysteine proteases, including cathepsin B (CatB), a recently discovered Abeta-degrading enzyme"
 SET Confidence = "High"
 SET Subgraph = {"Caspase subgraph", "Non-amyloidogenic subgraph"}
@@ -1219,8 +1330,10 @@ p(HGNC:CTSB) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18997293"}
+
 SET SupportingText = "The present investigation reports that clinically relevant concentrations of tarenflurbil (i.e., 1-5 microM) protect both cultured human neuroblastoma cell lines and primary neurons from cytotoxicity associated with exposure to Abeta_{42} or H_{2}O_{2}. In concert with this protection, there is an upregulation of neurotrophins [i.e., nerve growth factor (NGF) and brain-derived neurotrophic factor (BDNF)]. Furthermore, blocking exogenous NGF or BDNF by binding it to antibody prevents tarenflurbil from protecting human neuronal cells from Abeta_{42} and H_{2}O_{2} cytotoxicity. These findings suggest that up-regulation of neurotrophins might represent an underlying mechanism contributing to the beneficial effects seen with tarenflurbil in AD."
 SET Confidence = "Medium"
 SET Subgraph = {"Inflammatory response subgraph", "Non-amyloidogenic subgraph"}
@@ -1228,8 +1341,10 @@ a(CHEBI:"(R)-flurbiprofen") decreases act(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19192245"}
+
 SET SupportingText = " Together, these results indicate a role for calsyntenin-1 in Kinesin-1-dependent TGN exit and post-Golgi transport of APP-containing organelles and further suggest that distinct intracellular routes may exhibit different capacities for proteolytic processing of APP."
 SET Confidence = "High"
 SET Subgraph = {"Calsyntenin subgraph", "Non-amyloidogenic subgraph"}
@@ -1237,8 +1352,10 @@ act(p(HGNC:CLSTN1), ma(tport)) increases tloc(p(HGNC:APP), fromLoc(MESHCS:"trans
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19237574"}
+
 SET SupportingText = "Furthermore, the effect of metformin on Abeta generation is mediated by transcriptional up-regulation of beta-secretase (BACE1), which results in an elevated protein level and increased enzymatic activity. Unlike insulin, metformin exerts no effect on Abeta degradation. In addition, we found that glucose deprivation and various tyrphostins, known inhibitors of insulin-like growth factors/insulin receptor tyrosine kinases, do not modulate the effect of metformin on Abeta. Finally, inhibition of AMP-activated protein kinase (AMPK) by the pharmacological inhibitor Compound C largely suppresses metformin's effect on Abeta generation and BACE1 transcription, suggesting an AMPK-dependent mechanism. Although insulin and metformin display opposing effects on Abeta generation, in combined use, metformin enhances insulin's effect in reducing Abeta levels"
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1264,8 +1381,10 @@ a(CHEBI:metformin) decreases p(HGNC:APP)
 UNSET {CellStructure, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19251705"}
+
 SET SupportingText = " Importantly, knockdown of endogenous RanBP9 significantly reduced Abeta generation in Chinese hamster ovary cells and in primary neurons, demonstrating its physiological role in BACE1 cleavage of APP. "
 SET Confidence = "Medium"
 SET Species = "10029"
@@ -1274,8 +1393,10 @@ p(HGNC:RANBP9) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19355846"}
+
 SET SupportingText = "Lower-expression of PS1 and over-expression of IDE or NEP may be helpful in potentially lowering brain Abeta levels in subjects with AD"
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1287,8 +1408,10 @@ p(HGNC:MME) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19429119"}
+
 SET SupportingText = "We have previously demonstrated that Leptin reduces extracellular amyloid beta (Abeta) protein both in vitro and in vivo, and intracellular tau phosphorylation in vitro. Further, we have shown that these effects are dependent on activation of AMP-activated protein kinase (AMPK) in vitro. Herein, we investigated downstream effectors of AMPK signaling directly linked to tau phosphorylation. One such target, of relevance to Alzheimer's disease (AD), may be GSK-3beta, which has been shown to be inactivated by Leptin. We therefore dissected the role of GSK-3beta in mediating Leptin's ability to reduce tau phosphorylation in neuronal cells. Our data suggest that Leptin regulates tau phosphorylation through a pathway involving both AMPK and GSK-3beta. This was based on the following: Leptin and the cell-permeable AMPK activator, 5-aminoimidazole-4-carboxyamide ribonucleoside (AICAR), reduced tau phosphorylation at AD-relevant sites similarly to the GSK-3beta inhibitor, lithium chloride (LiCl). Further, this reduction of tau phosphorylation was mimicked by the downregulation of GSK-3beta, achieved using siRNA technology and antagonized by the ectopic overexpression of GSK-3beta. "
 SET Confidence = "High"
 SET Subgraph = {"Leptin subgraph", "Non-amyloidogenic subgraph"}
@@ -1296,8 +1419,10 @@ p(HGNC:LEP) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19499146"}
+
 SET SupportingText = "Lysosomal dysfunction may be the earliest histological change in AD. Amyloid plaques are full of active lysosomal hydrolases, implying that plaques may originate from lysosomal rupture. Cathepsins D and E (intracellular aspartyl proteases) are considered to influence Abeta peptides generation within the endosomalâ€“lysosomal pathway because they exhibit beta- and gamma-secretase like-activity [32]. For this reason, the endosomalâ€“lysosomal pathway is a site for cleavage of the APP into smaller beta-amyloid-containing peptides, which are then degraded by cathepsins. Inhibition of cathepsins activity causes a rapid and pronounced build-up of potentially amyloidogenic protein fragments [33]. On the other hand, a failure to degrade aggregated Abeta_42 in late endosomes or secondary lysosomes was a mechanism that contributed to intracellular accumulation of Abeta in AD. The cysteine protease cathepsin B in lysosomes degrades A peptides, especially the aggregation-prone species Abeta_42."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -1326,8 +1451,10 @@ p(HGNC:CTSE) increases a(CHEBI:"amyloid-beta polypeptide 42")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19519303"}
+
 SET SupportingText = "Experiments in Caenoi-habditis elegans revealed new insights into the role oflR/IGF-IR signaling in A1 -42 toxicÂ­ ity, and Ametabolism. Cohen and coworkers could show that knocking down the DAF-2 pathway in C. elegans, which is orthologous to the mammalian insulin and IGF-l signaling cascade, reduces Al31-42 toxicity [35]. Furthermore, this effect was mediated by the two downstream transcripÂ­ tion factors, DAF-16 and HSF-l (heat shock transcription factor-!) [132}. DAF-\6 encodes a forkhead transcription factor [133, 134], which translocates into the nucleus [135], and modulates transcription when DAF-2 signaling is abroÂ­ gated . The mammalian DAF-16 orthologs are Foxol, 3, and 4 [136). In the mammalian system the IR/IGF-1 R induces phosphorylation of Foxo I and triggers its translocation from the nucleus. The DAF-2 pathway reduces A ,_42 toxicity by two possible mechanisms of detoxification [35]: The first detoxification route leads to disaggregation of the toxic oliÂ­ gomer that is positively regulated by HSF-1 and degradation of the amyloidogenic peptides. The second mechanism mediates the formation of low toxic, high molecular weight aggregates from high toxic low molecular weight aggregates, which is positively regulated by DAF-!6. Both detoxificaÂ­ tion mechanisms are negatively regulated by DAF-2 signalÂ­ ing."
 SET Confidence = "Medium"
 SET Subgraph = {"Insulin signal transduction", "Non-amyloidogenic subgraph"}
@@ -1382,8 +1509,10 @@ act(p(HGNC:ECE1)) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19523444"}
+
 SET SupportingText = "An increase of the Abeta binding protein transthyretin suggests that increased clearance of Abeta underlies the reduction in plaques."
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1391,8 +1520,10 @@ p(HGNC:TTR) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19541956"}
+
 SET SupportingText = "The proposed amyloid-like conformation of peptide/protein hormones in secretory granules may explain the processes of granule formation including hormone selection, membrane surrounding as well as the inert hormone storage, and subsequently the release of hormones from the granules: It is proposed that in the Golgi, amyloid aggregation of the (pro)hormone is initiated spontaneously above a critical (pro)hormone concentration or/and in presence of helper molecules such as GAGs in parallel to a possible prohormone processing. Alternatively, since the prohormone may aggregate less into an amyloid entity than its hormone counterpart, the prohormone processing at critical hormone concentrations may initiate the aggregation. Since the formation of amyloid fibrils is amino acid sequence-specific, the initiated amyloid aggregation of the (pro)hormone is selective yielding granule cores composed of specific hormones only. Specific coaggregation of some hormones may be possible since some amyloid proteins are able to cross-seed. The amyloid aggregation sorts thereby the protein/peptide hormones into secretory granule cores, concentrates them to the highest density possible and excludes non-aggregation-prone constitutively secreted proteins. During the aggregation process the hormone amyloids get surrounded by membrane, separate from the golgi and form mature granules. The membrane attraction may be spontaneous since membrane binding seems to be an inherent property of amyloid aggregates. Alternatively, since the cross-ÃƒÅ¸ sheet represents a single structural epitope it may serve as a possible recognition motive of an unknown granule-recruiting membrane protein. Once the secretory granules are formed they can be stored for long durations since the amyloid entity provides a very stable depot. Upon signaling, secretory granules are secreted and the cross-ÃƒÅ¸ sheet structure of the amyloid enables a controlled release of monomeric, functional hormone, which might be supported by chaperones."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1404,8 +1535,10 @@ p(HGNC:APP, frag("672_713")) increases bp(GOBP:"hormone secretion")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19542625"}
+
 SET SupportingText = "In conclusion, supposing that the Aβ hypothesis of AD is still correct, it is possible that the negative results obtained by tarenflurbil in mild AD patients in the recently completed Phase III study are due to the compound’s poor pharmacological profile as Aβ 1−42 lowering agent, its poor ability to penetrate the blood-brain barrier and to its residual anti-inflammatory activity."
 SET Confidence = "Medium"
 SET DiseaseState = "Mild AD"
@@ -1421,8 +1554,10 @@ a(CHEBI:"(R)-flurbiprofen") causesNoChange a(MESH:D001812)
 UNSET {Confidence, DiseaseState, FDASTATUS, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19619643"}
+
 SET SupportingText = "However, normal physiological functions of endogenous APP are not thoroughly understood but are thought to be involved in the stabilizing contact points between synapses and maintaining mitochondrial functions"
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1434,8 +1569,10 @@ p(HGNC:APP) increases bp(GOBP:"cell-cell adhesion involved in synapse maturation
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19660836"}
+
 SET SupportingText = "The peroxisome proliferator-activated receptor-gamma (PPAR-gamma) is a ligand-inducible transcription factor that suppresses microglial inflammatory responses and inhibits amyloid beta (Abeta) production through promoting cholesterol efflux from glial cells. PPAR-gamma agonists have been advanced as a new disease altering approach to Alzheimer's disease (AD), with rosiglitazone therapy having improved cognition in those AD patients that did not possess an Apolipoprotein E (APOE) ε4 allele"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1444,8 +1581,10 @@ p(HGNC:PPARG) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19885299"}
+
 SET SupportingText = "Rosiglitazone is a TZD derivative that was recently observed to improve cognition in both APP transgenic mice and AD patients [Watson et al., 2005; Pedersen et al., 2006]. It activates PPARgamma leading to increased glucose disposal rates [Jung et al., 2005] and is also neuroprotective against Abeta neurotoxicity [Inestrosa et al., 2005]. Neuroprotection may result through modulation of Wnt signaling since an increase in beta-catenin and inhibition of GSK-3beta is observed upon exposure to rosiglitazone [Inestrosa et al., 2005], although a different study has shown that activation of PPARgamma by a potent ligand leads to beta-catenin degradation [Liu and Farmer 2004]. Nonetheless, in support of the role for PPARgamma activation in neuroprotection, PPARgamma agonists have potent anti-inflammatory effects [Luna-Medina et al., 2005], inhibit microglial activation [Bernardo et al., 2005; Heneka et al., 2005] and have been shown to improve verbal memory in AD patients with T2DM, possibly in a mechanism dependent on PPARgamma activation . A recent report demonstrates that overexpression of PPARgamma in cultured cells leads to a dramatic decrease in the production of Abeta, by increasing the rate of APP degradation via ubiquitination [D'Abramo et al., 2005]. This study also showed that by decreasing Abeta secretion, PPARgamma protects the cells against H2O2-mediated necrosis [D'Abramo et al., 2005]."
 SET Confidence = "Medium"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Peroxisome proliferator activated receptor subgraph", "Ubiquitin degradation subgraph"}
@@ -1511,8 +1650,10 @@ bp(GOBP:"insulin receptor signaling pathway") negativeCorrelation r(HGNC:APP)
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19996109"}
+
 SET SupportingText = "We have previously proposed that CLU-client complexes serve as vehicles to dispose of damaged misfolded extracellular proteins in vivo via receptor-mediated endocytosis"
 SET Confidence = "Medium"
 SET Subgraph = {"Endosomal lysosomal subgraph", "Non-amyloidogenic subgraph"}
@@ -1524,8 +1665,10 @@ act(p(HGNC:CLU), ma(chap)) directlyIncreases bp(GOBP:"receptor-mediated endocyto
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20005821"}
+
 SET SupportingText = "Furthermore, LDLR overexpression dramatically reduced A beta aggregation and enhanced A beta clearance from the brain extracellular space. "
 SET Confidence = "Medium"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -1537,8 +1680,10 @@ p(HGNC:LDLR) increases bp(GO:"GO:0097242")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20007471"}
+
 SET SupportingText = "Using screening approaches in primary neurons, we identified brain-derived neurotrophic factor (BDNF) as a major inducer of Sorla that activates receptor gene transcription through the ERK (extracellular regulated kinase) pathway.These findings demonstrate that the beneficial effects ascribed to BDNF in APP metabolism act through induction of Sorla that encodes a negative regulator of neuronal APP processing"
 SET Confidence = "High"
 SET Subgraph = {"MAPK-ERK subgraph", "Non-amyloidogenic subgraph"}
@@ -1562,8 +1707,10 @@ g(HGNC:BDNF) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20042680"}
+
 SET SupportingText = "After the treatment, memantine-treated mice had restored cognition and significantly reduced the levels of insoluble amyloid-beta (Abeta), Abeta dodecamers (Abeta*56), prefibrillar soluble oligomers, and fibrillar oligomers. The effects on pathology were stronger in older, more impaired animals. Memantine treatment also was associated with a decline in the levels of total tau and hyperphosphorylated tau. Finally, memantine pre-incubation prevented Abeta-induced inhibition of long-term potentiation in hippocampal slices of cognitively normal mice."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Hippocampus"
@@ -1596,8 +1743,10 @@ a(CHEBI:memantine) positiveCorrelation bp(MESHPP:"Long-Term Potentiation")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20139999"}
+
 SET SupportingText = "We show that knock-down of ATXN1 significantly increases the levels of both Abeta40 and Abeta42. This effect could be rescued with concurrent overexpression of ATXN1. Moreover, overexpression of ATXN1 decreased Abeta levels. "
 SET Confidence = "Medium"
 SET Subgraph = {"Akt subgraph", "Non-amyloidogenic subgraph"}
@@ -1613,8 +1762,10 @@ p(HGNC:ATXN1) negativeCorrelation p(HGNC:APP, frag("672_711"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20170836"}
+
 SET SupportingText = "Results from a phase 2 study of tarenflurbil, a compound that inhibits gamma-secretase and has positive effects on cognition in animals, seemed promising in slowing decline in Alzheimer's disease assessment scale-cognitive (ADAS-cog) scores in patients with mild Alzheimer's disease."
 SET Confidence = "Medium"
 SET DiseaseState = "Mild AD"
@@ -1642,8 +1793,10 @@ a(CHEBI:"(R)-flurbiprofen") positiveCorrelation bp(GOBP:cognition)
 UNSET {Confidence, DiseaseState, FDASTATUS, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20205643"}
+
 SET SupportingText = "Alzheimer's disease (AD) is associated with a significant neuroinflammatory component. Mononuclear phagocytes including monocytes and microglia are the principal cells involved, and they accumulate at perivascular sites of beta-amyloid (Abeta) deposition and in senile plaques. Recent evidence suggests that mononuclear phagocyte accumulation in the AD brain is dependent on chemokines. CCL2, a major monocyte chemokine, is upregulated in the AD brain. Interaction of CCL2 with its receptor CCR2 regulates mononuclear phagocyte accumulation in a mouse model of AD. CCR2 deficiency leads to lower mononuclear phagocyte accumulation and is associated with higher brain Abeta levels, specifically around blood vessels, suggesting that monocytes accumulate at sites of Abeta deposition in an initial attempt to clear these deposits and stop or delay their neurotoxic effects. Indeed, enhancing mononuclear phagocyte accumulation delays progression of AD."
 SET Confidence = "High"
 SET Subgraph = {"Cytokine signaling subgraph", "Non-amyloidogenic subgraph"}
@@ -1671,8 +1824,10 @@ complex(p(HGNC:CCL2), p(HGNC:CCR2)) negativeCorrelation a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20223232"}
+
 SET SupportingText = "Etazolate is a phosphodiesterase 4 (PDE4) inhibitor and GABAA receptor modulator that also stimulates alpha-secretase activity and neurotrophic soluble amyloid precursor protein (sAPPalpha) production, currently developed as a possible Alzheimer's disease therapeutic."
 SET Confidence = "High"
 SET Species = "10116"
@@ -1703,8 +1858,10 @@ act(a(CHEBI:etazolate)) increases bp(GOBP:"learning or memory")
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20224908"}
+
 SET SupportingText = "Peptidylarginine deiminase (PAD II) is an enzyme that uses arginine as a substrate and we now show that PAD II not only binds with the peptides Abeta(1-40), Abeta(22-35), Abeta(17-28), Abeta(25-35) and Abeta(32-35) but assists in the proteolytic degradation of these peptides with the concomitant formation of insoluble fibrils."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1716,8 +1873,10 @@ p(HGNC:PADI2) association deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20570967"}
+
 SET SupportingText = "The pharmacological blockage of autophagy resulted in a dramatic increase of mutant SOD1 aggregates. Immunoprecipitation studies, performed during autophagic flux blockage, demonstrated that mutant SOD1 interacts with the HspB8/Bag3/Hsc70/CHIP multiheteromeric complex, known to selectively activate autophagic removal of misfolded proteins. "
 SET Confidence = "Medium"
 SET Subgraph = {"Chaperone subgraph", "Non-amyloidogenic subgraph"}
@@ -1737,8 +1896,10 @@ complex(p(HGNC:BAG3, var("?")), p(HGNC:HSPB8)) decreases p(HGNC:APP, frag("672_7
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20595388"}
+
 SET SupportingText = "Interestingly, treatment of cultured primary neurons with amyloid-beta (Abeta) peptides caused an increase in the level of beta-site APP-cleaving enzyme 1 (BACE1), the key enzyme responsible for APP processing and Abeta production. This effect was inhibited by CAST overexpression. "
 SET Confidence = "Medium"
 SET Subgraph = {"Beta secretase subgraph", "Calpastatin-calpain subgraph", "Non-amyloidogenic subgraph"}
@@ -1754,8 +1915,10 @@ p(HGNC:CAST) decreases act(p(HGNC:BACE1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20624932"}
+
 SET SupportingText = "Here, we report a novel function of glutamate carboxypeptidase II (GCPII) in Abeta degradation in brain, which is a peptidase involved in N-acetylaspartylglutamate cleavage, folate metabolism, and prostate tumorigenesis."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1767,8 +1930,10 @@ p(HGNC:CPQ) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20637285"}
+
 SET SupportingText = "In the brain, megalin is expressed in brain capillaries, ependymal cells and choroid plexus, where it participates in the clearance of brain amyloid beta-peptide (Abeta) complex.Additionally, given that FE65 mediates the interaction between the low density lipoprotein receptor-related protein-1 and the amyloid precursor protein (APP) to modulate the rate of APP internalization from the cell surface, we hypothesize that megalin could also interact with APP in neurons."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -1787,8 +1952,10 @@ p(HGNC:LRP2) increases deg(a(CHEBI:"amyloid-beta"))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20847424"}
+
 SET SupportingText = "Cholesterol transport: High cholesterol levels have been linked to overproduction of ABeta¸ and are a risk factor for AD. One of the physiological functions of ABeta¸ has been suggested to control cholesterol transport [167]. Prevalence of AD is reduced among people treated with inhibitors of cholesterol biosynthesis, statins [168, 169] and animal studies support these results [170]. In vitro and in vivo studies have shown that cholesterol modulates APP processing and affects APP mRNA expression [171]. Another mechanism is the increased binding of ABeta¸ to ApoE4 over non-E4 alleles. ApoE is a lipid and cholesterol transport protein responsible for the efflux of cholesterol from neurons to form stable complexes both in vitro and in vivo [172]. Allele ApoE4 is a major risk factor in AD [173]. This relationship might promote synaptogenesis, since in vitro studies have demonstrated that cholesterol released by astroglia increases synaptogenesis [174, 175] with resulting modulation of spike rates [176]. Together, this evidence indicates that one of the physiological functions of APP might be to control cholesterol movement across neuronal membranes [167]."
 SET Confidence = "High"
 SET Subgraph = {"APOE subgraph", "Cholesterol metabolism subgraph", "Non-amyloidogenic subgraph"}
@@ -1834,8 +2001,10 @@ act(p(HGNC:CHRM1)) increases act(p(HGNC:APP), ma(pep))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21172309"}
+
 SET SupportingText = "MicroRNA-101 downregulates Alzheimer's amyloid-beta precursor protein levels in human cell cultures and is differentially expressed.Several bioinformatic algorithms predicted miR-101 target sites within the APP 3'-untranslated region (3'-UTR). Using reporter assays, we confirmed that, in human cell cultures, miR-101 significantly reduced the expression of a reporter under control of APP 3'-UTR. Mutation of predicted site 1, but not site 2, eliminated this reporter response. Delivery of miR-101 directly to human HeLa cells significantly reduced APP levels and this effect was eliminated by co-transfection with a miR-101 antisense inhibitor. Delivery of a specific target protector designed to blockade the interaction between miR-101 and its functional target site within APP 3'-UTR enhanced APP levels in HeLa. Therefore, endogenous miR-101 regulates expression of APP in human cells via a specific site located within its 3'-UTR. Finally, we demonstrate that, across a series of human cell lines, highest expression of miR-101 levels was observed in model NT2 neurons."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "miRNA subgraph"}
@@ -1851,8 +2020,10 @@ m(HGNC:"MIR101-1") decreases p(HGNC:APP)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21214928"}
+
 SET SupportingText = "APP is synthesized in the endoplasmic reticulum (ER) and then transported through the Golgi apparatus to the trans-Golgi-network (TGN) where the highest concentration of APP is found in neurons at steady state. Abeta is generated in the ER and Golgi/TGN. From the TGN, APP can be transported in TGN-derived secretory vesicles to the cell surface where it is either cleaved by alpha-secretase to produce a soluble molecule, sAPPalpha [37], or re-internalized via an endosomal/lysosomal degradation pathway"
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -1922,8 +2093,10 @@ a(HBP:"sAPP-alpha") increases a(MESH:D009474)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21222604"}
+
 SET SupportingText = "EHT0202 (etazolate hydrochloride) is a new compound exhibiting both potential disease-modifying and symptomatic treatment properties in Alzheimer's Disease increasing alpha-secretase activity and sAPP alpha secretion, as well as acting as a GABA-A receptor modulator and as a PDE-4 inhibitor."
 SET Confidence = "High"
 SET FDASTATUS = "Phase 2"
@@ -1951,8 +2124,10 @@ a(CHEBI:etazolate) increases act(p(HGNC:ADAM10), ma(pep))
 UNSET {Confidence, FDASTATUS, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21246057"}
+
 SET SupportingText = "Moreover, NPD1 suppresses Abeta42 peptide shedding by down-regulating beta-secretase-1 (BACE1) while activating the beta-secretase ADAM10 and up-regulating sAPPalpha, thus shifting the cleavage of betaAPP holoenzyme from an amyloidogenic into the non-amyloidogenic pathway."
 SET Confidence = "Medium"
 SET Subgraph = {"ADAM Metallopeptidase subgraph", "Beta secretase subgraph", "Neuroprotection subgraph", "Non-amyloidogenic subgraph"}
@@ -2012,8 +2187,10 @@ a(CHEBI:"protectin D1") increases a(HBP:"sAPP-alpha")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21253550"}
+
 SET SupportingText = "Adding metalloprotease inhibitors to the reaction showed that \"5-chloro-7-iodoquinolin-8-ol\", phosphoramidon, and zinc metalloprotease inhibitors had no significant effect on gamma-secretase activity. In contrast, phenanthroline, EDTA, and EGTA markedly decreased gamma-secretase activity that could be restored by adding back calcium and magnesium ions. Mg(2+) stabilized a 1,000kDa presenilin 1 complex through blue native gel electrophoresis and size-exclusion chromatography. Data suggest that Ca(2+) and Mg(2+) stabilize gamma-secretase and enhance its activity"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -2032,8 +2209,10 @@ a(CHEBI:"ethylene glycol bis(2-aminoethyl)tetraacetic acid") decreases act(compl
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21280075"}
+
 SET SupportingText = "Sorting mechanisms that cause the amyloid precursor protein (APP) and the ÃƒÅ¸-secretases and gamma-secretases to colocalize in the same compartment play an important role in the regulation of ABeta¸ production in Alzheimer's disease (AD). We and others have reported that genetic variants in the Sortilin-related receptor (SORL1) increased the risk of AD, that SORL1 is involved in trafficking of APP, and that underexpression of SORL1 leads to overproduction of ABeta¸. Here we explored the role of one of its homologs, the sortilin-related VPS10 domain containing receptor 1 (SORCS1), in AD.SorCS1 influenced APP processing. While overexpression of SorCS1 reduced gamma-secretase activity and ABeta¸ levels, the suppression of SorCS1 increased gamma-secretase processing of APP and the levels of ABeta¸."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -2045,8 +2224,10 @@ p(HGNC:SORCS1) directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21396986"}
+
 SET SupportingText = "Seladin-1 was considered a novel neuroprotective factor, because of its anti-apoptotic activity. Subsequently, it was demonstrated that seladin-1 has also enzymatic activity [3-beta-hydroxysterol delta-24-reductase, (DHCR24)], which catalyzes the synthesis of cholesterol from desmosterol. The amount of membrane cholesterol may play an important role both in protecting neuronal cells against toxic insults and in inhibiting the production of beta-amyloid. We demonstrated that seladin-1 overexpression increases the amount of membrane cholesterol and induces resistance against beta-amyloid aggregates in neuroblastoma cells, whereas a specific inhibitor of DHCR24 increased cell vulnerability. We also hypothesized that seladin-1 might be a mediator of the neuroprotective effects of estrogens. We first demonstrated that, in human fetal neuroepithelial cells (FNC), 17beta-estradiol, raloxifene, and tamoxifen exert protective effects against beta-amyloid toxicity and oxidative stress. In addition, these molecules significantly increased the expression of seladin-1 and the amount of cell cholesterol. Then, we showed that, upon seladin-1 silencing, the protective effects of estrogens were abolished, thus indicating this factor as a fundamental mediator of estrogen-mediated neuroprotection, at least in FNC cells. Furthermore, we detected the presence of functionally active half-palindromic estrogen responsive elements upstream the coding region of the seladin-1 gene. Overall, our results indicate that seladin-1 may be viewed as a multi-faceted protein, which conjugates both the neuroprotective properties of estrogens and the important functions of cholesterol in maintaining brain homeostasis"
 SET Confidence = "Medium"
 SET Subgraph = {"Cholesterol metabolism subgraph", "Non-amyloidogenic subgraph"}
@@ -2080,8 +2261,10 @@ act(a(CHEBI:estrogen)) increases bp(MESH:D000066829)
 UNSET {Confidence, Subgraph, UserdefinedCellLine}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21431475"}
+
 SET SupportingText = "In human neural cells overexpressing beta-amyloid precursor protein (betaAPP), the lipid mediator suppressed Abeta42 shedding by downregulating beta-secretase (BACE1) while activating the alpha-secretase (ADAM10), thus shifting the alphaAPP cleavage from the noxious amyloidogenic pathway into a non-amyloidogenic, neurotrophic pathway."
 SET Confidence = "High"
 SET Subgraph = {"ADAM Metallopeptidase subgraph", "Beta secretase subgraph", "Neuroprotection subgraph", "Non-amyloidogenic subgraph"}
@@ -2109,8 +2292,10 @@ a(CHEBI:"protectin D1") increases a(HBP:"sAPP-alpha")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21696420"}
+
 SET SupportingText = "HSPB8 is a small heat shock protein that forms a complex with the co-chaperone BAG3. Overexpression of the HSPB8-BAG3 complex in cells stimulates autophagy and facilitates the clearance of mutated aggregation-prone proteins, whose accumulation is a hallmark of many neurodegenerative disorders."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -2124,8 +2309,10 @@ complex(p(HGNC:BAG3), p(HGNC:HSPB8)) decreases a(HBP:"amyloid-beta aggregates")
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21718295"}
+
 SET SupportingText = "Also, fluorescent micrographs showed an inverse relationship between levels of P-gp expression and 5-carboxyfluorescein labelled Abeta (FAM-Abeta42) intracellular accumulation."
 SET Confidence = "Medium"
 SET Subgraph = {"Beta secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -2186,8 +2373,10 @@ p(HGNC:ABCB1) negativeCorrelation p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21799757"}
+
 SET SupportingText = "In a separate experiment, media samples were taken before the onset of neurodegeneration at day 12 and during the degenerating phase of the cell culture at day 16. The lower molecular weight neuronal form of sAPP declined significantly in untreated cells, but was rescued by 10 ÂµM rivastigmine treatment. Rivastigmine treatment preserved neuronal structure.hus, rivastigmine treatment protected neurons from degeneration. Rivastigmine treatment increased the neuron-related low molecular weight form of sAPP. This is suggestive of a mechanism by which rivastigmine may protect neurons by enhancing sAPP production, which may protect neurons from neurite retraction [33] and apoptosis [30]."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -2255,8 +2444,10 @@ a(CHEBI:rivastigmine) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21800078"}
+
 SET SupportingText = "The study also revealed that the nuclear receptor peroxisome proliferators activated receptor gamma (PPARgamma) played an important role in the CLA-induced intracellular BACE1 decrease, as well as the extracellular sAPPalpha increase through knockdown of PPARgamma transcription using siRNA. We hypothesize that CLA acts as an agonist or ligand, which binds with PPARgamma and leads to the increase in APP cleavage via alpha-secretase-mediated pathway and the decrease in the deposition of Abeta."
 SET Confidence = "High"
 SET Subgraph = {"Beta secretase subgraph", "Non-amyloidogenic subgraph", "Peroxisome proliferator activated receptor subgraph"}
@@ -2272,8 +2463,10 @@ complex(a(CHEBI:"linoleic acid"), p(HGNC:PPARG)) directlyDecreases p(HGNC:APP, f
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21849536"}
+
 SET SupportingText = "We find that NGF induces tyrosine phosphorylation of APP, and that APP interacts with TrkA and this interaction requires Y(682). Unpredictably, we also uncover that APP, and specifically Y(682), regulates activation of the NGF/TrkA signaling pathway in vivo, the subcellular distribution of TrkA and the sensitivity of neurons to the trophic action of NGF."
 SET Confidence = "High"
 SET Subgraph = {"Nerve growth factor subgraph", "Non-amyloidogenic subgraph"}
@@ -2293,8 +2486,10 @@ p(HGNC:NGF) increases complex(p(HGNC:APP), p(HGNC:NTRK1))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21881209"}
+
 SET SupportingText = "Deficiency of ABCC1 substantially increased cerebral Abeta levels without altering the expression of most enzymes that would favor the production of Abeta from the Abeta precursor protein."
 SET Confidence = "High"
 SET Species = "10090"
@@ -2334,8 +2529,10 @@ a(CHEBI:thiethylperazine) decreases path(MESHD:Vomiting)
 UNSET {Confidence, MeSHDisease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21969301"}
+
 SET SupportingText = "Further, EGR1 levels were negatively correlated with hippocampal amyloid-beta plaque burden.This study presents global gene expression profiles associated with GA immunization in a glaucoma rat model."
 SET Confidence = "Medium"
 SET Disease = "glaucoma"
@@ -2369,8 +2566,10 @@ path(MESHD:Glaucoma) association p(HGNC:EGR1)
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21994399"}
+
 SET SupportingText = "Increased brain ceramide levels have been associated with sporadic AD, and are a suggested risk factor. Serine palmitoyltransferase (SPT) is the first rate-limiting enzyme in the de novo ceramide synthesis. However, the regulation of SPT is not yet understood. Evidence suggests that it may be posttranscriptionally regulated. Therefore, we investigated the role of miRNAs in the regulation of SPT and amyloid beta (Abeta) generation. We show that SPT is upregulated in a subgroup of sporadic AD patient brains. This is further confirmed in mouse model studies of risk factors associated with AD. We identified that the loss of miR-137, -181c, -9, and 29a/b-1 increases SPT and in turn Abeta levels, and provides a mechanism for the elevated risk of AD associated with age, high-saturated-fat diet, and gender. Finally, these results suggest SPT and the respective miRNAs may be potential therapeutic targets for sporadic AD."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Sphingolipid metabolic subgraph", "miRNA subgraph"}
@@ -2438,8 +2637,10 @@ r(HGNC:SPTLC3) negativeCorrelation m(HGNC:MIR29A)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22013558"}
+
 SET SupportingText = "Cerebrolysin is a neuropeptide preparation mimicking the action of endogenous neurotrophic factors. Positive effects of Cerebrolysin on beta-amyloid- and tau-related pathologies, neuroinflammation, neurotrophic factors, oxidative stress, excitotoxicity, neurotransmission, brain metabolism, neuroplasticity, neuronal apoptosis and degeneration, neurogenesis and cognition were demonstrated in experimental conditions."
 SET Confidence = "High"
 SET Subgraph = {"Nerve growth factor subgraph", "Non-amyloidogenic subgraph"}
@@ -2451,8 +2652,10 @@ a(MESHC:cerebrolysin) association p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22046233"}
+
 SET SupportingText = "We previously reported that genetic variants in SORCS1 increase the risk of AD, that over-expression of SorCS1 reduces gamma-secretase activity and ABeta¸ levels, and that SorCS1 suppression increases gamma-secretase processing of APP and ABeta¸ levels. We now explored the effect of variation in SORCS1 on memory.Variation in intron 1 in SORCS1 is associated with memory changes in AD"
 SET Confidence = "High"
 SET Subgraph = {"Gamma secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -2464,8 +2667,10 @@ g(HGNC:SORCS1) directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22122372"}
+
 SET SupportingText = "Another transactivating complex consisting of AICD, Fe65 and Late SV40 Factor (LSF)/leader-binding protein-1 (LBP1)/transcription factor CP2 (TFCP2) has also been reported to induce the expression of GSK3-b (Kim et al. 2003)."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Non-amyloidogenic subgraph"}
@@ -2785,8 +2990,10 @@ act(p(INTERPRO:"Amyloidogenic glycoprotein, intracellular domain, conserved site
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22156573"}
+
 SET SupportingText = "Background and Objective: Could a normal - but persistent - stress response to impeded axonal transport lead to late-onset Alzheimer's disease (AD)? Our results offer an affirmative answer, suggesting a mechanism for the abnormal production of amyloid-beta (Abeta), triggered by the slowed axonal transport at old age. We hypothesize that Abeta precursor protein (APP) is a sensor at the endoplasmic reticulum (ER) that detects, and signals to the nucleus, abnormalities in axonal transport. When persistently activated, due to chronically slowed-down transport, this signaling pathway leads to accumulation of Abeta within the ER. Methods and Results: We tested this hypothesis with the neuronal cell line CAD. We show that, normally, a fraction of APP is transported into neurites by recruiting kinesin-1 via the adaptor protein, Fe65. Under conditions that block kinesin-1-dependent transport, APP, Fe65 and kinesin-1 accumulate in the soma, and form a complex at the ER. This complex recruits active c-Jun N-terminal kinase (JNK), which phosphorylates APP at Thr(668). This phosphorylation increases the cleavage of APP by the amyloidogenic pathway, which generates Abeta within the ER lumen, and releases Fe65 into the cytoplasm. Part of the released Fe65 translocates into the nucleus, likely to initiate a gene transcription response to arrested transport. Prolonged arrest of kinesin-1-dependent transport could thus lead to accumulation and oligomerization of Abeta in the ER. Conclusion: These results support a model where the APP:Fe65 complex is a sensor at the ER for detecting the increased level of kinesin-1 caused by halted transport, which signals to the nucleus, while concomitantly generating an oligomerization-prone pool of Abeta in the ER. Our hypothesis could thus explain a pathogenic mechanism in AD."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2800,8 +3007,10 @@ act(complex(p(HGNC:APBB1), p(HGNC:KLC1)), ma(tport)) increases tloc(p(HGNC:APP))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22227962"}
+
 SET SupportingText = "These data suggest that NOS2 upregulation impairs amyloid beta degradation through negative regulation of IDE activity and thus loss of NOS2 activity will positively influence amyloid beta clearance."
 SET Confidence = "Medium"
 SET Subgraph = {"Nitric oxide subgraph", "Non-amyloidogenic subgraph"}
@@ -2833,8 +3042,10 @@ act(p(HGNC:IDE)) negativeCorrelation p(HGNC:NOS2)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22367557"}
+
 SET SupportingText = "Furthermore, AMPK activation decreases mTOR signaling activity to facilitate autophagy and promotes lysosomal degradation of Abeta. However, AMPK activation has non-neuroprotective property and may lead to detrimental outcomes, including Abeta generation and tau phosphorylation. Therefore, it is still unclear whether AMPK could serve a potential therapeutic target for AD, and hence, further studies will be needed to clarify the role of AMPK in AD"
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -2850,8 +3061,10 @@ act(a(MESHCS:Lysosomes)) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Condition, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22382662"}
+
 SET SupportingText = "A possible model for involvement of HRD1 in Alzheimer's disease (AD). Suppression of AD: Upregulation of HRD1 promotes the ubiquitination and degradation of APP in the ERAD pathway, resulting in decreased Abeta generation."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -2934,8 +3147,10 @@ p(HGNC:PSEN2) association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22434822"}
+
 SET SupportingText = "Calsyntenin-1 is a ligand for kinesin-1 light chains and APP is transported through axons on kinesin-1 molecular motors. Defects in axonal transport are an early pathological feature in Alzheimer's disease and defective APP transport is known to increase Abeta production. We show that calsyntenin-1 and APP are co-transported through axons and that siRNA-induced loss of calsyntenin-1 markedly disrupts axonal transport of APP. Thus, perturbation to axonal transport of APP on calsyntenin-1 containing carriers induces alterations to APP processing that increase production of Abeta. Together, our findings suggest that disruption of calsyntenin-1-associated axonal transport of APP is a pathogenic mechanism in Alzheimer's disease."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -2982,8 +3197,10 @@ deg(complex(p(HGNC:CLSTN1), p(HGNC:KLC1))) decreases a(CHEBI:"amyloid-beta")
 UNSET {Condition, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22472873"}
+
 SET SupportingText = "SORL1 encodes the Sortilin-related receptor LR11/SorLA, a protein involved in the control of amyloid beta peptide production"
 SET Confidence = "High"
 SET Subgraph = {"Gamma secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -2991,8 +3208,10 @@ p(HGNC:SORL1) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22496686"}
+
 SET SupportingText = "ApoE was reported to induce Dab1 phosphorylation and ERK1/2 activation and JNK inhibition via LRPs. This pathway depends on the presence of Ca++ influx through the NMDA receptor, but it is independent of Dab1.Overall these data indicate a likely involvement of LRP8 as modulator of AbetaPP processing, by affecting its endocytic trafficking and the proportion of AbetaPP present in lipid rafts. These events may have consequence on the gamma-secretase-mediated cleavage of AbetaPP and on its neurodegeneration-related signaling activity."
 SET CellStructure = "Centrosome"
 SET Condition = "Normal Healthy State"
@@ -3008,8 +3227,10 @@ p(HGNC:LRP8) association deg(p(HGNC:APP))
 UNSET {CellStructure, Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22496686 "}
+
 SET SupportingText = "On the contrary, X11 stabilizes ABeta¸PP conformation in membrane, inhibiting ABeta¸ secretion in cultured cells [45], likely impairing ABeta¸PP trafficking to sites containing active gamma-secretase complexes [46]. JIP's are member of JNK-scaffolding family proteins kinases, implicated in different signal pathway, including neuronal apoptotic process. JNK-interacting proteins JIP1b and JIP2 bind to the cytoplasmic tail of ABeta¸PP. The expression of JIP1b stabilizes immature ABeta¸PP and decreases the ABeta¸PP ectodomain, ABeta¸40/ÃƒÅ¸42 and CTFs abundance [47].All these observations suggest that some of these protein-protein interactions may play a role in the modulation of the amyloidogenic pathway and thus might have a role in neurodegeneration."
 SET Confidence = "High"
 SET Subgraph = {"Autophagy signaling subgraph", "MAPK-ERK subgraph", "Non-amyloidogenic subgraph"}
@@ -3055,8 +3276,10 @@ a(CHEBI:"copper atom") directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22654105"}
+
 SET SupportingText = "Under physiological conditions, NFkappaB lowers the transcriptional activity of the promoters of betaAPP, beta-secretase (beta-site APP-cleaving enzyme 1, BACE1), and of the four protein components (Aph-1, Pen-2, nicastrin, presenilin-1, or presenilin-2) of the gamma-secretase in HEK293 cells. This was accompanied by a reduction of both protein levels and enzymatic activities, thereby ultimately yielding lower amounts of Abeta and AICD (APP intracellular domain)."
 SET Confidence = "High"
 SET Subgraph = {"Non-amyloidogenic subgraph", "Nuclear factor Kappa beta subgraph"}
@@ -3064,8 +3287,10 @@ p(HGNC:NFKB1) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22710916"}
+
 SET SupportingText = "The outcomes of the clinical trials of the gamma-secretase inhibitor Semagacestat (LY-450139) and the gamma-secretase modulator (GSM) Tarenflurbil were disappointing, but may not represent the end of the gamma-secretase era. gamma-Secretase modulators, by definition, only block the gamma-secretase cleavage of amyloid-beta protein precursor (AbetaPP) to generate the longer, 42-residue amyloid-beta (Abeta42) without changing the production of total Abeta. The first generation GSMs were shown to block Abeta42 generation while increasing Abeta38. The non-steroidal anti-inflammatory drug, Tarenflurbil, binds to AbetaPP and shifts the cleavage site from Abeta42 to Abeta38"
 SET Confidence = "Medium"
 SET DiseaseState = "Mild AD"
@@ -3105,8 +3330,10 @@ a(CHEBI:"(R)-flurbiprofen") isA a(CHEBI:"gamma-secretase modulator")
 UNSET {Confidence, DiseaseState, FDASTATUS, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22718609"}
+
 SET SupportingText = "The inhibition of this kinase can prevent the aggregation of beta-amyloid (Abeta) and hyperphosphorylation of tau protein."
 SET Confidence = "Medium"
 SET Subgraph = {"GSK3 subgraph", "Non-amyloidogenic subgraph"}
@@ -3114,8 +3341,10 @@ act(p(HGNC:GSK3B)) increases a(HBP:"amyloid-beta aggregates")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22718756"}
+
 SET SupportingText = "Human serum albumin (HSA) binds 95% of Abeta in blood plasma and is thought to inhibit plaque formation in peripheral tissue. However, the role of albumin in binding Abeta in the cerebrospinal fluid has been largely overlooked. Here we investigate the effect of HSA on both Abeta(1-40) and Abeta(1-42) fibril growth. We show that at micromolar cerebrospinal fluid levels, HSA inhibits the kinetics of Abeta fibrillization, significantly increasing the lag time and decreasing the total amount of fibrils produced"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Cerebrospinal Fluid"
@@ -3143,8 +3372,10 @@ p(HGNC:ALB) regulates a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22727043"}
+
 SET SupportingText = "SORLA is proposed to act as a retention factor for APP in the TGN, preventing the release of precursor molecules into the processing pathways. Consequently, over-expression of SORLA in neurons prevents the targeting of APP from TGN to the cell surface and to endosomes and reduces the production of Abeta peptides [9-11]. The importance of SORLA for AD is further supported by low levels of receptor expression seen in patients suffering from the disease"
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Non-amyloidogenic subgraph"}
@@ -3160,8 +3391,10 @@ act(p(HGNC:SORL1), ma(tport)) directlyDecreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22782894"}
+
 SET SupportingText = " We show here that during commissural axon navigation, APP, expressed at the growth cone, is part of the DCC receptor complex mediating netrin-1 dependent axon guidance. APP interacts with DCC in the presence of netrin-1 and enhances netrin-1 mediated-DCC intracellular signaling such as MAPK activation.Thus, APP functionally acts as a co-receptor for DCC to mediate axon guidance."
 SET Confidence = "High"
 SET Subgraph = {"Axonal guidance subgraph", "Non-amyloidogenic subgraph"}
@@ -3179,8 +3412,10 @@ complex(p(HGNC:APP), p(HGNC:NTN1)) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23022416"}
+
 SET SupportingText = "We examined the association between rs3818361 and brain amyloid deposition in nondemented older individuals. Risk allele carriers of rs3818361 have lower brain amyloid burden relative to noncarriers. There is a strikingly greater variability in brain amyloid deposition in the noncarrier group relative to risk carriers, an effect explained partly by APOE genotype. In noncarriers of the CR1 risk allele, APOE ε4 individuals showed significantly higher brain amyloid burden relative to APOE ε4 noncarriers. We also independently replicate our observation of lower brain amyloid burden in risk allele carriers of rs3818361 in the Alzheimer's Disease Neuroimaging Initiative sample.Our findings suggest complex mechanisms underlying the interaction of CR1, APOE, and brain amyloid pathways in AD. Our results are relevant to treatments targeting brain Abeta in nondemented individuals at risk for AD and suggest that clinical outcomes of such treatments might be influenced by complex gene-gene interactions."
 SET Confidence = "Medium"
 SET Subgraph = {"APOE subgraph", "Non-amyloidogenic subgraph"}
@@ -3200,8 +3435,10 @@ composite(g(DBSNP:rs3818361), g(DBSNP:rs429358)) association path(MESHD:"Alzheim
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23164821"}
+
 SET SupportingText = "To further elucidate how the clusterin-dependent induction of Dkk1 by Abeta mediates neurotoxicity, we measured the effects of Abeta and Dkk1 protein on whole-genome expression in primary neurons, finding a common pathway suggestive of activation of wnt-planar cell polarity (PCP)-c-Jun N-terminal kinase (JNK) signalling leading to the induction of genes including EGR1 (early growth response-1), NAB2 (Ngfi-A-binding protein-2) and KLF10 (Krüppel-like factor-10) that, when individually silenced, protected against Abeta neurotoxicity and/or tau phosphorylation."
 SET Confidence = "Medium"
 SET Subgraph = {"Gamma secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -3217,8 +3454,10 @@ deg(g(HGNC:KLF1)) decreases act(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23181169"}
+
 SET SupportingText = "In the brains of Abcg2 knockout mice, NF-kB activation as a result of Abcg2 deficiency increased Abeta deposition compared to controls. This result was further confirmed in vitro in N2a-695 cells where overexpression of ABCG2 significantly decreased the processing rate of APP and Abeta production as compared with controls."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -3246,8 +3485,10 @@ act(complex(SCOMP:"Nfkb Complex")) increases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23254638"}
+
 SET SupportingText = "GSNO treatment (50 Î¼g/kg/day for 2 months) significantly improved learning and memory performance of BCCAO rats and reduced the Abeta levels and ICAM-1/VCAM-1 expression in the brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -3257,8 +3498,10 @@ a(CHEBI:"S-nitrosoglutathione") decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23312564"}
+
 SET SupportingText = "Mifepristone alters amyloid precursor protein processing to preclude amyloid beta and also reduces tau pathology."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -3274,8 +3517,10 @@ a(CHEBI:mifepristone) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23577068"}
+
 SET SupportingText = "PrP(C) decreases amyloid-beta (Abeta) production, which is involved in AD pathogenesis, by inhibiting beta-secretase (BACE1) activity."
 SET Confidence = "High"
 SET Subgraph = {"Beta secretase subgraph", "Non-amyloidogenic subgraph"}
@@ -3305,8 +3550,10 @@ p(HGNC:PRNP) association path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23579020"}
+
 SET SupportingText = "The results of present in vitro research demonstrate for the first time the ability of DPPIV to truncate the commercial Aβ40 and Aβ42 peptides, to hinder the fibril formation by them and to participate in the disaggregation of preformed fibrils of these peptides"
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -3322,8 +3569,10 @@ p(HGNC:DPP4) decreases complex(GOCC:"neurofibrillary tangle")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23785163"}
+
 SET SupportingText = "When fed to AD transgenic mice, CNB-001 also increases eIF2Î± phosphorylation and HSP90 and ATF4 levels, and limits the accumulation of soluble Abeta and ubiquitinated aggregated proteins."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3333,8 +3582,10 @@ a(CHEBI:pyrazole) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23789959"}
+
 SET SupportingText = "Some ATP-binding cassette (ABC) transporters, particularly P-glycoprotein (ABCB1), MRP1 (ABCC1) and BCRP (ABCG2), have been implicated in the clearance of neurotoxic polypeptides that characteristically accumulate in the brain, such as amyloid-beta (Abeta) peptides in Alzheimer's disease."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -3374,8 +3625,10 @@ p(HGNC:ABCC1) association bp(GO:"GO:0097242")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24094411"}
+
 SET SupportingText = "Human serum albumin (HSA) is a potent inhibitor of Abeta self-association and this novel, to our knowledge, function of HSA is of potential therapeutic interest for the treatment of Alzheimer's disease."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -3386,8 +3639,10 @@ p(HGNC:ALB) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Disease, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24126163"}
+
 SET SupportingText = "Although the complete loss of tPA was developmentally fatal to Tg2576 mice, tPA-heterozygous Tg2576 mice expressed the more severe degenerative phenotypes than tPA wild-type Tg2576 mice, including abnormal and unhealthy growth, shorter life spans, significantly enhanced Abeta levels, and the deposition of more and larger amyloid plaques in the brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -3421,8 +3676,10 @@ p(HGNC:PLAT) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24279603"}
+
 SET SupportingText = "Furthermore, Meserine (7.5 mg/kg) injected intraperitoneally once daily for 3 weeks lowered APP level by 28% and Abeta42 level by 42% in APP/PS1 transgenic mouse cerebrum. And both APP and Abeta42 lowering action of Meserine maintained longer than that of rivastigmin"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Cerebrum"
@@ -3438,8 +3695,10 @@ a(MESHC:meserine) decreases p(HGNC:APP)
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24293250"}
+
 SET SupportingText = "Gold and silver nanoparticles (average 4.0 nm) inhibited fibril formation when added to the induced fibrils from nNOS-Abeta incubation."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -3451,8 +3710,10 @@ a(CHEBI:"gold nanoparticle") decreases bp(GOBP:"amyloid fibril formation")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24332564"}
+
 SET SupportingText = "First, Pin1 inhibits the production of Abeta, and enhances the activity of eNOS. Second, Abeta and eNOS form a mutual inhibition system. Third, the well-balanced feedback signaling loop avoids the development of AD, HTN, and CAA by inhibiting the frequent pathological characteristics of these diseases, including Abeta deposition in cerebral microvessels and cerebral microbleeds."
 SET Anatomy = "cerebral blood vessel"
 SET Confidence = "Medium"
@@ -3523,8 +3784,10 @@ composite(p(HGNC:NOS3), p(HGNC:PIN1)) decreases path(MESHD:"Cerebral Amyloid Ang
 UNSET {Anatomy, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24512768"}
+
 SET SupportingText = "Results demonstrated that orally administered rutin significantly attenuated memory deficits in AD transgenic mice, decreased oligomeric Abeta level, increased super oxide dismutase (SOD) activity and glutathione (GSH)/glutathione disulfide (GSSG) ratio, reduced GSSG and malondialdehyde (MDA) levels, downregulated microgliosis and astrocytosis, and decreased interleukin (IL)-1beta and IL-6 levels in the brain."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3549,8 +3812,10 @@ a(CHEBI:rutin) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, Disease, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24634659"}
+
 SET SupportingText = "Several findings indicate that the activation of both CB1 and CB2 receptors by natural or synthetic agonists, at non-psychoactive doses, have beneficial effects in Alzheimer experimental models by reducing the harmful beta-amyloid peptide action and tau phosphorylation, as well as by promoting the brain's intrinsic repair mechanisms."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -3564,8 +3829,10 @@ p(HGNC:CNR2) decreases act(p(CHEBI:"amyloid-beta"))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24769037"}
+
 SET SupportingText = "Pioglitazone decreased hippocampal beta-amyloid accumulation and Fas ligand, but did not ameliorate the neurobehavioural deficits induced by MSG. MSG treatment enhances beta-amyloid accumulation in the rat hippocampus."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Hippocampus"
@@ -3584,8 +3851,10 @@ a(CHEBI:pioglitazone) decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24838579"}
+
 SET SupportingText = "As compared to pioglitazone, GFT1803 (pan-PPAR agonist) produced both quantitatively superior and qualitatively different therapeutic effects with respect to amyloid plaque burden, insoluble Abeta content, and neuroinflammation at significantly lower whole body and brain exposure rates."
 SET Confidence = "High"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -3593,8 +3862,10 @@ a(CHEBI:pioglitazone) decreases path(MESHD:"Plaque, Amyloid")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24846616"}
+
 SET SupportingText = "The over-expressions of Abeta(1-42) and amyloid precursor protein (APP) were also decreased in the brains of APP/PS1 mice. Interestingly, MEM treatment improved the decreased NGF levels in APP/PS1 mice. Furthermore, NGF/TrkA signaling was activated by increasing the phosphorylation levels of tyrosine kinase (TrkA), proto-oncogene serine/threonine-protein kinase, Raf1 (c-Raf), extracellular regulated protein kinases (ERK)1/2 and cAMP-response element binding protein (CREB) after MEM treatment. Simultaneously, MEM also inhibited NGF/p75(NTR) signaling via decreasing the cleavage substrate of p75(NTR), increasing the JNK2 phosphorylation and decreasing the levels of p53 and cleaved-caspase 3."
 SET Confidence = "Medium"
 SET Species = "10090"
@@ -3608,8 +3879,10 @@ a(CHEBI:memantine) decreases p(MGI:App)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24879954"}
+
 SET SupportingText = "Montelukast also suppressed the Abeta_42-induced Bcl-2 decrease and Caspase-3 activation. Therefore, montelukast may exhibit a potent, anti-apoptotic effect, which contributes to the blockade of apoptotic responses induced by Abeta_42."
 SET Confidence = "Medium"
 SET Species = "10090"
@@ -3645,8 +3918,10 @@ a(CHEBI:montelukast) decreases p(MGI:Cysltr1)
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24905226"}
+
 SET SupportingText = "In this study, we investigated whether AS-IV could prevent Abeta1-42-induced neurotoxicity in SK-N-SH cells via inhibiting the mPTP opening. The results showed that pretreatment of AS-IV significantly increased the viability of neuronal cells, reduced apoptotic process, decreased the generation of intracellular reactive oxygen species (ROS) and decreased mitochondrial superoxide in the presence of Abeta1-42. In addition, pretreatment of AS-IV inhibited the mPTP opening, rescued mitochondrial membrane potential, enhanced ATP generation, improved the activity of cytochrome c oxidase and blocked cytochrome c release from mitochondria in Abeta1-42 rich milieu. Moreover, pretreatment of AS-IV reduced the expression of Bax and cleaved caspase-3 and increased the expression of Bcl-2 in an Abeta1-42 rich environment. These data indicate that AS-IV prevents Abeta1-42-induced SK-N-SH cell apoptosis via inhibiting the mPTP opening and ROS generation."
 SET Confidence = "Medium"
 SET Subgraph = {"Caspase subgraph", "Electron transport chain", "Non-amyloidogenic subgraph"}
@@ -3658,8 +3933,10 @@ a(CHEBI:"astragaloside IV") decreases bp(GOBP:"positive regulation of mitochondr
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24918635"}
+
 SET SupportingText = "In agreement with the altered sNG2 levels, we found decreased MMP-9 activity after fibrillar Abeta_42 exposure and a trend toward increased MMP-9 activity after oligomeric Abeta_42 exposure."
 SET Confidence = "Medium"
 SET Subgraph = {"Matrix metalloproteinase subgraph", "Non-amyloidogenic subgraph"}
@@ -3679,8 +3956,10 @@ a(HBP:"amyloid-beta oligomers") positiveCorrelation p(HGNC:MMP9)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24987467"}
+
 SET SupportingText = "Lower CSF ACE protein level, and to a lesser extent serum ACE protein level and CSF ACE activity, were associated with lower CSF Abeta, indicating more brain Abeta pathology; adjusted regression coefficients (B) (95% CI) per SD increase were 0.09 (0.04; 0.15), 0.06 (0.00; 0.12) and 0.05 (0.00; 0.11), respectively. Further, lower CSF ACE protein level was associated with lower CSF tau and ptau levels; adjusted B's (95% CI) per SD increase were 0.15 (0.06; 0.25) and 0.17 (0.10; 0.25), respectively.These results strengthen the hypothesis that ACE degrades Abeta."
 SET Anatomy = {"cerebrospinal fluid", "serum"}
 SET Confidence = "Medium"
@@ -3711,8 +3990,10 @@ p(HGNC:ACE) increases deg(p(HGNC:APP, frag("672_713")))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "27176073"}
+
 SET SupportingText = "AD-like context have also shown that vitamin D treatment, regardless of the model tested, the  dosage,  the  molecule  chosen,  and  the  time  of treatment decreases the amyloid burden, suggesting a link between vitamin D function and amyloidogenesis. The behavioral changes reported in the study by Yu and colleagues were accompanied by a diminished Abeta load, along with an increase in astrocytic reactivity, NGF levels, and decreased TNFalpha in the brain of treated mice."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -3722,8 +4003,10 @@ a(CHEBI:"vitamin D") decreases p(HGNC:APP, frag("672_713"))
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7811262"}
+
 SET SupportingText = "If this hydrolysis also occurs in the brain's extracellular matrix, the enzymatic action of gelatinase a could prevent the generation of amyloidogenic A beta 1-40(42)."
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Brain"
@@ -3732,8 +4015,10 @@ p(HGNC:MMP2) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8823200"}
+
 SET SupportingText = " ApoE3 can also inhibit fibril formation by A beta (1-42)."
 SET Confidence = "High"
 SET Subgraph = {"APOE subgraph", "Non-amyloidogenic subgraph"}
@@ -3741,8 +4026,10 @@ p(HGNC:APOE) decreases bp(GOBP:"amyloid fibril formation")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8892344"}
+
 SET SupportingText = "Clusterin inhibits the aggregation of A beta, which might be neuroprotective according to the aggregation-toxicity hypothesis of A beta. However, clusterin enhanced the oxidative stress of A beta."
 SET Confidence = "High"
 SET Subgraph = {"Endosomal lysosomal subgraph", "Non-amyloidogenic subgraph"}
@@ -3754,8 +4041,10 @@ act(p(HGNC:CLU)) increases bp(GOBP:"response to misfolded protein")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9775403"}
+
 SET SupportingText = " It has also been shown in animal pmodels that under conditions of reduced M1/M3 muscarinic acetylcholine receptor stimulation the secretory pathway of APP processing is inhibited and that constitutive upregulation of M1/M3-associated PKC increases APP secretion."
 SET Confidence = "Medium"
 SET Subgraph = "Non-amyloidogenic subgraph"
@@ -3763,3 +4052,5 @@ p(HGNC:PRKCA) increases p(HGNC:APP)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

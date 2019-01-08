@@ -1,4 +1,4 @@
-# This document was created by PyBEL v0.13.0-dev and bel-resources v0.0.2-dev on Mon Jan  7 16:13:45 2019
+# This document was created by PyBEL v0.13.1-dev and bel-resources v0.0.2-dev on Tue Jan  8 14:53:23 2019
 
 ################################################################################
 #| Metadata
@@ -15,7 +15,7 @@ SET DOCUMENT Copyright = "Copyright © 2019 Fraunhofer SCAI, All rights reserved
 ################################################################################
 
 # Enumerated Namespaces
-
+# ---------------------
 DEFINE NAMESPACE ADO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/alzheimer-disease-ontology/alzheimer-disease-ontology-1.0.2.belns"
 DEFINE NAMESPACE BRCO AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/brain-region-ontology/brain-region-ontology-1.0.0.belns"
 DEFINE NAMESPACE CHEBI AS URL "https://raw.githubusercontent.com/pharmacome/terminology/1b20f0637c395f8aa89c2e2e342d7b704062c242/external/chebi-names.belns"
@@ -44,7 +44,7 @@ DEFINE NAMESPACE SCOMP AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/n
 DEFINE NAMESPACE SFAM AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/namespace/selventa-protein-families/selventa-protein-families-20170725.belns"
 
 # Regular Expression Namespaces
-
+# -----------------------------
 DEFINE NAMESPACE DBSNP AS PATTERN "^rs\d+$"
 DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 
@@ -53,7 +53,7 @@ DEFINE NAMESPACE TAXONOMY AS PATTERN "^\d+$"
 ################################################################################
 
 # Enumerated Annotations
-
+# ----------------------
 DEFINE ANNOTATION Anatomy AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/anatomy/anatomy-20170511.belanno"
 DEFINE ANNOTATION Cell AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell/cell-20170511.belanno"
 DEFINE ANNOTATION CellLine AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/cell-line/cell-line-20170511.belanno"
@@ -65,11 +65,13 @@ DEFINE ANNOTATION MeSHAnatomy AS URL "https://arty.scai.fraunhofer.de/artifactor
 DEFINE ANNOTATION MeSHDisease AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/mesh-diseases/mesh-diseases-20170511.belanno"
 DEFINE ANNOTATION Subgraph AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/neurommsig/neurommsig-1.0.3.belanno"
 DEFINE ANNOTATION TextLocation AS URL "https://arty.scai.fraunhofer.de/artifactory/bel/annotation/text-location/text-location-1.0.1.belanno"
+
 # Regular Expression Annotations
-
+# ------------------------------
 DEFINE ANNOTATION Species AS PATTERN "\d+"
-# Locally Defined Annotations
 
+# Locally Defined Annotations
+# ---------------------------
 DEFINE ANNOTATION Condition AS LIST {"Normal Healthy State"}
 DEFINE ANNOTATION Developmental_Phase__of_patient AS LIST {"Developmental stage", "Old"}
 DEFINE ANNOTATION DiseaseState AS LIST {"Early-onset AD", "Familial Alzheimers Disease", "Late-onset AD", "Mild AD", "Moderate AD", "Sporadic Alzheimers Disease"}
@@ -88,9 +90,8 @@ DEFINE ANNOTATION UserdefinedCellLine AS LIST {"293APPwt", "App transgenic", "CH
 ################################################################################
 #| Statements
 ################################################################################
-
-################################################################################
 SET Citation = {"Online Resource", "hsa05010"}
+
 SET SupportingText = "Alzheimer's disease (AD) is a chronic disorder that slowly destroys neurons and causes serious cognitive disability. AD is associated with senile plaques and neurofibrillary tangles (NFTs). Amyloid-beta (Abeta), a major component of senile plaques, has various pathological effects on cell and organelle function. The extracellular Abeta oligomers may activate caspases through activation of cell surface death receptors. Alternatively, intracellular Abeta may contribute to pathology by facilitating tau hyper-phosphorylation, disrupting mitochondria function, and triggering calcium dysfunction. To date genetic studies have revealed four genes that may be linked to autosomal dominant or familial early onset AD (FAD). These four genes include: amyloid precursor protein (APP), presenilin 1 (PS1), presenilin 2 (PS2) and apolipoprotein E (ApoE). All mutations associated with APP and PS proteins can lead to an increase in the production of Abeta peptides, specfically the more amyloidogenic form, Abeta42. FAD-linked PS1 mutation downregulates the unfolded protein response and leads to vulnerability to ER stress."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Tau protein subgraph"}
@@ -98,8 +99,10 @@ a(CHEBI:"amyloid-beta") increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10486203"}
+
 SET SupportingText = "Recent studies have shown that GSK-3beta phosphorylates the microtubule-associated protein tau in vitro and in cell culture."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -107,8 +110,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10830966"}
+
 SET SupportingText = "Conversion of p35 to p25 causes prolonged activation and mislocalization of cdk5. Consequently, the p25/cdk5 kinase hyperphosphorylates tau, disrupts the cytoskeleton and promotes the death (apoptotic process) of primary neurons."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -136,8 +141,10 @@ rxn(reactants(p(HGNC:CDK5R1)), products(p(HBP:"CDK5R1 p25"))) increases act(p(HG
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10840038"}
+
 SET SupportingText = "In this study, we found that the 14-3-3zeta isoform is associated with tau in brain extract and profoundly stimulates cAMP-dependent protein kinase catalyzed in vitro phosphorylation on Ser(262)/Ser(356) located within the microtubule-binding region of tau. "
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -153,8 +160,10 @@ act(p(HGNC:PRKAR1A), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Ser, 356))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10899937"}
+
 SET SupportingText = "The neuronal microtubule-associated protein tau is a substrate for caspase-3 and an effector of apoptotic process"
 SET Confidence = "High"
 SET Subgraph = {"Caspase subgraph", "Tau protein subgraph"}
@@ -162,8 +171,10 @@ act(p(HGNC:CASP3), ma(pep)) increases p(HGNC:MAPT, frag("?"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "10998059"}
+
 SET SupportingText = "Alsterpaullone inhibits the phosphorylation of tau in vivo at sites which are typically phosphorylated by GSK-3beta in Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -201,8 +212,10 @@ a(CHEBI:alsterpaullone) negativeCorrelation act(p(HGNC:CDK5))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11007782"}
+
 SET SupportingText = "Glycogen synthase kinase-3beta phosphorylates protein tau and rescues the axonopathy in the central nervous system of human four-repeat tau transgenic mice."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -210,8 +223,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11013232"}
+
 SET SupportingText = "Indirubins inhibit glycogen synthase kinase-3 beta and CDK5/p25, two protein kinases involved in abnormal tau phosphorylation in Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -227,8 +242,10 @@ act(p(HGNC:CDK5)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11054815"}
+
 SET SupportingText = "Phosphorylation of human tau protein by microtubule-associated kinases: GSK3beta and cdk5 are key participants."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -240,8 +257,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11079778"}
+
 SET SupportingText = "To further delineate this relationship, we investigated the role of p38, a stress activated protein kinase which phosphorylates tau protein at sites found in the NFT of AD"
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -249,8 +268,10 @@ act(p(HGNC:MAPK14), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11104762"}
+
 SET SupportingText = "The immunoreactivity for phosphorylated tau at Ser-320 increased in the presence of a phosphatase inhibitor, FK506 treatment, which means that calcineurin (protein phosphatase 2B) may be involved in dephosphorylating tau at Ser-320 site."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -264,8 +285,10 @@ act(p(HGNC:PKN1), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11162250"}
+
 SET SupportingText = "Using an in vitro translation assay to screen a human brain cDNA library, we isolated the microtubule-associated protein Tau and determined it to be a caspase-3 substrate whose C-terminal cleavage occurred during neuronal apoptotic process."
 SET Confidence = "High"
 SET Subgraph = {"Caspase subgraph", "Tau protein subgraph"}
@@ -273,8 +296,10 @@ act(p(HGNC:CASP3), ma(pep)) increases p(HGNC:MAPT, frag("?"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11181841"}
+
 SET SupportingText = "Hyperphosphorylated tau is an integral part of the neurofibrillary tangles that form within neuronal cell bodies, and tau protein kinase II is reported to play a role in the pathogenesis of Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -330,8 +355,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Thr, 217))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11264299"}
+
 SET SupportingText = "Abnormally phosphorylated tau extracted from AD tissue displayed a dramatically reduced capacity to bind S100beta, which was restored by pretreatment with alkaline phosphatase. "
 SET Confidence = "High"
 SET MeSHDisease = "Alzheimer Disease"
@@ -340,8 +367,10 @@ p(HGNC:MAPT, pmod(Ph)) decreases complex(p(HGNC:MAPT), p(HGNC:S100B))
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11578751"}
+
 SET SupportingText = "Two main protein kinases have been shown to be involved in anomalous tau phosphorylations: the cyclin-dependent kinase Cdk5 and glycogen synthase kinase GSK3beta"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -355,8 +384,10 @@ act(p(HGNC:CDK5), ma(kin)) directlyIncreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11803455"}
+
 SET SupportingText = "Several kinases, such as glycogen synthase kinase 3 beta (GSK3beta) and c-Jun N-terminal kinase (JNK), phosphorylate tau at sites that are phosphorylated in PHF."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -372,8 +403,10 @@ act(p(HGNC:MAPK8)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11810404"}
+
 SET SupportingText = " Finally, CaM kinase II is present in neurons but not in glial cells, thus suggesting no role of CaM kinase II in tau phosphorylation of glial cells. These observations, together with previous results of in vitro studies, support the idea that several MAPK/ERK, SAPK/JNK, p38 and CaM kinase II may participate in tau phosphorylation in tauopathies"
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -402,8 +435,10 @@ p(HGNC:CAMK2B) causesNoChange p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11943163"}
+
 SET SupportingText = "Direct interaction of soluble human recombinant tau protein with Abeta 1-42 results in tau aggregation and hyperphosphorylation by tau protein kinase II."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -415,8 +450,10 @@ complex(p(HGNC:APP, frag("672_713")), p(HGNC:MAPT)) increases p(HGNC:MAPT, pmod(
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "11956956"}
+
 SET SupportingText = "This abnormality along with a reduction in brain insulin concentration is assumed to induce a cascade-like process of disturbances including cellular glucose, acetylcholine, cholesterol, and ATP associated with abnormalities in membrane pathology and the formation of both amyloidogenic derivatives and hyperphosphorylated tau protein."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -432,8 +469,10 @@ act(p(HGNC:INS)) association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12191990"}
+
 SET SupportingText = "Aberrant tau phosphorylation by glycogen synthase kinase-3beta and JNK3 induces oligomeric tau fibrils in COS-7 cells."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -445,8 +484,10 @@ act(p(HGNC:MAPK10)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12387894"}
+
 SET SupportingText = "Deglycosylation by glycosidases depressed the subsequent phosphorylation of AD-tau (i) with cdk5 at Thr-181, Ser-199, Ser-202, Thr-205, and Ser-404, but not at Thr-212; and (ii) with GSK-3beta at Thr-181, Ser-202, Thr-205, Ser-217, and Ser-404, but not at Ser-199, Thr-212, Thr-231, or Ser-396. "
 SET Confidence = "Low"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -536,8 +577,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Thr, 231))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12402041"}
+
 SET SupportingText = "We have shown that interaction of CD40 with CD40L enables microglial activation in response to amyloid-beta peptide (Abeta), which is associated with Alzheimer's disease (AD)-like neuronal tau hyperphosphorylation in vivo."
 SET Confidence = "Medium"
 SET Subgraph = {"Amyloidogenic subgraph", "Tau protein subgraph", "Tumor necrosis factor subgraph"}
@@ -553,8 +596,10 @@ p(HGNC:MAPT, pmod(Ph)) association a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12428805"}
+
 SET SupportingText = "A large body of biochemical, genetic, and cell biological evidence implicate two major serine-threonine protein kinases, glycogen synthase kinase 3 (GSK-3) and cyclin-dependent kinase 5 (CDK5) as major kinases responsible for both normal and pathological phosphorylation of tau protein in vivo."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -592,8 +637,10 @@ path(MESHD:"Supranuclear Palsy, Progressive") association p(HGNC:MAPT)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12435421"}
+
 SET SupportingText = "Aberrant glycosylation pmodulates phosphorylation of tau by protein kinase A and dephosphorylation of tau by protein phosphatase 2A and 5."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -613,8 +660,10 @@ act(p(HGNC:PPP5C), ma(phos)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12575378"}
+
 SET SupportingText = "CONCLUSION: TXR could inhibit tau protein hyperphosphorylation, which might partially be due to the TXR caused binding of presenilin-1 with tau protein."
 SET Confidence = "Low"
 SET Subgraph = {"Gamma secretase subgraph", "Tau protein subgraph"}
@@ -622,8 +671,10 @@ complex(p(HGNC:MAPT), p(HGNC:PSEN1)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "12668899"}
+
 SET SupportingText = "Yet several studies have demonstrated that oligomeric Abeta affects the cellular cholesterol level, which in turn has a variety of effects on AD related pathologies, including modulation of tau phosphorylation, synapse formation and maintenance of its function, and the neurodegenerative process."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -657,8 +708,10 @@ bp(GOBP:"synapse maturation") association a(CHEBI:cholesterol)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14636947"}
+
 SET SupportingText = "Our data suggest that phosphorylation of tau by Akt may play specific role(s) in Akt-mediated anti-apoptotic signaling, particularly relevant to AD and other neurodegenerations."
 SET Confidence = "High"
 SET Subgraph = {"Akt subgraph", "Tau protein subgraph"}
@@ -666,8 +719,10 @@ act(p(HGNC:AKT1), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14673212"}
+
 SET SupportingText = "Both the hyperactivation of Cdk5 activity and subsequent hyperphosphorylation of neurofilaments and the microtubule-associated protein tau have been implicated in the pathogenesis of neurodegenerative disorders such as Alzheimer's disease and amyotrophic lateral sclerosis."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -707,8 +762,10 @@ path(MESHD:"Amyotrophic Lateral Sclerosis") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14699432"}
+
 SET SupportingText = "Our findings support the notion that CSF tau and Abeta(1-42) may be useful biomarkers in the early identification of AD in MCI subjects."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -718,8 +775,10 @@ p(HGNC:MAPT) biomarkerFor path(MESHD:"Alzheimer Disease")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14976144"}
+
 SET SupportingText = "Alzheimer's disease is an age-related form of dementia due to a progressive loss of neuronal functioning, also characterized by the deposition of extracellular amyloid throughout the brain (amyloid plaques) and a significant decrease in brain mass. An overactivity of the cyclin-dependent protein kinase CDK5 in the brain has been implicated in neuronal degeneration and the formation of neurofibrillary tangles due to hyperphosphorylation of essential neuronal proteins such as MAP and Tau (2). CDK5 is regulated by the neuron-specific and cyclin-related protein p35 (also known as p35Ncdk5a). During the development of Alzheimer's disease, p35 is processed to a smaller protein, p25, which is a constitutive activator of CDK5. The generation of p25 disrupts CDK5 localization and substrate preferences (2). In addition, the expression of p25 in neurons results in a collapse of microtubules, neurite retraction, and apoptosis (2)."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -743,8 +802,10 @@ path(MESHD:"Nerve Degeneration") association act(p(HGNC:CDK5))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "14999081"}
+
 SET SupportingText = "In this study we determined that human tau tyr18 was phosphorylated by the src family tyrosine kinase fyn."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -752,8 +813,10 @@ act(p(HGNC:FYN), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Tyr, 18))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15094078"}
+
 SET SupportingText = "The consequences of the inhibition of neuronal insulin signal transduction may be largely identical to those of disturbances of oxidative energy metabolism and related metabolism, and of hyperphosphorylation of tau-protein."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -775,8 +838,10 @@ bp(GOBP:"energy homeostasis") positiveCorrelation bp(GOBP:"insulin receptor sign
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15232608"}
+
 SET SupportingText = "One of the consequences of caspase activation is cleavage of tau."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Medium"
@@ -785,8 +850,10 @@ act(p(HGNC:CASP4), ma(pep)) increases p(HGNC:MAPT, frag("?"))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15283963"}
+
 SET SupportingText = "We have reported recently that the microtubule-associated protein tau is phosphorylated in vitro by Akt , an important kinase in anti-apoptotic signaling regulated by insulin and growth factors."
 SET Confidence = "High"
 SET Subgraph = {"Akt subgraph", "Tau protein subgraph"}
@@ -802,8 +869,10 @@ a(CHEBI:"insulin (human)") association act(p(HGNC:AKT1), ma(kin))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15314261"}
+
 SET SupportingText = "Glycogen synthase kinase-3beta (GSK3beta) is recognized as one of major kinases to phosphorylate tau in Alzheimer's disease (AD), thus lots of AD drug discoveries target GSK3beta. However, the inactive form of GSK3beta which is phosphorylated at serine-9 is increased in AD brains. This is also inconsistent with phosphorylation status of other GSK3beta substrates, such as beta-catenin and collapsin response mediator protein-2 (CRMP2) since their phosphorylation is all increased in AD brains. "
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -866,8 +935,10 @@ a(CHEBI:"okadaic acid") increases bp(GOBP:"cell death")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15356202"}
+
 SET SupportingText = "In addition, caspase-6 cleaved the N terminus of tau in vitro, preventing immunoreactivity with both Tau-12 and 5A6."
 SET Confidence = "High"
 SET Subgraph = {"Caspase subgraph", "Tau protein subgraph"}
@@ -875,8 +946,10 @@ act(p(HGNC:CASP6), ma(pep)) increases p(HGNC:MAPT, frag("?"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15522877"}
+
 SET SupportingText = "In situ, FRAT-2 significantly increased GSK3 beta-mediated phosphorylation of tau at a primed epitope while not significantly affecting the phosphorylation of unprimed sites."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -888,8 +961,10 @@ p(HGNC:FRAT2) increases act(p(HGNC:GSK3B))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15658002"}
+
 SET SupportingText = "Hyperphosphorylation and accumulation of tau in neurons (and glial cells) is one of the main pathologic hallmarks in Alzheimer's disease (AD) and other tauopathies, including Pick's disease (PiD), progressive supranuclear palsy, corticobasal degeneration, argyrophilic grain disease and familial frontotemporal dementia and parkinsonism linked to chromosome 17 due to mutations in the tau gene (FTDP-17-tau)."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1039,8 +1114,10 @@ path(MESHD:Tauopathies) positiveCorrelation act(p(HGNC:MAPK14))
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15686969"}
+
 SET SupportingText = "The beta-amyloid precursor protein APP and the microtubule-associated protein Tau play a crucial role in the pathogenesis of Alzheimer's disease (AD). "
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1086,8 +1163,10 @@ complex(p(HGNC:APBB1), p(HGNC:MAPT)) association act(p(HGNC:CDK5), ma(kin))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15773910"}
+
 SET SupportingText = "In concordance, significant increases in the levels of phosphorylation of total Akt substrates, including: GSK3beta(Ser9), tau(Ser214), mTOR(Ser2448), and decreased levels of the Akt target, p27(kip1), were found in AD temporal cortex compared with controls."
 SET Confidence = "High"
 SET MeSHDisease = "Alzheimer Disease"
@@ -1111,8 +1190,10 @@ p(HGNC:MAPT, pmod(Ph, Ser, 214)) positiveCorrelation path(MESHD:"Alzheimer Disea
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "15977985"}
+
 SET SupportingText = "Moreover, SAPK/JNK- and p38-immunoprecipitated sub-cellular fractions enriched in abnormal hyperphosphorylated tau have the capacity to phosphorylate recombinant tau and c-Jun and ATF-2 which are specific substrates of SAPK/JNK and p38 in AD and PiD."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -1124,8 +1205,10 @@ act(p(HGNC:MAPK14), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16014719"}
+
 SET SupportingText = "In vitro, Abl phosphorylated tau directly."
 SET Confidence = "High"
 SET Subgraph = {"Apoptosis signaling subgraph", "Cell cycle subgraph", "Tau protein subgraph"}
@@ -1133,8 +1216,10 @@ act(p(HGNC:ABL1), ma(kin)) directlyIncreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16242644"}
+
 SET SupportingText = "Dyrk1 phosphorylates the human microtubule-associated protein tau at Thr212 in vitro, a residue that is phosphorylated in fetal tau and hyper-phosphorylated in Alzheimer disease (AD) and tauopathies, including Pick disease (PiD)."
 SET Confidence = "High"
 SET Subgraph = {"DYRK1A subgraph", "Tau protein subgraph"}
@@ -1142,8 +1227,10 @@ act(p(HGNC:DYRK1A), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Thr, 212))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16257959"}
+
 SET SupportingText = "In vitro kinase reaction revealed that recombinant GSK-3beta indeed phosphorylates MARK2, whereas it failed to phosphorylate Ser-262 of tau."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -1173,8 +1260,10 @@ act(p(HGNC:MARK2)) positiveCorrelation p(HGNC:MAPT, pmod(Ph, Ser, 262))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16364209"}
+
 SET SupportingText = "Recent studies showed that melatonin, an indoleamine secreted by the pineal gland, may play an important/ role in aging and AD as an antioxidant and neuroprotector. Melatonin decreases during aging and patients with AD have a/ more profound reduction in this hormone.Melatonin efficiently protects neuronal cells from Abeta-mediated toxicity via/ antioxidant and anti-amyloid properties: it not only inhibits Abeta generation, but also arrests the formation of amyloid/ fibrils by a structure-dependent interaction with Abeta. Our recent studies have demonstrated that melatonin efficiently/ attenuates Alzheimer-like tau hyperphosphorylation. Although the exact mechanism is still not fully understood, a direct/ regulatory influence of melatonin on the activities of protein kinases and protein phosphatases is proposed. Additionally,/ melatonin also plays a role in protecting cholinergic neurons and in anti-inflammation."
 SET Confidence = "Very High"
 SET Subgraph = "Tau protein subgraph"
@@ -1182,8 +1271,10 @@ a(CHEBI:melatonin) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16364302"}
+
 SET SupportingText = "Currently, we found that the 70-kDa p70 S6 kinase (p70S6K) directly phosphorylates tau at S262, S214, and T212 sites in vitro."
 SET Confidence = "High"
 SET Subgraph = {"Tau protein subgraph", "mTOR signaling subgraph"}
@@ -1199,8 +1290,10 @@ act(p(HGNC:RPS6KB1), ma(kin)) directlyIncreases p(HGNC:MAPT, pmod(Ph, Thr, 212))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16399206"}
+
 SET SupportingText = "Insulin and insulin receptors were shown to decrease in a normal brain with aging, but increase in AD brains [29]. Several basic science studies have explored and shown the relationship between the increased insulin and AD pathology in the aspects other than Abeta degradation alone. For example, insulin increases the secretion of Abeta into extracellular space [31], stimulates tau phosphorylation to form neurofibrillary tangles, and impairs insulin signal transduction [32] and [40] (reviewed by Gasparini and Hoyer). Insulin also affected APP processing in vivo, a critical molecular step in generating Abeta, to secrete sAPP [13], [16] and [81]. In addition, Abeta reduces insulin binding to insulin receptors [95]."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -1224,8 +1317,10 @@ p(HGNC:INS) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16410745"}
+
 SET SupportingText = "We previously showed that thrombin proteolyses the microtubule-associated protein tau and that phosphorylation of tau inhibits this process."
 SET Confidence = "High"
 SET Subgraph = {"Plasminogen activator subgraph", "Regulation of actin cytoskeleton subgraph", "Tau protein subgraph"}
@@ -1237,8 +1332,10 @@ act(p(HGNC:F2), ma(pep)) increases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16496165"}
+
 SET SupportingText = "The present findings are in line with the previous studies showing tau products cleaved by caspase-3, as recognized by s pecific tau-cleaved antibodies, in Alzheimer's disease and other tauopathies."
 SET Confidence = "High"
 SET MeSHDisease = {"Alzheimer Disease", "Tauopathies"}
@@ -1247,8 +1344,10 @@ p(HGNC:CASP3) increases p(HGNC:MAPT, frag("?"))
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16504486"}
+
 SET SupportingText = "Hyperphosphorylated tau protein is the basic structural component of the neurofibrillary tangle, a histopathological hallmark of Alzheimer's disease. The formation of hyperphosphorylated tau protein may impair learning and the synaptic plasticity of neurons. Tau is a protein that is associated with and stabilizes microtubules; hyperphosphorylated tau protein is unable to perform this stabilization function."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1280,8 +1379,10 @@ complex(GOCC:"neurofibrillary tangle") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16507903"}
+
 SET SupportingText = "Both inhibitors accumulated in the cytoplasm of nerve cells, the majority of which contained inclusions made of hyperphosphorylated tau protein."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -1305,8 +1406,10 @@ p(HGNC:CDKN1A) association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16772869"}
+
 SET SupportingText = "The mitogen-activated protein (MAP) kinase SAPK/JNK phosphorylates tau protein at many of its proline-directed serine/threonine residues in vitro and is a likely candidate kinase to phosphorylate the pathologically relevant S422 site on tau."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -1314,8 +1417,10 @@ act(p(HGNC:MAPK9), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Ser, 422))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16914869"}
+
 SET SupportingText = "In the present review, we discuss our initial in vitro results and additional investigations showing that Abeta activates GSK-3beta through impairment of phosphatidylinositol-3 (PI3)/Akt signaling; that Abeta-activated GSK-3beta induces hyperphosphorylation of tau, NFT formation, neuronal death, and synaptic loss (all found in the AD brain); that GSK-3beta can induce memory deficits in vivo; and that inhibition of GSK-3alpha (an isoform of GSK-3beta) reduces Abeta production."
 SET Confidence = "High"
 SET Subgraph = {"Amyloidogenic subgraph", "GSK3 subgraph", "Tau protein subgraph"}
@@ -1355,8 +1460,10 @@ p(HGNC:GSK3A) increases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "16973241"}
+
 SET SupportingText = "GSK3B is known to phosphorylate the microtubule protein tau (MAPT)."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -1364,8 +1471,10 @@ act(p(HGNC:GSK3B)) directlyIncreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17078951"}
+
 SET SupportingText = "Phosphorylation of tau protein is regulated by several kinases, especially glycogen synthase kinase 3beta (GSK-3beta), cyclin-dependent protein kinase 5 (cdk5) and cAMP-dependent protein kinase (PKA)."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -1385,8 +1494,10 @@ act(p(HGNC:PRKACA)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17089132"}
+
 SET SupportingText = "We have previously reported that the phosphorylated form of stress-activated protein kinase/c-Jun N-terminal kinase (p-SAPK/JNK) accumulates in granules within hippocampal pyramidal cell bodies in AD tissue at the time that hyperphosphorylated tau begins to aggregate into early-stage NFTs."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -1394,8 +1505,10 @@ act(p(HGNC:MAPK8), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17120162"}
+
 SET SupportingText = "Microtubule associated protein tau is abnormally hyperphosphorylated in Alzheimer disease (AD) brain."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1431,8 +1544,10 @@ act(p(HGNC:PRKACA), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17146290"}
+
 SET SupportingText = " Our studies indicate that GRK2 is a novel component of neuronal and glial fibrillary tau deposits with no preference in tau isoform binding. GRK2 may play a role in hyperphosphorylation of tau in tauopathies"
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1454,8 +1569,10 @@ p(HGNC:GRK2) association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17154549"}
+
 SET SupportingText = "These results are consistent with observations that PSA pmodulates tau levels in vivo and suggest that this enzyme may be involved in tau degradation in human brain."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1467,8 +1584,10 @@ p(HGNC:NPEPPS) association deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17160145"}
+
 SET SupportingText = "However, cdk5/p25 could phosphorylate other substrates such as tau and p53, as well as the retinoblastoma protein pRb."
 SET Confidence = "High"
 SET Species = "9606"
@@ -1477,8 +1596,10 @@ act(p(HGNC:CDK5R1), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17360687"}
+
 SET SupportingText = "These results reveal an antiapoptotic function of tau hyperphosphorylation, which likely inhibits competitively phosphorylation of beta-catenin by GSK-3beta and hence facilitates the function of beta-catenin."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -1490,8 +1611,10 @@ p(HGNC:MAPT, pmod(Ph)) decreases p(HGNC:CTNNB1, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17360711"}
+
 SET SupportingText = "We demonstrate that phosphorylation of serines 353 and 357 by glycogen synthase kinase-3beta (GSK3beta) induces a structural change of the hydrophilic loop of PS1 that can also be mimicked by substitution of the phosphorylation sites by negatively charged amino acids in vitro and in cultured cells. The structural change of PS1 reduces the interaction with beta-catenin leading to decreased phosphorylation and ubiquitination of beta-catenin."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Gamma secretase subgraph", "Tau protein subgraph"}
@@ -1527,8 +1650,10 @@ p(HGNC:CTNNB1, pmod(Ub)) positiveCorrelation complex(p(HGNC:CTNNB1), p(HGNC:PSEN
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17954934"}
+
 SET SupportingText = "Hsp70/Hsc70, a member of the chaperone protein family, interacts with Tau protein and mediates proper folding of Tau and can promote degradation of Tau protein under certain circumstances."
 SET Confidence = "High"
 SET Subgraph = {"Chaperone subgraph", "Tau protein subgraph"}
@@ -1564,8 +1689,10 @@ p(HGNC:BAG1) decreases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "17965932"}
+
 SET SupportingText = "Cyclin-dependent kinase 5 (Cdk5), a proline-directed serine/Threonine kinase, is considered to have a major tau-phosphorylating function in the brain, with pathological relevance in AD."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -1573,8 +1700,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18164103"}
+
 SET SupportingText = "The virus [HSV-1] is transported to the nucleus via the dynein and kinesin (KNS2) motors associated with the microtubule network (MAPT)...  A viral protein is also able to delete mitochondrial DNA, a situation prevalent in Alzheimer's disease. "
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1588,8 +1717,10 @@ p(HGNC:KLC1) association p(HGNC:MAPT)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18217188"}
+
 SET SupportingText = "We found that betaE2 could attenuate tau hyperphosphorylation at multiple AD-related sites, including Ser396/404, Thr231, Thr205, and Ser199/202, induced by Wort/GFX or transient overexpression of GSK-3beta. "
 SET Confidence = "High"
 SET Subgraph = {"Estrogen subgraph", "GSK3 subgraph", "Tau protein subgraph"}
@@ -1621,8 +1752,10 @@ a(CHEBI:"17beta-estradiol") decreases p(HGNC:MAPT, pmod(Ph, Ser, 202))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18494933"}
+
 SET SupportingText = "it has been demonstrated that micromolar S100B concentrations stimulate c-Jun N-terminal kinase (JNK) phosphorylation through the receptor for advanced glycation ending products, and subsequently activate nuclear AP-1/cJun transcription, in cultured human neural stem cells. In addition, as revealed by Western blot, small interfering RNA and immunofluorescence analysis, S100B-induced JNK activation increased expression of Dickopff-1 that, in turn, promoted glycogen synthase kinase 3beta phosphorylation and beta-catenin degradation, causing canonical Wnt signaling pathway disruption and tau protein hyperphosphorylation. These findings propose a previously unrecognized link between S100B and tau hyperphosphorylation, suggesting S100B can contribute to NFT formation in AD and in all other conditions in which neuroinflammation may have a crucial role."
 SET Confidence = "Very High"
 SET MeSHDisease = "Alzheimer Disease"
@@ -1658,8 +1791,10 @@ p(HGNC:GSK3B, pmod(Ph)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18584921"}
+
 SET SupportingText = "Amyloid beta-peptide 1-42 (Abeta(1-42)) and hyperphosphorylated tubulin associated unit (tau) isoforms appear to be the most sensitive and specific CSF biomarkers, the combination of these biomarkers depicting the best diagnosis value for AD."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1675,8 +1810,10 @@ path(MESHD:"Alzheimer Disease") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18675468"}
+
 SET SupportingText = "During the course of AD tau becomes hyperphosphorylated and dissociates from microtubules which then depolymerize. The hyperphosphorylated tau self-aggregates and accumulates in the cell body where it forms paired-helical filaments (neurofibrillary tangles). As a consequence of accumulation of Abeta at synapses, Ca2+ regulation is impaired"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -1748,8 +1885,10 @@ bp(GOBP:"regulation of microtubule cytoskeleton organization") association p(HGN
 UNSET {Condition, Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18696092"}
+
 SET SupportingText = "In vitro studies showing that DYRK1A phosphorylates tau protein suggest that this kinase is also involved in tau protein phosphorylation in the human brain and contributes to neurofibrillary degeneration, and that this contribution might be enhanced in patients with DS."
 SET Confidence = "High"
 SET Subgraph = {"DYRK1A subgraph", "Tau protein subgraph"}
@@ -1757,8 +1896,10 @@ act(p(HGNC:DYRK1A), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "18852562"}
+
 SET SupportingText = "Recent findings from our and other groups have suggested glycogen synthase kinase 3 and p70 S6 kinase as main tau kinases and protein \ phosphatase 2A as the main tau phosphatase involved in the formation of these processes."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -1770,8 +1911,10 @@ act(p(HGNC:RPS6KB1), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19001528"}
+
 SET SupportingText = "In primary cortical neurons, minocycline prevents beta-amyloid-induced neuronal death, reduces caspase-3 activation, and lowers generation of caspase-3-cleaved tau fragments."
 SET Confidence = "High"
 SET Subgraph = {"Caspase subgraph", "Tau protein subgraph"}
@@ -1783,8 +1926,10 @@ a(CHEBI:minocycline) decreases p(HGNC:MAPT, frag("?"))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19038340"}
+
 SET SupportingText = "Compared to vehicle, Abeta increased GSK3 activity, and was associated with elevations in levels of ptau, caspase-3, the tau kinase phospho-c-jun N-terminal kinase (pJNK), neuronal DNA fragmentation, and gliosis."
 SET Confidence = "High"
 SET Subgraph = {"Amyloidogenic subgraph", "Tau protein subgraph"}
@@ -1796,8 +1941,10 @@ p(HGNC:MAPT, pmod(Ph)) positiveCorrelation a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19154537"}
+
 SET SupportingText = "Glycogen synthase kinase-3beta (GSK-3beta) and cyclin-dependent kinase 5 (CDK5) have been implicated as two major protein kinases involved in the abnormal hyperphosphorylation of tau in Alzheimer's disease (AD) brain, and the development of neurofibrillary tangles."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -1813,8 +1960,10 @@ act(p(HGNC:CDK5)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19228967"}
+
 SET SupportingText = "The BAG2/Hsp70 complex is tethered to the microtubule and this complex can capture and deliver Tau to the proteasome for ubiquitin-independent degradation."
 SET Confidence = "High"
 SET Subgraph = {"Chaperone subgraph", "Tau protein subgraph"}
@@ -1822,8 +1971,10 @@ complex(p(FPLX:HSPA), p(HGNC:BAG2)) increases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19317853"}
+
 SET SupportingText = "We have previously shown that the co-chaperone protein BAG-1 can inhibit the degradation of tau by forming a complex with Hsc-70 and tau."
 SET Confidence = "High"
 SET Subgraph = {"Tau protein subgraph", "Ubiquitin degradation subgraph"}
@@ -1831,8 +1982,10 @@ complex(p(HGNC:BAG1), p(HGNC:HSPA8), p(HGNC:MAPT)) decreases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19419557"}
+
 SET SupportingText = "The state of tau phosphorylation and proteolysis can be regulated by calcium-dependent mechanisms. CaMKII can phosphorylate tau [189]. Cyclin-dependent kinase 5 (cdk5), another kinase involved in tau phosphorylation [190], is indirectly activated by the calcium-activated protease calpain. Indeed, cdk5 has to be associated with its regulatory subunit, p35 to be activated. Conversion of p35 to p25 deregulates cdk5 activity, resulting in an increased cdk5 kinase activity [191]. Calpain cleaves p35 into p25, and thus controls cdk5 activation [192]. Furthermore, tau is dephosphorylated by the calcium/calmodulin-dependent phosphatase, calcineurin [193]. Calpain was also proposed to directly participate in tau proteolysis and degradation"
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -1864,8 +2017,10 @@ complex(GOCC:"calcineurin complex") decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19429119"}
+
 SET SupportingText = "We have previously demonstrated that Leptin reduces extracellular amyloid beta (Abeta) protein both in vitro and in vivo, and intracellular tau phosphorylation in vitro. Further, we have shown that these effects are dependent on activation of AMP-activated protein kinase (AMPK) in vitro. Herein, we investigated downstream effectors of AMPK signaling directly linked to tau phosphorylation. One such target, of relevance to Alzheimer's disease (AD), may be GSK-3beta, which has been shown to be inactivated by Leptin. We therefore dissected the role of GSK-3beta in mediating Leptin's ability to reduce tau phosphorylation in neuronal cells. Our data suggest that Leptin regulates tau phosphorylation through a pathway involving both AMPK and GSK-3beta. This was based on the following: Leptin and the cell-permeable AMPK activator, 5-aminoimidazole-4-carboxyamide ribonucleoside (AICAR), reduced tau phosphorylation at AD-relevant sites similarly to the GSK-3beta inhibitor, lithium chloride (LiCl). Further, this reduction of tau phosphorylation was mimicked by the downregulation of GSK-3beta, achieved using siRNA technology and antagonized by the ectopic overexpression of GSK-3beta. "
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Leptin subgraph", "Tau protein subgraph"}
@@ -1901,8 +2056,10 @@ bp(GOBP:"regulation of cAMP-dependent protein kinase activity") association p(HG
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19491104"}
+
 SET SupportingText = "The pathological Tau/JIP1 interaction requires phosphorylation of Tau, and Tau competes with the physiological binding of JIP1 to kinesin light chain."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -1918,8 +2075,10 @@ complex(p(HGNC:MAPK8IP1), p(HGNC:MAPT, pmod(Ph))) decreases complex(p(HGNC:KLC1)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19519303"}
+
 SET SupportingText = "CerebraiiR/IGF-1 signaling in APP metabolism. Binding of insulin and IGF-1 to their receptors leads to autophosphorylation of the -subunit of the IR/IGF-IR and recruitment of IRS-1 /-2. IRS proteins activate mainly two pathways, the PI3 kinase pathway, and the RAS-RAF-MAP kinase cascade. Tau phosphorylation via IR/IGF-1 signaling is influenced by GSK-3 and the tau phosphatase PP2A. InterÂ­ estingly, mTOR signaling couples the activity ofPP2A and GSK-3in a way that the activities of both enzymes change always in the same direction. suggesting that only a dysregulation of either PP2A or GSK-3induces tau hyperphosphorylation. The PI3K pathway as well as the RAS-RAF-MAPK cascade regulate different transcription factors involved in transcriptional regulation of metabolism and clearance of Â­ amyloid. APP is cleaved by a.-, -secretase (BACE-1) and y-secretase (presenilin). - and subsequent y-cleavage of APP leads to generation of -amyloid 1 -4o/ t-42â€¢ IGF-1 signaling promotes a switch lrom TrkA to p75NTR expression leading to increased -secretase activity due to an upregulation of BACE-1 expression. Recent data suggest that not only BACE-1 is int1uenced by IRIIGF- IR mediated signals but also a.Â­ secretase activity is stimulated by the PI3K pathway."
 SET Confidence = "High"
 SET Subgraph = {"Insulin signal transduction", "Tau protein subgraph"}
@@ -2035,8 +2194,10 @@ bp(GOBP:"JNK cascade") increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19647741"}
+
 SET SupportingText = " Mutation S156A slightly decreased interaction of phosphorylated tau3 with 14-3-3."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -2058,8 +2219,10 @@ p(HGNC:MAPT, var("p.Ser235Ala")) decreases complex(p(HGNC:MAPT), p(HGNC:YWHAZ))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19659459"}
+
 SET SupportingText = "Phosphorylation of tau at some of the AD abnormal hyperphosphorylation sites was increased in T2DM brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -2122,8 +2285,10 @@ p(HGNC:MAPT, pmod(OGlyco)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19782073"}
+
 SET SupportingText = "In Alzheimer disease, it has been proposed that the peptide beta amyloid promotes GSK3 activation, resulting in tau phosphorylation"
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -2137,8 +2302,10 @@ act(p(SFAM:"GSK3 Family")) directlyIncreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "19885299"}
+
 SET SupportingText = "In addition, the studies demonstrated AD Braak stage-associated declines in choline acetyltransferase (ChAT) expression with reduced colocalization of ChAT with insulin or IGF-1 receptor immunoreactivity in cortical neurons. These results correspond with experimental data demonstrating that neuronal tau and ChAT gene expression are regulated by IGF-1 and insulin stimulation.88 Therefore, brain insulin and IGF deficiency and resistance could account for the cytoskeletal collapse, neurite retraction, synaptic disconnection, loss of neuronal plasticity, and deficiencies in acetylcholine production, all of which correlate with cognitive decline and dementia in AD"
 SET Confidence = "Medium"
 SET MeSHAnatomy = "Neurons"
@@ -2202,8 +2369,10 @@ bp(GOBP:"insulin-like growth factor receptor signaling pathway") regulates p(HGN
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20042680"}
+
 SET SupportingText = "After the treatment, memantine-treated mice had restored cognition and significantly reduced the levels of insoluble amyloid-beta (Abeta), Abeta dodecamers (Abeta*56), prefibrillar soluble oligomers, and fibrillar oligomers. The effects on pathology were stronger in older, more impaired animals. Memantine treatment also was associated with a decline in the levels of total tau and hyperphosphorylated tau. Finally, memantine pre-incubation prevented Abeta-induced inhibition of long-term potentiation in hippocampal slices of cognitively normal mice."
 SET Confidence = "High"
 SET Species = "10090"
@@ -2217,8 +2386,10 @@ a(CHEBI:memantine) decreases p(MGI:Mapt, pmod(Ph))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20066010"}
+
 SET SupportingText = "Further investigation reveals that DOR forms a complex with BACE1 and gamma-secretase, and activation of DOR mediates the co-endocytic sorting of the ecretases/receptor complex for APP endoproteolysis."
 SET Confidence = "High"
 SET Subgraph = {"Chaperone subgraph", "Tau protein subgraph"}
@@ -2226,8 +2397,10 @@ act(p(HGNC:TP53INP2)) regulates deg(p(HGNC:APP))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20067632"}
+
 SET SupportingText = "We confirm effects of three kinases from this screen, the eukaryotic translation initiation factor 2 alpha kinase 2 (EIF2AK2), the dual-specificity tyrosine-(Y)-phosphorylation regulated kinase 1A (DYRK1A), and the A-kinase anchor protein 13 (AKAP13) on tau phosphorylation at the 12E8 epitope (serine 262/serine 356)."
 SET Confidence = "High"
 SET Subgraph = {"DYRK1A subgraph", "Tau protein subgraph"}
@@ -2255,8 +2428,10 @@ p(HGNC:AKAP13) increases p(HGNC:MAPT, pmod(Ph, Ser, 356))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20075608"}
+
 SET SupportingText = "Tau protein kinase I phosphorylated not only tau protein but also pyruvate dehydrogenase, phosphorylation of which caused inactivation of this enzyme and finally led the cell to death."
 SET Confidence = "High"
 SET Subgraph = {"Disaccharide metabolism subgraph", "Tau protein subgraph"}
@@ -2268,8 +2443,10 @@ act(p(HGNC:TPK1), ma(kin)) increases p(HGNC:PDHA1, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20157251"}
+
 SET SupportingText = "Finally, both tau and Bcl-2 were co-immunoprecipitated with PP2Ac, but the binding level of Bcl-2 with PP2Ac decreased prominently when tau was co-expressed."
 SET Confidence = "High"
 SET Subgraph = {"Bcl-2 subgraph", "Tau protein subgraph"}
@@ -2277,8 +2454,10 @@ p(HGNC:MAPT) decreases complex(p(HGNC:BCL2), p(HGNC:PPP2CA))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20157255"}
+
 SET SupportingText = " Leptin, an adipocytokine involved in cell survival and in learning, has been demonstrated to regulate Abeta production and tau hyperphosphorylation in transgenic mice for AD. "
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -2314,8 +2493,10 @@ p(HGNC:LEP) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20576277"}
+
 SET SupportingText = "In experimental pmodels of AD, GSK3B has been shown to hyperphosphorylate Tau, leading to microtubule disassembly and loss of function"
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -2323,8 +2504,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20595388"}
+
 SET SupportingText = "We found that overexpression of endogenous calpain inhibitor calpastatin (CAST) under the control of the calcium/calpmodulin-dependent protein kinase II promoter in APP/PS1 mice caused a remarkable decrease of amyloid plaque burdens and prevented Tau phosphorylation and the loss of synapses."
 SET Confidence = "High"
 SET Subgraph = {"Calpastatin-calpain subgraph", "Tau protein subgraph"}
@@ -2332,8 +2515,10 @@ p(HGNC:CAST) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20660113"}
+
 SET SupportingText = "Interestingly, neuronal degeneration coincides with the hyperphosphorylation of endogenous tau at several epitopes previously associated with neurofibrillary pathology. Transcriptome analysis of enzymes involved in tau phosphorylation identified ERK1 as one of the candidate kinases responsible for this event in vivo. We further demonstrate that miRNAs belonging to the miR-15 family are potent regulators of ERK1 expression in mouse neuronal cells and co-expressed with ERK1/2 in vivo. Finally, we show that miR-15a is specifically downregulated in Alzheimer's disease brain."
 SET Confidence = "High"
 SET Subgraph = {"Tau protein subgraph", "miRNA subgraph"}
@@ -2361,8 +2546,10 @@ act(p(HGNC:MAPK3), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20679343"}
+
 SET SupportingText = "Glycogen synthase kinase 3beta (GSK3beta) is a proline-directed kinase generally considered as one of the major players that (hyper)phosphorylates Tau."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -2370,8 +2557,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "20847424"}
+
 SET SupportingText = "Akt substrates such as mammalian target of rapamycin (mTOR; Ser2448) and decreased levels of cell-cycle inhibitors (p27kip1) are found in AD temporal cortex when compared to controls. GSK-3a has been implicated in the production of Abeta peptide while increased GSK-3beta activity has been implicated in tau hyperphosphorylation and neuronal cell death"
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2398,8 +2587,10 @@ bp(GOBP:"neuron apoptotic process") positiveCorrelation act(p(HGNC:GSK3B))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21156028"}
+
 SET SupportingText = "DYRK1A phosphorylates tau at 11 sites, including Thr212; primes tau phosphorylation by GSK-3beta; promotes tau aggregation into NFTs and the several-fold increase in the number of DYRK1A-positive NFTs. Phosphorylation of ASF by nuclear DYRK1A increases the level of 3R tau, leading to an imbalance in the 3R/4R-tau ratio and triggering neurofibrillary degeneration with a several-fold increase of 3R-tau-positive NFTs. Both cytoplasmic and nuclear pathways contribute to neurofibrillary degeneration, loss of neuron function, and neuronal death."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2427,8 +2618,10 @@ p(HGNC:DYRK1A) increases p(HGNC:MAPT, pmod(Ph, Thr, 212))
 UNSET {Confidence, Disease, Published, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21297267"}
+
 SET SupportingText = "We found a significant reduction of calyculin A-induced tau hyperphosphorylation at Ser198/199/202, Ser396, Ser404, Thr205, and Thr231 24 h after treatment with 20 Î¼g/ml berberine. Berberine also restored protein phosphates 2A activity and reversed glycogen synthase kinase-3beta (GSK-3beta) activation, as determined by phosphatase activity assay and GSK-3beta phosphorylation at Tyr216 and Ser9, respectively. Furthermore, berberine reversed both the increase of malondialdehyde and the decrease of superoxide dismutase activity induced by calyculin A, indicating its role in anti-oxidative stress."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -2472,8 +2665,10 @@ bp(GOBP:"positive regulation of protein phosphatase type 2A activity") associati
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21320871"}
+
 SET SupportingText = "Puromycin-sensitive aminopeptidase (PSA/NPEPPS) is a novel pmodifier of TAU-induced neurodegeneration with neuroprotective effects via direct proteolysis of TAU protein."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -2481,8 +2676,10 @@ act(p(HGNC:NPEPPS), ma(pep)) increases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21352912"}
+
 SET SupportingText = "Thirdly, GSK-3beta has many substrates, such as beta-catenin, APC, Axin, Tau protein, etc."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -2510,8 +2707,10 @@ p(HGNC:APC) association act(p(HGNC:GSK3B))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21367866"}
+
 SET SupportingText = "Cdc37 overexpression prevented whereas Cdc37 suppression potentiated tau clearance following Hsp90 inhibition."
 SET Confidence = "High"
 SET Subgraph = {"Chaperone subgraph", "Tau protein subgraph"}
@@ -2539,8 +2738,10 @@ p(HGNC:CDC37) decreases deg(p(HGNC:MAPT))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21489990"}
+
 SET SupportingText = "Early growth response 1 (Egr-1) regulates phosphorylation of microtubule-associated protein tau in mammalian brain."
 SET Confidence = "High"
 SET MeSHAnatomy = "Brain"
@@ -2602,8 +2803,10 @@ p(HGNC:EGR1) increases bp(GOBP:"microtubule depolymerization")
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21573099"}
+
 SET SupportingText = "Results demonstrate that the beta-carboline compounds (1) potently reduce the expression of all three phosphorylated forms of tau protein, and (2) inhibit the DYRK1A catalyzed direct phosphorylation of tau protein on serine 396. "
 SET Confidence = "High"
 SET Subgraph = {"DYRK1A subgraph", "Tau protein subgraph"}
@@ -2615,8 +2818,10 @@ a(CHEBI:"beta-carboline") decreases p(HGNC:MAPT, pmod(Ph, Ser, 396))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21598254"}
+
 SET SupportingText = "The levels and the activation of the insulin-PI3K-AKT signalling components correlated negatively with the level of tau phosphorylation and positively with protein O-GlcNAcylation, suggesting that impaired insulin-PI3K-AKT signalling might contribute to neurodegeneration in AD through down-regulation of O-GlcNAcylation and the consequent promotion of abnormal tau hyperphosphorylation and neurodegeneration."
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -2702,8 +2907,10 @@ bp(GOBP:"insulin receptor signaling pathway via phosphatidylinositol 3-kinase") 
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21666500"}
+
 SET SupportingText = "We previously found phosphorylated pRb to be intimately associated with hyperphosphorylated tau-containing neurofibrillary tangles of Alzheimer disease (AD), the pathogenesis of which is believed to involve dysregulation of the cell cycle and marked neuronal death."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2767,8 +2974,10 @@ p(HGNC:RB1, pmod(Ph)) association bp(GOBP:"regulation of cell cycle")
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21707856"}
+
 SET SupportingText = "Although some studies support the role of protein kinase C (PKC) in amyloid precursor protein processing as well as in tau phosphorylation, a direct role for PKC in apoptotic neuronal death remains to be clarified."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -2780,8 +2989,10 @@ act(a(MESHC:"Protein Kinase C")) association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21755121"}
+
 SET SupportingText = "Some studies have linked the presence of chemokines to the early stages of Alzheimer's disease (AD). Then, the identification of these mediators may contribute to diagnosis. Our objective was to evaluate the levels of beta-amyloid (BA), tau, phospho-tau (p-tau) and chemokines (CCL2, CXCL8 and CXCL10) in the cerebrospinal fluid (CSF) of patients with AD and healthy controls. The correlation of these markers with clinical parameters was also evaluated. The levels of p-tau were higher in AD compared to controls, while the tau/p-tau ratio was decreased. The expression of CCL2 was increased in AD. A positive correlation was observed between BA levels and all chemokines studied, and between CCL2 and p-tau levels. Our results suggest that levels of CCL2 in CSF are involved in the pathogenesis of AD and it may be an additional useful biomarker for monitoring disease progression."
 SET Confidence = "Very High"
 SET Disease = "Alzheimer's disease"
@@ -2795,8 +3006,10 @@ p(HGNC:CCL2) positiveCorrelation p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "21985244"}
+
 SET SupportingText = "In this in vitro study, we found that: (a) alpha-SN directly stimulates the phosphorylation of tau by glycogen synthase kinase-3beta (GSK-3beta), (b) alpha-SN forms a heterotrimeric complex with tau and GSK-3beta, and (c) the nonamyloid beta component (NAC) domain and an acidic region of alpha-SN are responsible for the stimulation of GSK-3beta-mediated tau phosphorylation. Thus, it is concluded that alpha-SN functions as a connecting mediator for tau and GSK-3beta, resulting in GSK-3beta-mediated tau phosphorylation. Because the expression of alpha-SN is promoted by oxidative stress, the accumulation of alpha-SN induced by such stress may directly induce the hyperphosphorylation of tau by GSK-3beta. Furthermore, we found that heat shock protein 70 (Hsp70) suppresses the alpha-SN-induced phosphorylation of tau by GSK-3beta through its direct binding to alpha-SN, suggesting that Hsp70 acts as a physiological suppressor of alpha-SN-mediated tau hyperphosphorylation."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Synuclein subgraph", "Tau protein subgraph"}
@@ -2840,8 +3053,10 @@ p(FPLX:HSPA) directlyDecreases p(HGNC:SNCA)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22078238"}
+
 SET SupportingText = "CSF levels of total but not free IgG autoAbs against galanin were increased in AD, resulting in increased percentage of galanin autoAbs present as immune complexes. CSF levels of galanin total autoAbs and Î±-MSH free autoAbs correlated negatively with the severity of cognitive impairment as measured by MMSE. Both total and free autoAbs against galanin and Î±-MSH in CSF correlated negatively with age in AD patients but not in controls. CSF levels of galanin autoAbs and free Î±-MSH AutoAbs negatively correlated with CSF levels of t-Tau, p-Tau and ratios of t-Tau/Abeta42 or p-Tau/Abeta42 in AD patients but not in controls."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -2881,8 +3096,10 @@ p(HGNC:MAPT) negativeCorrelation p(HGNC:GAL)
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22110360"}
+
 SET SupportingText = "Diverse types of proteins have been identified as the substrates of Dyrk1A, including transcription factors, including NF-AT and Forkhead , several endocytosis and synaptic vesicle recycling proteins, such as dynamin 1 and amphiphysin 1 , and cytosolic proteins, such as APP and tau , implying that Dyrk1A participates in various biological responses."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -2913,8 +3130,10 @@ p(HGNC:DYRK1A) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22122372"}
+
 SET SupportingText = "In addition, AICD-induced cytotoxicity may be mediated by its regulation targets. For example, P53 expression, as well as p53-mediated apoptotic process, can be enhanced by AICD. Another AICD target gene, GSK3-beta, may also contribute to AICD-related cytotoxicity by upregulating tau hyperphosphorylation. GSK-3beta activation and CRMP-2 phosphorylation, along with downstream tau hyper-phosphorylation/aggregation, neurodegeneration and memory loss, are observed in an AICD C59 transgenic mouse line in which Fe65 is co-expressed"
 SET Confidence = "High"
 SET Species = "10090"
@@ -2933,8 +3152,10 @@ act(p(MGI:Gsk3b)) increases p(MGI:Mapt, pmod(Ph))
 UNSET {Confidence, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22222439"}
+
 SET SupportingText = "The data show that CRH plays an important role in stress induced hyperphosphorylation of tau protein, which might be either a direct effect of CRH innervations in the brain or an effect mediated via the hypothalamo-pituitary-adrenal axis."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -2958,8 +3179,10 @@ bp(GOBP:"response to stress") increases act(p(HGNC:CRH))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22272245"}
+
 SET SupportingText = " Differentiated neural cultures derived from KLC1-suppressed hESC contained neural rosettes but further differentiation revealed obvious morphological changes along with reduced levels of microtubule-associated neural proteins, including Tau and less secreted Abeta, supporting the previously established connection between KLC1, Tau and Abeta. "
 SET Cell = "neuron"
 SET Confidence = "High"
@@ -2982,8 +3205,10 @@ act(p(HGNC:KLC1)) increases tloc(a(CHEBI:"amyloid-beta"), fromLoc(GOCC:intracell
 UNSET {Condition, Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22299660"}
+
 SET SupportingText = "protein phosphatase 2A, PP2A, is a principal tau dephosphorylating enzyme in the brain"
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -2993,8 +3218,10 @@ act(p(HGNC:PTPA), ma(phos)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Condition, Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22367557"}
+
 SET SupportingText = "AMP-activated protein kinase (AMPK), a master regulator of cellular energy homeostasis and a central player in glucose and lipid metabolism, is potentially implicated in the pathogenesis of Alzheimer's disease (AD)."
 SET Condition = "Normal Healthy State"
 SET Confidence = "Very High"
@@ -3039,8 +3266,10 @@ act(p(SFAM:"PRKA Family"), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Condition, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22382662"}
+
 SET SupportingText = "Two possible models for involvement of HRD1 in the pathogenesis of AD. Model 1 (cause of AD): Unknown stress initiates insolubilization of HRD1 protein, resulting in a decrease in the functional HRD1 protein in the ER membrane. Subsequently, APP accumulates in the ER and is processed into Abeta that induces hyperphosphorylation of tau protein (ptau). Finally, accumulated Abeta and/or p-tau causes neurodegeneration leading to AD."
 SET CellStructure = "Endoplasmic Reticulum"
 SET Confidence = "Very High"
@@ -3080,8 +3309,10 @@ bp(GOBP:"response to stress") increases a(CHEBI:"amyloid-beta")
 UNSET {CellStructure, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22397366"}
+
 SET SupportingText = "misfolded tau could represent a trigger for microglial activation, suggesting the dual role of misfolded tau in the Alzheimer's disease inflammatory cascade."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3089,8 +3320,10 @@ p(HGNC:MAPT, var("misfolded")) increases bp(GOBP:"microglial cell activation")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22496686"}
+
 SET SupportingText = "In this context, it was reported that other two adaptor proteins, which have been involved in the regulation of the amyloidogenic pathway, ShcA and growth factor receptor-bound protein 2 (Grb2) are able to interact with the cytodomain of AbetaPP in the presence of specific tyrosine 682 phosphorylation in the YENPTY motif of AbetaPP cytodomain. ShcA (or ShcC) adaptors connect growth factor receptors to specific signaling pathways (typically Ras/ERK1/2 pathway but also PI3K/Akt signalling) and are involved in cell proliferation differentiation and apoptotic process and neuronal development. Also the role of Grb2 in Ras-signaling pathway is well known as well as its involvement in the activation of the mitogen-activated protein kinase (MAPK) pathways cascade. It is worth noting that ERK1/2 activity is increased in AD brains and that activated MAPKs have been involved in the abnormal hyperphosphorylation of Tau in AD"
 SET Confidence = "High"
 SET MeSHDisease = "Alzheimer Disease"
@@ -3161,8 +3394,10 @@ act(p(SFAM:"MAPK Erk1/2 Family")) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22536436"}
+
 SET SupportingText = "Abnormal phosphorylation of tau and activation of mu-calpain are two key events in the pathology of AD. Importantly, these two events are also related with GCs and IR. We therefore speculate that tau phosphorylation and mu-calpain activation may mediate the GCs-induced IR. Akt phosphorylation at Ser-473 (pAkt) is commonly used as a marker for assessing IR."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3238,8 +3473,10 @@ a(CHEBI:dexamethasone) increases act(p(HGNC:CAPN1))
 UNSET {CellLine, Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22580286"}
+
 SET SupportingText = "Treatment of neurons with ApoB-containing LDL cholesterol increased endolysosome accumulation of cholesterol, enlarged endolysosomes, and elevated endolysosome pH. In addition, ApoB-containing LDL cholesterol increased endolysosome accumulation of BACE-1, enhanced BACE-1 activity, increased Abeta levels, increased levels of phosphorylated tau, and decreased levels of synaptophysin."
 SET Confidence = "High"
 SET Subgraph = {"Low density lipoprotein subgraph", "Tau protein subgraph"}
@@ -3248,8 +3485,10 @@ complex(a(MESHC:"Lipoproteins, LDL"), p(HGNC:APOB)) increases p(HGNC:MAPT, pmod(
 UNSET {Confidence, Subgraph, UserdefinedCellLine}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22718609"}
+
 SET SupportingText = "The inhibition of this kinase can prevent the aggregation of beta-amyloid (Abeta) and hyperphosphorylation of tau protein."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -3257,8 +3496,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "22720189"}
+
 SET SupportingText = "Abnormal regulation of tau phosphorylation and/or alternative splicing is associated with the development of a large (>20) group of neurodegenerative disorders collectively known as tauopathies, the most common being Alzheimer's disease. Despite intensive research, little is known about the molecular mechanisms that participate in the transcriptional and posttranscriptional regulation of endogenous tau, especially in neurons. We identified miR-16 and miR-132 as putative endogenous modulators of neuronal tau phosphorylation and tau exon 10 splicing, respectively. Interestingly, these miRNAs have been implicated in cell survival and function, whereas changes in miR-16/132 levels correlate with tau pathology in human neurodegenerative disorders. Thus, understanding how miRNA networks influence tau metabolism and possibly other biological systems might provide important clues into the molecular causes of tauopathies, particularly the more common but less understood sporadic forms."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -3337,8 +3578,10 @@ bp(MESHPP:"Cell Physiological Phenomena") association m(HGNC:MIR132)
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23164821"}
+
 SET SupportingText = "Hippocampal expression levels of Egr1 have been shown to positively correlate with disease progression in AD, whereas the overexpression of EGR1 in rat brain induces tau phosphorylation via its target, and regulator of cdk5, p35."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3449,8 +3692,10 @@ bp(GOBP:"non-canonical Wnt signaling pathway") isA bp(GOBP:"Wnt signaling pathwa
 UNSET {Confidence, Disease, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23312564"}
+
 SET SupportingText = "Mifepristone alters amyloid precursor protein processing to preclude amyloid beta and also reduces tau pathology."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3458,8 +3703,10 @@ a(CHEBI:mifepristone) decreases path(MESHD:Tauopathies)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23362255"}
+
 SET SupportingText = "Alzheimer disease, the most common tauopathy, is characterized by neurofibrillary tangles that are mainly composed of abnormally phosphorylated Tau. Tau phosphorylation occurs mainly at proline-directed Ser/Thr sites, which are targeted by protein kinases such as GSK3beta and Cdk5. We reported previously that dephosphorylation of Tau at Cdk5-mediated sites was enhanced by Pin1, a peptidyl-prolyl isomerase that stimulates dephosphorylation at proline-directed sites by protein phosphatase 2A. Pin1 deficiency is suggested to cause Tau hyperphosphorylation in Alzheimer disease. Up to the present, Pin1 binding was only shown for two Tau phosphorylation sites (Thr-212 and Thr-231) despite the presence of many more hyperphosphorylated sites. Here, we analyzed the interaction of Pin1 with Tau phosphorylated by Cdk5-p25 using a GST pulldown assay and Biacore approach. We found that Pin1 binds and stimulates dephosphorylation of Tau at all Cdk5-mediated sites (Ser-202, Thr-205, Ser-235, and Ser-404). Furthermore, FTDP-17 mutant Tau (P301L or R406W) showed slightly weaker Pin1 binding than non-mutated Tau, suggesting that FTDP-17 mutations induce hyperphosphorylation by reducing the interaction between Pin1 and Tau."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3527,8 +3774,10 @@ p(HGNC:PIN1) increases act(p(HGNC:PPP2CA), ma(phos))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23603201"}
+
 SET SupportingText = "Pharmacological agents, such as dipeptidyl peptidase-4 (DPP-4) inhibitors, which increase the level of glucagon-like peptide-1 (GLP-1) and ameliorate T2D, have become valuable candidates as disease modifying agents in the treatment of AD. In addition, endogenous GLP-1 levels decrease amyloid beta (Abeta) peptide and tau phosphorylation in AD"
 SET Confidence = "Medium"
 SET Disease = "Alzheimer's disease"
@@ -3542,8 +3791,10 @@ p(HGNC:GCG) decreases a(CHEBI:"amyloid-beta")
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23627755"}
+
 SET SupportingText = "The underlying mechanisms of the association between AD neuropathology and DM2 emanate from several factors, however cortical insulin resistance and inflammatory pathÂ­ ways appear to be key components of this association. SonÂ­ nen eta/. [14] demonstrated the AD cases with DM2 had higher levels of cortical IL-6 and greater frequency of miÂ­ crovascular infarcts when compared to AD cases without DM2. Further research by Freude et al. [15] has linked hy-perinsulinemia to tau hyperphosphorylation which is an imÂ­ portant component in the process underlying AD pathology. Schubert eta!. [16] demonstrated that impaired cortical insuÂ­ lin resistance is also linked to tau hyperphosphorylation. Martins et al. [17] also describe several studies implicating neuronal insulin resistance as a precursor to increased amyÂ­ loid deposition. Additional work by Kulstad et al. [18] sugÂ­ gested that insulin levels are associated with abnormal reguÂ­ lation of AP clearance which may also play a mechanistic role in the formation of AD pathology."
 SET Confidence = "High"
 SET MeSHAnatomy = "Cerebral Cortex"
@@ -3613,8 +3864,10 @@ bp(GOBP:"regulation of amyloid precursor protein catabolic process") association
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "23711227"}
+
 SET SupportingText = "Taken together, our results suggest that the neuroprotective effects of donepezil against Abeta42-induced neurotoxicity are mediated through activation of PP2A, but its additional mechanisms including regulation of GSK-3beta and nAChRs activity would partially contribute to its effects. This observation led us to assume that additional mechanisms of donepezil, including its inhibitory effect on GSK-3beta activity and/or the activation role of nicotinic acetylcholine receptors (nAChRs), might be involved. Donepezil increased neuronal viability with reduced p-tau by enhancing PP2A activity."
 SET Confidence = "Medium"
 SET Subgraph = {"Acetylcholine signaling subgraph", "Tau protein subgraph"}
@@ -3622,8 +3875,10 @@ a(CHEBI:donepezil) decreases p(CHEBI:"amyloid-beta polypeptide 42")
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24270208"}
+
 SET SupportingText = "Here, we report that the Wnt antagonist Dkk-1 selectively increases tau phosphorylation in the hippocampus of aged rats at Ser199/202, Ser396/404, and Ser214 sites"
 SET Confidence = "High"
 SET MeSHAnatomy = "Hippocampus"
@@ -3657,8 +3912,10 @@ p(RGD:Dkk1) increases p(RGD:Mapt, pmod(Ph, Ser, 404))
 UNSET {Confidence, MeSHAnatomy, Species, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24808823"}
+
 SET SupportingText = "Our recent study shows that there is a striking switch in mononuclear phagocyte and activation phenotypes in the anterior horn of the spinal cord from alternatively activated (M2-skewed) microglia in P301L tau mutant mice to pro-inflammatory (M1-skewed) infiltrating peripheral monocytes by crossing the tau mice with TTBK1 transgenic mice."
 SET Confidence = "High"
 SET MeSHAnatomy = {"Microglia", "Monocytes", "Phagocytes", "Spinal Cord"}
@@ -3784,8 +4041,10 @@ path(MESHD:Tauopathies) positiveCorrelation p(MGI:Ttbk1)
 UNSET {Confidence, MeSHAnatomy, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "24884485"}
+
 SET SupportingText = "Elevated levels of T-tau, P-tau (S396), IL-6 and Â· OH in CSF are significantly correlated with cognitive impairment in PD patients."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3837,8 +4096,10 @@ p(HGNC:MAPT, pmod(Ph, Ser, 396)) negativeCorrelation bp(GOBP:cognition)
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "25024322"}
+
 SET SupportingText = "We detected statistically significant differences between Prod-AD patients and controls. YKL-40 levels showed a significant correlation with t-tau and p-tau levels in the predementia AD continuum and the Pre-AD group. We also observed significant correlations with the MMSE, FCSRT, and M@T tests within the AD continuum, but not in iRBD subjects."
 SET Confidence = "Medium"
 SET MeSHDisease = "Alzheimer Disease"
@@ -3892,8 +4153,10 @@ a(CTO:"Mini_Mental_State_Examination") positiveCorrelation p(HGNC:CHI3L1)
 UNSET {Confidence, MeSHDisease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26235064"}
+
 SET SupportingText = "The microtubule-associated protein tau plays a critical role in the pathogenesis of Alzheimer's disease (AD) and several related disorders collectively known as tauopathies.Development of tau pathology is associated with progressive neuronal loss and cognitive decline."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3913,8 +4176,10 @@ bp(GOBP:cognition) association p(HGNC:MAPT)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26402072"}
+
 SET SupportingText = " Lower levels of TIMPs in AD patients with microbleeds suggest less MMP inhibition in patients with concurrent cerebral microbleeds, which may hypothetically lead to a more vulnerable blood-brain barrier in these patients.In addition, we assessed associations of MMPs and TIMPs with CSF amyloid-beta(1-42) (Abeta42), tau, and tau phosphorylated at threonine-181 (p-tau)"
 SET Confidence = "High"
 SET Subgraph = {"Matrix metalloproteinase subgraph", "Tau protein subgraph"}
@@ -3958,8 +4223,10 @@ p(SFAM:"MMP Family") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26809093"}
+
 SET SupportingText = "Meanwhile, the protein abundance of phosphorylated tau in several sites is decreased by Wnt3a, but increased by Dkk1 significantly compared with the control group."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3973,8 +4240,10 @@ p(HGNC:WNT3A) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "26836182"}
+
 SET SupportingText = "Higher CSF YKL-40 was associated with both higher CSF NFL and T-Tau."
 SET Confidence = "High"
 SET Disease = "Alzheimer's disease"
@@ -3988,8 +4257,10 @@ p(HGNC:CHI3L1) positiveCorrelation p(HGNC:MAPT)
 UNSET {Confidence, Disease, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "3121601"}
+
 SET SupportingText = "Calcium/calpmodulin (CaM)-dependent protein kinases isolated from bovine and rat brains phosphorylate the microtubule-associated tau protein in the pmode that shifts the mobility of tau in sodium dodecyl sulfate-polyacrylamide gel electrophoresis (pmode I)."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -3997,8 +4268,10 @@ act(p(SFAM:"CAMK Family"), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "3122646"}
+
 SET SupportingText = "The prominence of white matter staining suggests that tau may be especially enriched in projection systems. Alzheimer's disease causes massive axonal disruption and the dislocation of tau protein from its usual axonal domain into neuronal cell bodies, dendrites, and presynaptic regions. The normal pattern of axonal staining in cortex is disrupted and white matter staining is reduced. Prominent abnormal tau-immunoreactive neuropil fibers are densely present even in cortical regions without classical neurofibrillary tangle and senile plaque formation. The striking neuropil abnormalities, revealed by the aberrant localization of tau protein, are likely to contribute to neuronal dysfunction in Alzheimer's disease."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -4015,8 +4288,10 @@ a(NIFT:"White matter") association p(HGNC:MAPT)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7505567"}
+
 SET SupportingText = "In sharp contrast, when Ser-10 of this peptide was replaced by a phosphoserine, the phosphopeptide fragment (VAVVRTPPKS(p)PSSAK) became an excellent substrate for kinase FA/GSK-3 alpha."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4024,8 +4299,10 @@ act(p(HGNC:GSK3A)) increases p(HGNC:MAPT, frag("226_240"), pmod(Ph, Ser, 10))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7533559"}
+
 SET SupportingText = "Within the neurofibrillary tangles (NFTs) and dystrophic neurites (DNs) of Alzheimer's disease (AD), the cytoskeletal protein tau is abnormally hyperphosphorylated."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -4037,8 +4314,10 @@ path(MESHD:"Alzheimer Disease") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7669983"}
+
 SET SupportingText = "Cyclin dependent kinase 5 (Cdk5) phosphorylates tau protein, a microtubule-associated protein, at pathological sites in vitro as well as in Alzheimer's disease brain."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -4046,8 +4325,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7695621"}
+
 SET SupportingText = "These findings suggest that the interaction of ApoE with tau and amyloid-beta proteins in AD could play a important role in the formation of NFT and SP, respectively, contributing to the pathogenesis of AD."
 SET Confidence = "High"
 SET Subgraph = {"APOE subgraph", "Tau protein subgraph"}
@@ -4059,8 +4340,10 @@ complex(p(HGNC:APOE), p(HGNC:MAPT)) association complex(GOCC:"neurofibrillary ta
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7704571"}
+
 SET SupportingText = "A number of kinases, including mitogen-activated protein (MAP) kinase, glycogen synthase kinase (GSK)-3 alpha, GSK-3 beta and cyclin-dependent kinase-5, phosphorylate recombinant tau in vitro so that it resembles PHF-tau as judged by its reactivity with a panel of antibodies capable of discriminating between normal tau and PHF-tau, and by a reduced electrophoretic mobility that is characteristic of PHF-tau."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4072,8 +4355,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7774712"}
+
 SET SupportingText = "Here we describe results that show that although MAP kinase can hyperphosphorylate tau in vitro, activation of MAP kinase in transformed fibroblasts does not result in hyperphosphorylation of transfected tau, whereas glycogen synthase kinase-3 beta (GSK-3 beta) when co-transfected with tau does result in tau hyperphosphorylation. The findings imply that GSK-3 beta may be a stronger candidate than MAP kinase for inducing tau hyperphosphorylation in vivo."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4081,8 +4366,10 @@ p(HGNC:GSK3B) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7786411"}
+
 SET SupportingText = "The results provide initial evidence that TPKI/GSK-3 beta/FA after heparin potentiation may represent one of the most potent systems possibly involved in the abnormal phosphorylation of PHF-tau and neuronal degeneration in Alzheimer disease brains."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4090,8 +4377,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "7931292"}
+
 SET SupportingText = "Previously, we identified protein kinase FA/glycogen synthase kinase-3 alpha (GSK-3 alpha) as a brain microtubule-associated tau kinase that phosphorylates Ser235 and Ser404 of tau and causes its electrophoretic mobility shift in gels, a unique property characteristic of paired helical filament-associated pathological tau (PHF-tau) in Alzheimer's disease brains."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4103,8 +4392,10 @@ act(p(HGNC:GSK3A)) increases p(HGNC:MAPT, pmod(Ph, Ser, 404))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8050597"}
+
 SET SupportingText = "A mixture of recombinant human tau isoforms phosphorylated by GSK-3 beta gave similar results to those obtained with control human brain tau."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4112,8 +4403,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8090222"}
+
 SET SupportingText = "Phosphorylation of the neurofilament proteins of high and medium relative molecular mass, as well as of the Alzheimer's tau protein, is thought to be catalysed by a protein kinase with Cdc2-like substrate specificity. We have purified a novel Cdc2-like kinase from bovine brain capable of phosphorylating both the neurofilament proteins and tau. The purified enzyme is a heterodimer of cyclin-dependent kinase 5 (Cdk5) and a novel regulatory subunit, p25. When overexpressed and purified from Escherichia coli, p25 can activate Cdk5 in vitro. Unlike Cdk5, which is ubiquitously expressed in human tissue, the p25 transcript is expressed only in brain. A full-length complementary DNA clone showed that p25 is a truncated form of a larger protein precursor, p35, which seems to be the predominant form of the protein in crude brain extract. Cdk5/p35 is the first example of a Cdc2-like kinase with neuronal function."
 SET Condition = "Normal Healthy State"
 SET Confidence = "High"
@@ -4127,8 +4420,10 @@ act(p(HGNC:CDK5), ma(kin)) increases p(HGNC:NEFL, pmod(Ph))
 UNSET {Condition, Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8129042"}
+
 SET SupportingText = "Quantitative measures of ERK2 mRNA reveal that NFT-bearing neurons contain approximately 15% less ERK2 mRNA than nearest \ neighbors that do not contain NFT. NFT-bearing neurons contain approximately 25% less polyA mRNA, suggesting a relative preservation of \ ERK2 mRNA even in metabolically compromised cells."
 SET Confidence = "High"
 SET MeSHAnatomy = "Neurons"
@@ -4154,8 +4449,10 @@ r(HGNC:MAPK1) negativeCorrelation p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, MeSHAnatomy, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8282104"}
+
 SET SupportingText = "Abnormal Alzheimer-like phosphorylation of tau-protein by cyclin-dependent kinases cdk2 and cdk5."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -4167,8 +4464,10 @@ act(p(HGNC:CDK2), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8529836"}
+
 SET SupportingText = "More significantly, these and other studies may be interpreted to suggest that the abnormal phosphorylation of PHFtau may result from the failure of protein phosphatases (i.e., PP2A and 2B) to dephosphorylate PHFtau."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -4180,8 +4479,10 @@ act(p(HGNC:PPP2CB), ma(phos)) decreases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8730715"}
+
 SET SupportingText = "The microtubule-associated protein tau is more highly phosphorylated at certain residues in developing brain and in Alzheimer's disease paired helical filaments than in adult brain."
 SET Confidence = "High"
 SET Subgraph = "Tau protein subgraph"
@@ -4193,8 +4494,10 @@ path(MESHD:"Alzheimer Disease") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8769876"}
+
 SET SupportingText = "Treatment of PSer262 peptide or GSK 3 beta phosphorylated tau with alkaline phosphatase increased Ab262 immunoreactivity, indicating that Ab262 is a reagent useful for studying tau phosphorylation at the Ser262 residue."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4202,8 +4505,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph, Ser, 262))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "8930358"}
+
 SET SupportingText = "Colocalization of these epitopes suggests that tau protein kinase I/glycogen synthase kinase-3 beta abnormally phosphorylates tau and is in a position to disrupt neuronal metabolism in anatomical areas vulnerable to Alzheimer's disease."
 SET Confidence = "High"
 SET Subgraph = {"GSK3 subgraph", "Tau protein subgraph"}
@@ -4211,8 +4516,10 @@ act(p(HGNC:GSK3B)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9089387"}
+
 SET SupportingText = "Since prior phosphorylation of tau by TPKII strongly enhanced the action of TPKI, it was thought that TPKII was involved in the formation of PHF-tau in concert with TPKI."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -4230,8 +4537,10 @@ act(p(HGNC:TPK1), ma(kin)) increases p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9202310"}
+
 SET SupportingText = "Reactivating kinase/p38 phosphorylates tau protein in vitro."
 SET Confidence = "High"
 SET Subgraph = {"MAPK-JNK subgraph", "Tau protein subgraph"}
@@ -4301,8 +4610,10 @@ act(p(HGNC:MAPK10), ma(kin)) increases p(HGNC:MAPT, pmod(Ph, Ser, 396))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9512010"}
+
 SET SupportingText = "Apolipoprotein E (ApoE) peptide regulates tau phosphorylation via two different signaling pathways."
 SET Confidence = "High"
 SET Subgraph = {"APOE subgraph", "Tau protein subgraph"}
@@ -4314,8 +4625,10 @@ p(HGNC:APOE) association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed", "9565682"}
+
 SET SupportingText = "Combined tau protein kinase II (TPK II), which consists of CDK5 and its activator (p23), and glycogen synthase kinase-3beta (GSK-3beta) phosphorylate tau to the PHF-form in vitro."
 SET Confidence = "High"
 SET Subgraph = {"Cyclin-CDK subgraph", "Tau protein subgraph"}
@@ -4355,8 +4668,10 @@ path(MESHD:"Alzheimer Disease") association p(HGNC:MAPT, pmod(Ph))
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
 ################################################################################
 SET Citation = {"PubMed Central", "PMC21391"}
+
 SET SupportingText = " PS1 directly binds tau and a tau kinase , glycogen synthase kinase 3beta"
 SET Confidence = "High"
 SET Subgraph = {"Gamma secretase subgraph", "Tau protein subgraph"}
@@ -4368,3 +4683,5 @@ p(HGNC:PSEN1) association p(HGNC:MAPT)
 UNSET {Confidence, Subgraph}
 UNSET SupportingText
 UNSET Citation
+
+################################################################################

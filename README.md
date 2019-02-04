@@ -13,7 +13,9 @@ for NeuroMMSig during the <a href="https://aetionomy.eu">AETIONOMY</a> project.
 <p align="center">
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#license">License</a>
+  <a href="#citation">Citation<a>  •
+  <a href="#license">License</a>  •
+  <a href="#acknowledgements">Acknowledgements</a>
 </p>
 
 ## Installation
@@ -45,7 +47,24 @@ graphs = repository.get_graphs()
 graph = union(graphs.values())
 ```
 
+## Citation
+
+If you find NeuroMMSig useful in your work, consider citing:
+
+- Domingo-Fernández, D., *et al* (2017). [Multimodal mechanistic signatures for neurodegenerative
+  diseases (NeuroMMSig): A web server for mechanism enrichment](https://doi.org/10.1093/bioinformatics/btx399).  Bioinformatics, 33(22), 3679–3681.
+
+- Hoyt, C. T., *et al* (2019). [Re-curation and Rational Enrichment of Knowledge Graphs in
+  Biological Expression Language](https://doi.org/10.1101/536409>). *bioRxiv*, 536409.
+
 ## License
 
 - BEL scripts in this repository are licensed under the CC BY 4.0 license.
 - Python source code in this repository is licensed under the MIT license.
+
+## Acknowledgements
+
+This work was supported by the European Union/European Federation of Pharmaceutical Industries and 
+Associations (EFPIA) Innovative Medicines Initiative Joint Undertaking under AETIONOMY [grant number 115568], 
+resources of which are composed of financial contribution from the European Union’s Seventh Framework 
+Programme (FP7/2007-2013) and EFPIA companies in kind contribution.

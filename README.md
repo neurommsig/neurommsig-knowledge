@@ -55,7 +55,7 @@ If you find NeuroMMSig useful in your work, consider citing:
   diseases (NeuroMMSig): A web server for mechanism enrichment](https://doi.org/10.1093/bioinformatics/btx399).  Bioinformatics, 33(22), 3679–3681.
 
 - Hoyt, C. T., *et al* (2019). [Re-curation and Rational Enrichment of Knowledge Graphs in
-  Biological Expression Language](https://doi.org/10.1101/536409>). *bioRxiv*, 536409.
+  Biological Expression Language](https://academic.oup.com/database/article/doi/10.1093/database/baz068/5521414). *Database*.
 
 ## License
 

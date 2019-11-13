@@ -1,0 +1,19 @@
+	Title	Authors	Number of Nodes	Number of Edges	Number of Citations	Number of Authors	Network Density	Number of Components	Number of Warnings	Number of URL Namespaces	Number of Regex Namespaces	Number of URL Annotations	Number of Regex Annotations	Number of Local Annotations
+Acetylcholine signaling subgraph.bel	NeuroMMSig		158	361	57	0	1.46E-02	5	0	26	2	11	1	14
+Amyloidogenic subgraph.bel	Amyloidogenic subgraph		688	2049	468	0	4.34E-03	5	0	26	2	11	1	14
+Apoptosis signaling subgraph.bel	Apoptosis signaling subgraph		185	267	83	0	7.84E-03	7	0	26	2	11	1	14
+DKK1 subgraph.bel	DKK1 subgraph		48	125	10	0	5.54E-02	2	0	26	2	11	1	14
+Free radical formation subgraph.bel	Free radical formation subgraph		50	69	14	0	2.82E-02	8	0	26	2	11	1	14
+GABA subgraph.bel	GABA subgraph		92	194	20	0	2.32E-02	6	0	26	2	11	1	14
+GSK3 subgraph.bel	GSK3 subgraph		178	449	82	0	1.43E-02	1	0	26	2	11	1	14
+Hydrogen peroxide subgraph.bel	Hydrogen peroxide subgraph		30	47	10	0	5.40E-02	1	0	26	2	11	1	14
+Inflammatory response subgraph.bel	Inflammatory response subgraph		376	822	133	0	5.83E-03	10	0	26	2	11	1	14
+Insulin signal transduction.bel	Insulin signal transduction		327	991	60	0	9.30E-03	3	0	26	2	11	1	14
+Low density lipoprotein subgraph.bel	Low density lipoprotein subgraph		209	496	64	0	1.14E-02	4	0	26	2	11	1	14
+Myeloperoxidase subgraph.bel	Myeloperoxidase subgraph		9	20	6	0	2.78E-01	1	0	26	2	11	1	14
+Neurotransmitter release subgraph.bel	Neurotransmitter release subgraph		6	9	2	0	3.00E-01	2	0	26	2	11	1	14
+Nitric oxide subgraph.bel	Nitric oxide subgraph		127	228	39	0	1.42E-02	1	0	26	2	11	1	14
+Non-amyloidogenic subgraph.bel	Non-amyloidogenic subgraph		344	732	145	0	6.20E-03	4	0	26	2	11	1	14
+Notch signaling subgraph.bel	Notch signaling subgraph		80	153	27	0	2.42E-02	5	0	26	2	11	1	14
+Reactive oxygen species subgraph.bel	Reactive oxygen species subgraph		136	251	41	0	1.37E-02	5	0	26	2	11	1	14
+Tau protein subgraph.bel	Tau protein subgraph		284	836	158	0	1.04E-02	3	0	26	2	11	1	14

@@ -13,10 +13,10 @@ VERSION = '0.0.2-dev'
 
 metadata = BELMetadata(
     name='NeuroMMSig',
-    version='2.0.0',
+    version=VERSION,
     description='',
     authors='',
     contact='',
 )
-repository = BELRepository(HERE, bel_metadata=metadata)
+repository = BELRepository(HERE, metadata=metadata)
 main = repository.build_cli()

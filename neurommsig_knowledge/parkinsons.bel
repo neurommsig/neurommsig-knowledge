@@ -6,7 +6,7 @@ SET DOCUMENT Description = "Parkinson's Disease Knowledge Assembly for AETIONOMY
 SET DOCUMENT Version = "1.3.0"
 SET DOCUMENT Copyright = "Copyright (c) 2012, rkarki. All Rights Reserved."
 SET DOCUMENT Authors = "Alpha Tom Kodamullil, Reagon Karki, Nora Filep, Pranika Singh, Daniel Domingo-Fernandez, Amir Hossein Kayvanjoo, Akrishta Sahay, Arunabh Sharma, Lingling Xu"
-SET DOCUMENT ContactInfo = "alpha.tom.kodamullil@scai.fraunhofer.de,reagon.karki@scai-extern.fraunhofer.de"
+SET DOCUMENT ContactInfo = "alpha.tom.kodamullil@scai.fraunhofer.de,reagon.karki@scai.fraunhofer.de"
 
 ##################################################################################
 # TO DO

@@ -36,7 +36,7 @@ Lingling Xu
 SET DOCUMENT Copyright = "Copyright © 2012-2018 Fraunhofer SCAI, All rights reserved."
 SET DOCUMENT Authors = "Rana Al Disi, Daniel Domingo-Fernández, Mohammad Asif Emon, Charles Tapley Hoyt, Reagon Karki, Alpha Tom Kodamullil, Kristian Kolpeja, Keerthika Lohanadan, Mufassra Naz, Sandra Spalek, Esther Wollert, Mengjun Wu, Lingling Xu"
 SET DOCUMENT Licenses = "Private Ownership to Fraunhofer SCAI"
-SET DOCUMENT ContactInfo = "charles.hoyt@scai.fraunhofer.de"
+SET DOCUMENT ContactInfo = "alpha.tom.kodamullil@scai.fraunhofer.de,reagon.karki@scai.fraunhofer.de"
 
 ###############
 # Definitions #
